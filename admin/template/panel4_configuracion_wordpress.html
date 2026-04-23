@@ -1,289 +1,133 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Configuración WordPress — Panel 4</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="../assets/css/fontawesome.css">
-  <link rel="stylesheet" type="text/css" href="../assets/css/vendors/icofont.css">
-  <link rel="stylesheet" type="text/css" href="../assets/css/vendors/themify.css">
-  <link rel="stylesheet" type="text/css" href="../assets/css/vendors/flag-icon.css">
-  <link rel="stylesheet" type="text/css" href="../assets/css/vendors/feather-icon.css">
-  <link rel="stylesheet" type="text/css" href="../assets/css/vendors/slick.css">
-  <link rel="stylesheet" type="text/css" href="../assets/css/vendors/slick-theme.css">
-  <link rel="stylesheet" type="text/css" href="../assets/css/vendors/swiper/swiper-bundle.min.css">
-  <link rel="stylesheet" type="text/css" href="../assets/css/vendors/scrollbar.css">
-  <link rel="stylesheet" type="text/css" href="../assets/css/vendors/animate.css">
-  <link rel="stylesheet" type="text/css" href="../assets/css/vendors/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
-  <link id="color" rel="stylesheet" href="../assets/css/color-1.css" media="screen">
-  <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
-  <style>
-    /* Estilos propios del panel 4 que no vienen del template */
-    .step { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-    .step-num { width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid #333; display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; }
-    .step-label { font-size: 13px; color: #333; flex: 1; }
-    .step-text { font-size: 13px; color: #333; margin-bottom: 10px; padding-left: 32px; }
-    .btn-open { border: 1.5px solid #7c5fc5; background: #fff; color: #333; padding: 5px 20px; font-size: 13px; cursor: pointer; }
-    .btn-open:hover { background: #f0ecfc; }
-    .panel-import { border: 2px solid #4caf50; border-radius: 4px; padding: 16px; margin-bottom: 16px; }
-    .plus-icon { width: 22px; height: 22px; border: 1.5px solid #4caf50; display: flex; align-items: center; justify-content: center; font-size: 16px; color: #4caf50; cursor: pointer; flex-shrink: 0; }
-    .gdrive-field { border: 1.5px solid #4caf50; padding: 6px 10px; margin: 10px 0 6px 0; font-size: 12px; color: #888; text-align: center; cursor: pointer; }
-    .save-btn { border: 1px solid #999; background: #fff; width: 100%; padding: 7px; font-size: 13px; color: #333; cursor: pointer; text-align: center; margin-top: 4px; }
-    .save-btn:hover { background: #f5f5f5; }
-  </style>
+<meta charset="UTF-8">
+<title>Panel 4 - Configuracion WordPress</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+  body { background: #f5f5f5; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; flex-direction: column; gap: 14px; }
+  .panel { background: #fff; border: 1px solid #999; width: 480px; padding: 0; }
+  .panel-header { display: flex; align-items: center; border-bottom: 1px solid #ccc; padding: 4px 8px; }
+  .panel-title { font-size: 13px; color: #333; flex: 1; }
+  .panel-number { background: #fff; border: 1px solid #999; padding: 2px 8px; font-size: 13px; font-weight: bold; }
+  .content { padding: 12px 14px; }
+  .step, .step-import { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .step-num { width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid #333; display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; }
+  .step-icon, .plus-icon { width: 22px; height: 22px; border: 1.5px solid #7c5fc5; display: flex; align-items: center; justify-content: center; border-radius: 6px; flex-shrink: 0; color: #7c5fc5; }
+  .panel-import .plus-icon { border-color: #4caf50; color: #4caf50; }
+  .step-icon svg, .plus-icon svg { width: 13px; height: 13px; }
+  .step-label { font-size: 13px; color: #333; flex: 1; }
+  .btn-open { border: 1.5px solid #7c5fc5; background: #fff; color: #333; padding: 5px 20px; font-size: 13px; cursor: pointer; }
+  .btn-open:hover { background: #f0ecfc; }
+  .step-text { font-size: 13px; color: #333; margin-bottom: 10px; padding-left: 32px; display: flex; align-items: flex-start; gap: 10px; }
+  .step-text .step-icon { margin-top: 1px; }
+  .input-row { display: flex; gap: 8px; margin-bottom: 12px; }
+  .input-row input { flex: 1; border: 1px solid #999; padding: 5px 8px; font-size: 12px; text-transform: uppercase; color: #888; }
+  .btn-apply { border: 1.5px solid #7c5fc5; background: #fff; color: #333; padding: 5px 18px; font-size: 13px; cursor: pointer; }
+  .btn-apply:hover { background: #f0ecfc; }
+  .panel-import { background: #fff; border: 2px solid #4caf50; width: 480px; padding: 0; }
+  .panel-import .panel-header { border-bottom: 1px solid #ccc; }
+  .gdrive-field { border: 1.5px solid #4caf50; padding: 6px 10px; margin: 10px 0 6px 0; font-size: 12px; color: #888; text-align: center; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; }
+  .save-btn { border: 1px solid #999; background: #fff; width: 100%; padding: 7px; font-size: 13px; color: #333; cursor: pointer; text-align: center; margin-top: 4px; }
+  .save-btn:hover { background: #f5f5f5; }
+</style>
 </head>
 <body>
-  <!-- loader -->
-  <div class="loader-wrapper">
-    <div class="loader-index">
-      <div class="loader">
-        <div class="inner one"></div>
-        <div class="inner two"></div>
-        <div class="inner three"></div>
-      </div>
+
+<div class="panel">
+  <div class="panel-header">
+    <span class="panel-title">Configuracion WordPress</span>
+    <span class="panel-number">4</span>
+  </div>
+  <div class="content">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-icon"><svg viewBox="0 0 16 16" fill="none" stroke="#7c5fc5" stroke-width="1.4"><path d="M8 2.5v6.5M5.5 6.5 8 9l2.5-2.5"/><path d="M3 11.5h10"/></svg></div>
+      <span class="step-label">Descarga de plugins</span>
+      <button class="btn-open">Abrir</button>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-icon"><svg viewBox="0 0 16 16" fill="none" stroke="#7c5fc5" stroke-width="1.3"><circle cx="8" cy="8" r="5.5"/><path d="m4.8 5.2 1.6 5.6 1.7-5 1.5 5 1.6-5.6"/></svg></div>
+      <span class="step-label">Abrir WP-Admin</span>
+      <button class="btn-open">Abrir</button>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-icon"><svg viewBox="0 0 16 16" fill="none" stroke="#7c5fc5" stroke-width="1.4"><path d="M6 3h4l1 2h2v7H3V5h2z"/><path d="M6.5 7.5h3M8 6v3"/></svg></div>
+      <span class="step-label">Abrir zona de plugins</span>
+      <button class="btn-open">Abrir</button>
+    </div>
+    <div class="step-text">
+      <div class="step-icon"><svg viewBox="0 0 16 16" fill="none" stroke="#7c5fc5" stroke-width="1.4"><path d="M5.2 2.8a1.8 1.8 0 1 1 3.6 0V5h1V3.8a1.8 1.8 0 1 1 2.4 1.7c.3.4.5.9.5 1.5v4.2a1.8 1.8 0 0 1-1.8 1.8H5.8A1.8 1.8 0 0 1 4 11.2V7a2 2 0 0 1 .5-1.5A1.8 1.8 0 0 1 5.2 2.8Z"/></svg></div>
+      <span>4 Instalar ambos plugins, primero el de All in One y segundo el de All in One URL.</span>
     </div>
   </div>
-  <div class="tap-top"><i data-feather="chevrons-up"></i></div>
+</div>
 
-  <div class="page-wrapper compact-wrapper" id="pageWrapper">
-    <!-- CABECERA -->
-    <div class="page-header">
-      <div class="header-wrapper row g-0">
-        <div class="logo-wrapper"><a href="index.html"><img class="img-fluid" src="../assets/images/logo/logo.png" alt=""></a></div>
-        <svg class="stroke-icon toggle-sidebar">
-          <use class="status_toggle middle sidebar-toggle" href="../assets/svg/icon-sprite.svg#stroke-toggle"></use>
-        </svg>
-        <form class="col-auto form-inline search-full" action="#" method="get">
-          <div class="form-group form-inline search-full d-none d-xl-block">
-            <div class="Typeahead Typeahead--twitterUsers">
-              <div class="u-posRelative">
-                <input class="demo-input Typeahead-input form-control-plaintext" type="text" placeholder="Type to Search .." name="q" autofocus>
-                <svg class="search-bg svg-color"><use href="../assets/svg/icon-sprite.svg#stroke-search"></use></svg>
-              </div>
-              <div class="Typeahead-menu"></div>
-            </div>
-          </div>
-        </form>
-        <div class="nav-right col-auto pull-right right-header p-0 ms-auto">
-          <ul class="nav-menus">
-            <li class="serchinput">
-              <div class="serchbox"><svg class="stroke-icon search-stroke"><use href="../assets/svg/icon-sprite.svg#searchbox"></use></svg></div>
-              <div class="form-group search-form"><input type="text" placeholder="Search here..."></div>
-            </li>
-            <li><div class="mode"><svg><use href="../assets/svg/icon-sprite.svg#stroke-dark-light"></use></svg></div></li>
-            <li class="profile-nav onhover-dropdown pe-0 py-0">
-              <div class="d-flex profile-media">
-                <img class="img-fluid rounded-circle" src="../assets/images/dashboard/profile.png" alt="">
-                <div class="flex-grow-1"><span>Atlas Grey</span>
-                  <p class="mb-0 profile-arrow">Admin <svg><use href="../assets/svg/icon-sprite.svg#arrow"></use></svg></p>
-                </div>
-              </div>
-              <ul class="profile-dropdown onhover-show-div">
-                <li><a href="login.html"><i data-feather="log-in"></i><span>Log out</span></a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-        <script class="result-template" type="text/x-handlebars-template">
-          <div class="ProfileCard u-cf"><div class="ProfileCard-details"><div class="ProfileCard-realName">{{name}}</div></div></div>
-        </script>
-        <script class="empty-template" type="text/x-handlebars-template"><div class="EmptyMessage">No results found.</div></script>
-      </div>
+<div class="panel">
+  <div class="panel-header">
+    <span class="panel-title">Exportar la pagina web de otro sitio para posteriormente importarla</span>
+    <span class="panel-number">4</span>
+  </div>
+  <div class="content">
+    <div class="input-row">
+      <input type="text" placeholder="URL DEL SITIO A EXPORTAR" />
+      <button class="btn-apply">Aplicar</button>
     </div>
-    <!-- FIN CABECERA -->
-
-    <div class="page-body-wrapper">
-      <!-- SIDEBAR -->
-      <div class="sidebar-wrapper" data-sidebar-layout="stroke-svg">
-        <div>
-          <div class="logo-wrapper">
-            <a href="index.html"><img class="img-fluid" src="../assets/images/logo/logo-icon.png" alt=""></a>
-            <div class="back-btn"><i class="fa fa-angle-left"></i></div>
-          </div>
-          <nav class="sidebar-main">
-            <div id="sidebar-menu">
-              <ul class="sidebar-links" id="simple-bar">
-                <li class="back-btn"><a href="index.html"></a>
-                  <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
-                </li>
-                <!-- Estadísticas -->
-                <li class="sidebar-list">
-                  <a class="sidebar-link sidebar-title" href="dashboard_estadisticas.html">
-                    <svg class="stroke-icon"><use href="../assets/svg/icon-sprite.svg#stroke-widget"></use></svg>
-                    <svg class="fill-icon"><use href="../assets/svg/icon-sprite.svg#fill-widget"></use></svg>
-                    <span>Estadísticas</span>
-                  </a>
-                </li>
-                <!-- Servidores -->
-                <li class="sidebar-list">
-                  <a class="sidebar-link sidebar-title" href="servidores.html">
-                    <svg class="stroke-icon"><use href="../assets/svg/icon-sprite.svg#stroke-others"></use></svg>
-                    <svg class="fill-icon"><use href="../assets/svg/icon-sprite.svg#fill-others"></use></svg>
-                    <span>Servidores</span>
-                  </a>
-                </li>
-                <!-- Webs -->
-                <li class="sidebar-list">
-                  <a class="sidebar-link sidebar-title" href="javascript:void(0)">
-                    <svg class="stroke-icon"><use href="../assets/svg/icon-sprite.svg#Gestion"></use></svg>
-                    <svg class="fill-icon"><use href="../assets/svg/icon-sprite.svg#fill-gestion"></use></svg>
-                    <span>Webs</span>
-                  </a>
-                  <ul class="sidebar-submenu custom-scrollbar">
-                    <li class="main-submenu">
-                      <a class="d-flex sidebar-menu" href="panel1_configuracion_inicial.html">
-                        <svg class="stroke-icon"><use href="../assets/svg/icon-sprite.svg#stroke-button"></use></svg>
-                        <span>Gestión de hosting</span>
-                      </a>
-                    </li>
-                    <li class="main-submenu">
-                      <a class="d-flex sidebar-menu" href="panel2_conexion_hosting.html">
-                        <svg class="stroke-icon"><use href="../assets/svg/icon-sprite.svg#stroke-button"></use></svg>
-                        <span>Conexión de hosting</span>
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <!-- Justificador web — ACTIVO (panel4 pertenece a esta sección) -->
-                <li class="sidebar-list active">
-                  <a class="sidebar-link sidebar-title active" href="panel3_configuracion_dominio.html">
-                    <svg class="stroke-icon"><use href="../assets/svg/icon-sprite.svg#stroke-sample-page"></use></svg>
-                    <svg class="fill-icon"><use href="../assets/svg/icon-sprite.svg#fill-sample-page"></use></svg>
-                    <span>Justificador web</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </nav>
-        </div>
-      </div>
-      <!-- FIN SIDEBAR -->
-
-      <!-- CONTENIDO -->
-      <div class="page-body">
-        <div class="container-fluid">
-          <div class="card">
-            <div class="card-header">
-              <h4 class="mb-0">Configuración WordPress — Panel 4</h4>
-            </div>
-            <div class="card-body">
-
-              <div class="row g-4">
-
-                <!-- Subpanel: Configuración Wordpress -->
-                <div class="col-12 col-lg-4">
-                  <div class="border rounded p-3" style="font-size:12px;">
-                    <strong style="font-size:13px;">Configuración Wordpress</strong>
-                    <div class="mt-3">
-                      <div class="step">
-                        <div class="step-num">1</div>
-                        <span class="step-label">Descarga de plugins</span>
-                        <button class="btn-open">Abrir</button>
-                      </div>
-                      <div class="step">
-                        <div class="step-num">2</div>
-                        <span class="step-label">Abrir WP-Admin</span>
-                        <button class="btn-open">Abrir</button>
-                      </div>
-                      <div class="step">
-                        <div class="step-num">3</div>
-                        <span class="step-label">Abrir zona de plugins</span>
-                        <button class="btn-open">Abrir</button>
-                      </div>
-                      <div class="step-text">4&nbsp;&nbsp; Instalar ambos plugins, primero el de all in one y segundo el de all in one URL.</div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Subpanel: Exportar página web -->
-                <div class="col-12 col-lg-4">
-                  <div class="border rounded p-3" style="font-size:12px;">
-                    <strong style="font-size:13px;">Exportar la página web de otro sitio</strong>
-                    <div class="mt-3">
-                      <div class="d-flex gap-2 mb-3">
-                        <input type="text" class="form-control form-control-sm" placeholder="URL DEL SITIO A EXPORTAR" style="text-transform:uppercase;font-size:11px;">
-                        <button class="btn-open">Aplicar</button>
-                      </div>
-                      <div class="step">
-                        <div class="step-num">1</div>
-                        <span class="step-label">Descarga de plugins</span>
-                        <button class="btn-open">Abrir</button>
-                      </div>
-                      <div class="step">
-                        <div class="step-num">2</div>
-                        <span class="step-label">Abrir WP-Admin</span>
-                        <button class="btn-open">Abrir</button>
-                      </div>
-                      <div class="step">
-                        <div class="step-num">3</div>
-                        <span class="step-label">Abrir zona de plugins</span>
-                        <button class="btn-open">Abrir</button>
-                      </div>
-                      <div class="step-text">4&nbsp;&nbsp; Instalar ambos plugins, primero el de all in one y segundo el de all in one URL.</div>
-                      <div class="step">
-                        <div class="step-num">5</div>
-                        <span class="step-label">Exportar el archivo ".wpress" de la copia del sitio web</span>
-                        <button class="btn-open">Abrir</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Subpanel: Importación final (borde verde) -->
-                <div class="col-12 col-lg-4">
-                  <div class="panel-import">
-                    <strong style="font-size:13px;">Importación final</strong>
-                    <div class="mt-3">
-                      <div class="step">
-                        <div class="step-num">1</div>
-                        <span class="step-label">Importar el archivo ".wpress" en el dominio principal</span>
-                        <button class="btn-open">Abrir</button>
-                      </div>
-                      <div class="step mt-2">
-                        <div class="plus-icon">+</div>
-                        <span class="step-label">Guardar copia de seguridad</span>
-                      </div>
-                      <div class="gdrive-field">URL GOOGLE DRIVE</div>
-                      <button class="save-btn">Guardar configuración</button>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- FIN CONTENIDO -->
-
-      <footer class="footer">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-6 footer-copyright"><p class="mb-0">Copyright © Olix Theme By Pixelstrap</p></div>
-            <div class="col-md-6"><p class="float-end mb-0">Hand crafted &amp; made with <svg class="footer-icon"><use href="../assets/svg/icon-sprite.svg#heart"></use></svg></p></div>
-          </div>
-        </div>
-      </footer>
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-icon"><svg viewBox="0 0 16 16" fill="none" stroke="#7c5fc5" stroke-width="1.4"><path d="M8 2.5v6.5M5.5 6.5 8 9l2.5-2.5"/><path d="M3 11.5h10"/></svg></div>
+      <span class="step-label">Descarga de plugins</span>
+      <button class="btn-open">Abrir</button>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-icon"><svg viewBox="0 0 16 16" fill="none" stroke="#7c5fc5" stroke-width="1.3"><circle cx="8" cy="8" r="5.5"/><path d="m4.8 5.2 1.6 5.6 1.7-5 1.5 5 1.6-5.6"/></svg></div>
+      <span class="step-label">Abrir WP-Admin</span>
+      <button class="btn-open">Abrir</button>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-icon"><svg viewBox="0 0 16 16" fill="none" stroke="#7c5fc5" stroke-width="1.4"><path d="M6 3h4l1 2h2v7H3V5h2z"/><path d="M6.5 7.5h3M8 6v3"/></svg></div>
+      <span class="step-label">Abrir zona de plugins</span>
+      <button class="btn-open">Abrir</button>
+    </div>
+    <div class="step-text">
+      <div class="step-icon"><svg viewBox="0 0 16 16" fill="none" stroke="#7c5fc5" stroke-width="1.4"><path d="M5.2 2.8a1.8 1.8 0 1 1 3.6 0V5h1V3.8a1.8 1.8 0 1 1 2.4 1.7c.3.4.5.9.5 1.5v4.2a1.8 1.8 0 0 1-1.8 1.8H5.8A1.8 1.8 0 0 1 4 11.2V7a2 2 0 0 1 .5-1.5A1.8 1.8 0 0 1 5.2 2.8Z"/></svg></div>
+      <span>4 Instalar ambos plugins, primero el de All in One y segundo el de All in One URL.</span>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-icon"><svg viewBox="0 0 16 16" fill="none" stroke="#7c5fc5" stroke-width="1.4"><path d="M5 2.5h4l2.5 2.5V13H5z"/><path d="M9 2.5V5h2.5M6.2 9.2h3.6M6.2 11.2h3.6"/></svg></div>
+      <span class="step-label">Exportar el archivo ".wpress" de la copia del sitio web</span>
+      <button class="btn-open">Abrir</button>
     </div>
   </div>
+</div>
 
-  <script src="../assets/js/jquery.min.js"></script>
-  <script src="../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
-  <script src="../assets/js/icons/feather-icon/feather.min.js"></script>
-  <script src="../assets/js/icons/feather-icon/feather-icon.js"></script>
-  <script src="../assets/js/scrollbar/simplebar.min.js"></script>
-  <script src="../assets/js/scrollbar/custom.js"></script>
-  <script src="../assets/js/config.js"></script>
-  <script src="../assets/js/sidebar-menu.js"></script>
-  <script src="../assets/js/script.js"></script>
-  <script src="../assets/js/script1.js"></script>
-  <script src="../assets/js/theme-customizer/customizer.js"></script>
+<div class="panel-import">
+  <div class="panel-header">
+    <span class="panel-title">Importacion final</span>
+  </div>
+  <div class="content">
+    <div class="step-import">
+      <div class="step-num">1</div>
+      <div class="step-icon"><svg viewBox="0 0 16 16" fill="none" stroke="#7c5fc5" stroke-width="1.4"><path d="M8 13.5V7M5.5 9.5 8 7l2.5 2.5"/><path d="M3 4.5h10"/></svg></div>
+      <span class="step-label">Importar el archivo ".wpress" en el dominio principal</span>
+      <button class="btn-open">Abrir</button>
+    </div>
+    <div class="step-import" style="margin-top:6px;">
+      <div class="plus-icon"><svg viewBox="0 0 16 16" fill="none" stroke="#4caf50" stroke-width="1.5"><path d="M8 3.5v9M3.5 8h9"/></svg></div>
+      <span class="step-label">Guardar copia de seguridad</span>
+    </div>
+    <div class="gdrive-field">
+      <div class="plus-icon"><svg viewBox="0 0 16 16" fill="none" stroke="#4caf50" stroke-width="1.4"><path d="M5.5 4.5 8 8.5l-2.5 4M10.5 4.5 8 8.5l2.5 4M5.5 4.5h5M3 12.5h10"/></svg></div>
+      <span>URL GOOGLE DRIVE</span>
+    </div>
+    <button class="save-btn">Guardar configuracion</button>
+  </div>
+</div>
+
 </body>
 </html>

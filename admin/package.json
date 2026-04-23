@@ -3,8 +3,6 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "npm-run-all --parallel dev:*",
-    "api": "node api/server.js",
-    "dev:api": "node api/server.js",
     "dev:vite": "vite",
     "dev:scss": "sass assets/scss:assets/css --no-source-map --watch",
     "dev:pug": "npx pug assets/pug/pages/template/**.pug --pretty --out template --watch"

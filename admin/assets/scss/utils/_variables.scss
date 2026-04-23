@@ -6,8 +6,8 @@ $body-color: #f8f8f8;
 $main-body-color: #F7F8F9;
 
 // Theme colors variables
-$primary-color: #54A8FB;
-$secondary-color: #AF76F2;
+$primary-color: #1565C0;
+$secondary-color: #42A5F5;
 $success-color: #0dbe54;
 $info-color : #17A2B8;
 $warning-color: #F8AA4B;
@@ -21,8 +21,8 @@ $light-semi-gray :#efefef;
 $font-gray-color: #6C757D;
 $dark-light :$theme-font-color;
 $dark-gray: #898989;
-$bg-light-primary: #DDEEFE;
-$bg-light-secondary: #AF76F226;
+$bg-light-primary: rgba(21, 101, 192, 0.16);
+$bg-light-secondary: rgba(66, 165, 245, 0.14);
 $bg-light-dark: #e6e9ed;
 $bg-light-warning: #fffaee;
 $dark-color : #2b4055;
@@ -51,8 +51,8 @@ $lighter-white: #e9e9e9;
 $theme-medium-color: #DDEEFE;
 $dropdown-border-color: #918E99;
 $table-border-color: #EDEDED;
-$light-primary: #DDEEFE;
-$light-secondary: #AF76F226;
+$light-primary: rgba(21, 101, 192, 0.16);
+$light-secondary: rgba(66, 165, 245, 0.14);
 $light-success: #f3faf2;
 $light-info: #E3F4F6;
 $light-warning: #fffaee;
@@ -83,9 +83,9 @@ $instagram-color: linear-gradient(45deg, #FEE411 11.93%, #FEDB16 15.61%, #FEC125
 
 //fonts
 $font-nunito: "Nunito Sans";
-$font-outfit: outfit;
-$font-inter: inter;
-$font-roboto: "Roboto";
+$font-outfit: "Syne";
+$font-inter: "DM Mono";
+$font-roboto: "DM Mono";
 $font-serif: sans-serif;
 $landing-cursive: 'Caveat', cursive;
 $font-themify: themify;

@@ -261,6 +261,7 @@
 @use "themes/theme-customizer";
 @use "themes/update";
 @use "themes/dark";
+@use "themes/empire";
 
 :root {
   --theme-default: #54A8FB;
@@ -406,6 +407,3 @@
 
 // @use "sass:color";
 // @use "sass:list" as sassList;
-
-
-
