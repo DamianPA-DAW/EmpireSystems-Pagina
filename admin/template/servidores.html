@@ -43,6 +43,37 @@
     <link id="color" rel="stylesheet" href="../assets/css/color-1.css" media="screen">
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
+    <style>
+      :root {
+        --espacio-entre-bloques: 5px;
+      }
+
+      .page-wrapper .page-body {
+        min-height: auto !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+      }
+
+      .page-wrapper .page-body + .page-body {
+        margin-top: 550px;
+        margin-top: var(--espacio-entre-bloques) !important;
+      }
+    </style>
+  </head>
+      
+
+      .page-wrapper .page-body-wrapper > .page-body + .page-body {
+        margin-top: var(--espacio-entre-bloques) !important;
+      }
+
+      .page-wrapper .page-title {
+        margin-bottom: 0 !important;
+      }
+
+      .page-wrapper .container-fluid.default-dashboard {
+        margin-top: var(--espacio-entre-bloques) !important;
+      }
+    </style>
   </head>
   <body> 
     <!-- loader starts-->
@@ -64,7 +95,7 @@
       <!-- Page Header Start-->
       <div class="page-header">
         <div class="header-wrapper row g-0">
-          <div class="logo-wrapper"><a href="index.html"><img class="img-fluid" src="../assets/images/logo/logo.png" alt=""></a></div>
+          <div class="logo-wrapper"><a href="servidores.html"><img class="img-fluid" src="../assets/images/logo/logo.png" alt=""></a></div>
           <svg class="stroke-icon toggle-sidebar">
             <use class="status_toggle middle sidebar-toggle" href="../assets/svg/icon-sprite.svg#stroke-toggle"> </use>
           </svg>
@@ -378,7 +409,7 @@
         <!-- Page Sidebar Start-->
         <div class="sidebar-wrapper" data-sidebar-layout="stroke-svg">
           <div>
-            <div class="logo-wrapper"><a href="index.html"><img class="img-fluid" src="../assets/images/logo/logo-icon.png" alt=""></a>
+            <div class="logo-wrapper"><a href="servidores.html"><img class="img-fluid" src="../assets/images/logo/logo-icon.png" alt=""></a>
               <div class="back-btn"><i class="fa fa-angle-left">   </i></div>
             </div>
             <nav class="sidebar-main">
@@ -766,7 +797,7 @@
                 </div>
                 <div class="col-xl-6 col-md-12 col-lg-12 col-sm-12">
                   <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">                                       
+                    <li class="breadcrumb-item"><a href="servidores.html">                                       
                         <svg class="stroke-icon">
                           <use href="../assets/svg/icon-sprite.svg#breadcrumb-home"></use>
                         </svg></a></li>
@@ -805,15 +836,15 @@
                           <span class="badge" style="background:#7c5fc5;color:#fff;border-radius:4px;padding:3px 10px;font-size:13px;margin-right:8px;">1</span>
                           Configuración inicial
                         </h5>
-                        <div class="row g-2 align-items-center mb-2">
+                        <div class="row g-0 align-items-center mb-2">
                           <div class="col-auto">
-                            <button class="btn btn-outline-secondary btn-sm" style="border-color:#7c5fc5;color:#7c5fc5;min-width:32px;">−</button>
+                            <button class="btn btn-outline-secondary btn-sm" style="border-right:none;border-color:#7c5fc5;color:#7c5fc5;min-width:32px;min-height:37.1px;">−</button>
                           </div>
                           <div class="col">
-                            <div class="border p-2 text-center" style="border-color:#7c5fc5 !important;font-size:13px;">Banahosting - Liberrimo.com</div>
+                            <div class="border p-2 text-center" style="border-color:#7c5fc5 !important;border-left:none;border-right:none;font-size:13px;">Banahosting - Liberrimo.com</div>
                           </div>
                           <div class="col-auto">
-                            <button class="btn btn-outline-secondary btn-sm" style="border-color:#7c5fc5;color:#7c5fc5;min-width:32px;">+</button>
+                            <button class="btn btn-outline-secondary btn-sm" style="border-left:none;border-color:#7c5fc5;color:#7c5fc5;min-width:32px;min-height:37.1px;">+</button>
                           </div>
                         </div>
                         <div class="row g-2">
