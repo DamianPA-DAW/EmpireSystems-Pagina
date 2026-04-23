@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de hosting — Panel 1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../assets/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/vendors/icofont.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/vendors/themify.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/vendors/flag-icon.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/vendors/feather-icon.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/vendors/slick.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/vendors/slick-theme.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/vendors/swiper/swiper-bundle.min.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/vendors/scrollbar.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/vendors/animate.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/vendors/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+  <link id="color" rel="stylesheet" href="../assets/css/color-1.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
+</head>
+<body>
+  <!-- loader -->
+  <div class="loader-wrapper">
+    <div class="loader-index">
+      <div class="loader">
+        <div class="inner one"></div>
+        <div class="inner two"></div>
+        <div class="inner three"></div>
+      </div>
+    </div>
+  </div>
+  <div class="tap-top"><i data-feather="chevrons-up"></i></div>
+
+  <div class="page-wrapper compact-wrapper" id="pageWrapper">
+    <!-- CABECERA -->
+    <div class="page-header">
+      <div class="header-wrapper row g-0">
+        <div class="logo-wrapper"><a href="index.html"><img class="img-fluid" src="../assets/images/logo/logo.png" alt=""></a></div>
+        <svg class="stroke-icon toggle-sidebar">
+          <use class="status_toggle middle sidebar-toggle" href="../assets/svg/icon-sprite.svg#stroke-toggle"></use>
+        </svg>
+        <form class="col-auto form-inline search-full" action="#" method="get">
+          <div class="form-group form-inline search-full d-none d-xl-block">
+            <div class="Typeahead Typeahead--twitterUsers">
+              <div class="u-posRelative">
+                <input class="demo-input Typeahead-input form-control-plaintext" type="text" placeholder="Type to Search .." name="q" autofocus>
+                <svg class="search-bg svg-color"><use href="../assets/svg/icon-sprite.svg#stroke-search"></use></svg>
+              </div>
+              <div class="Typeahead-menu"></div>
+            </div>
+          </div>
+        </form>
+        <div class="nav-right col-auto pull-right right-header p-0 ms-auto">
+          <ul class="nav-menus">
+            <li class="serchinput">
+              <div class="serchbox"><svg class="stroke-icon search-stroke"><use href="../assets/svg/icon-sprite.svg#searchbox"></use></svg></div>
+              <div class="form-group search-form"><input type="text" placeholder="Search here..."></div>
+            </li>
+            <li><div class="mode"><svg><use href="../assets/svg/icon-sprite.svg#stroke-dark-light"></use></svg></div></li>
+            <li class="profile-nav onhover-dropdown pe-0 py-0">
+              <div class="d-flex profile-media">
+                <img class="img-fluid rounded-circle" src="../assets/images/dashboard/profile.png" alt="">
+                <div class="flex-grow-1"><span>Atlas Grey</span>
+                  <p class="mb-0 profile-arrow">Admin <svg><use href="../assets/svg/icon-sprite.svg#arrow"></use></svg></p>
+                </div>
+              </div>
+              <ul class="profile-dropdown onhover-show-div">
+                <li><a href="login.html"><i data-feather="log-in"></i><span>Log out</span></a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <script class="result-template" type="text/x-handlebars-template">
+          <div class="ProfileCard u-cf"><div class="ProfileCard-details"><div class="ProfileCard-realName">{{name}}</div></div></div>
+        </script>
+        <script class="empty-template" type="text/x-handlebars-template"><div class="EmptyMessage">No results found.</div></script>
+      </div>
+    </div>
+    <!-- FIN CABECERA -->
+
+    <div class="page-body-wrapper">
+      <!-- SIDEBAR -->
+      <div class="sidebar-wrapper" data-sidebar-layout="stroke-svg">
+        <div>
+          <div class="logo-wrapper">
+            <a href="index.html"><img class="img-fluid" src="../assets/images/logo/logo-icon.png" alt=""></a>
+            <div class="back-btn"><i class="fa fa-angle-left"></i></div>
+          </div>
+          <nav class="sidebar-main">
+            <div id="sidebar-menu">
+              <ul class="sidebar-links" id="simple-bar">
+                <li class="back-btn"><a href="index.html"></a>
+                  <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
+                </li>
+                <!-- Estadísticas -->
+                <li class="sidebar-list">
+                  <a class="sidebar-link sidebar-title" href="dashboard_estadisticas.html">
+                    <svg class="stroke-icon"><use href="../assets/svg/icon-sprite.svg#stroke-widget"></use></svg>
+                    <svg class="fill-icon"><use href="../assets/svg/icon-sprite.svg#fill-widget"></use></svg>
+                    <span>Estadísticas</span>
+                  </a>
+                </li>
+                <!-- Servidores -->
+                <li class="sidebar-list">
+                  <a class="sidebar-link sidebar-title" href="servidores.html">
+                    <svg class="stroke-icon"><use href="../assets/svg/icon-sprite.svg#stroke-others"></use></svg>
+                    <svg class="fill-icon"><use href="../assets/svg/icon-sprite.svg#fill-others"></use></svg>
+                    <span>Servidores</span>
+                  </a>
+                </li>
+                <!-- Webs — ACTIVO porque este panel es hijo de Webs -->
+                <li class="sidebar-list active">
+                  <a class="sidebar-link sidebar-title" href="javascript:void(0)">
+                    <svg class="stroke-icon"><use href="../assets/svg/icon-sprite.svg#Gestion"></use></svg>
+                    <svg class="fill-icon"><use href="../assets/svg/icon-sprite.svg#fill-gestion"></use></svg>
+                    <span>Webs</span>
+                  </a>
+                  <ul class="sidebar-submenu custom-scrollbar">
+                    <!-- Gestión de hosting — ACTIVO -->
+                    <li class="main-submenu active">
+                      <a class="d-flex sidebar-menu active" href="panel1_configuracion_inicial.html">
+                        <svg class="stroke-icon"><use href="../assets/svg/icon-sprite.svg#stroke-button"></use></svg>
+                        <span>Gestión de hosting</span>
+                      </a>
+                    </li>
+                    <li class="main-submenu">
+                      <a class="d-flex sidebar-menu" href="panel2_conexion_hosting.html">
+                        <svg class="stroke-icon"><use href="../assets/svg/icon-sprite.svg#stroke-button"></use></svg>
+                        <span>Conexión de hosting</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <!-- Justificador web -->
+                <li class="sidebar-list">
+                  <a class="sidebar-link sidebar-title" href="panel3_configuracion_dominio.html">
+                    <svg class="stroke-icon"><use href="../assets/svg/icon-sprite.svg#stroke-sample-page"></use></svg>
+                    <svg class="fill-icon"><use href="../assets/svg/icon-sprite.svg#fill-sample-page"></use></svg>
+                    <span>Justificador web</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <!-- FIN SIDEBAR -->
+
+      <!-- CONTENIDO -->
+      <div class="page-body">
+        <div class="container-fluid">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="mb-0">Servidores — Gestión de hosting</h4>
+            </div>
+            <div class="card-body">
+
+              <!-- PANEL 2: Conexión de hosting con dominio -->
+              <div class="row mb-4">
+                <div class="col-12">
+                  <h5 class="mb-3" style="border-bottom:1px solid #eee;padding-bottom:8px;">
+                    <span class="badge" style="background:#7c5fc5;color:#fff;border-radius:4px;padding:3px 10px;font-size:13px;margin-right:8px;">2</span>
+                    Conexión de hosting con dominio
+                  </h5>
+                  <div class="row g-2 align-items-center mb-3">
+                    <div class="col"><input type="text" class="form-control form-control-sm" placeholder="Introduce el dominio..."></div>
+                    <div class="col-auto"><button class="btn btn-sm" style="border:1.5px solid #7c5fc5;color:#7c5fc5;">Aplicar</button></div>
+                  </div>
+                  <div class="d-flex align-items-center gap-3 mb-2">
+                    <div class="d-flex align-items-center gap-2">
+                      <span style="width:22px;height:22px;border-radius:50%;border:1.5px solid #333;display:inline-flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;">1</span>
+                      <span style="font-size:13px;">Enlace de Godaddy directo al dominio seleccionado:</span>
+                    </div>
+                    <button class="btn btn-sm" style="border:1.5px solid #7c5fc5;color:#7c5fc5;">Abrir</button>
+                  </div>
+                  <div class="d-flex align-items-start gap-2 mb-2">
+                    <span style="width:22px;height:22px;border-radius:50%;border:1.5px solid #333;display:inline-flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;margin-top:2px;">2</span>
+                    <div style="font-size:13px;">
+                      Dirijase a la pestaña DNS y seleccione la subpestaña Servidores de nombre.<br>
+                      A continuación sustituya los que ya se encuentran por los siguientes DNS:<br>
+                      <span style="color:#7c5fc5;">%DNS1%</span> &nbsp;
+                      <span style="color:#7c5fc5;">%DNS2%</span>
+                    </div>
+                  </div>
+                  <div class="text-end mt-2">
+                    <a href="panel2_configuracion_dominio.html" target="_blank" class="btn btn-sm" style="border:1.5px solid #7c5fc5;color:#7c5fc5;font-size:12px;">
+                      Abrir panel completo <i data-feather="external-link" style="width:12px;height:12px;"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- FIN CONTENIDO -->
+
+      <footer class="footer">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-6 footer-copyright"><p class="mb-0">Copyright © Olix Theme By Pixelstrap</p></div>
+            <div class="col-md-6"><p class="float-end mb-0">Hand crafted &amp; made with <svg class="footer-icon"><use href="../assets/svg/icon-sprite.svg#heart"></use></svg></p></div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script src="../assets/js/jquery.min.js"></script>
+  <script src="../assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/icons/feather-icon/feather.min.js"></script>
+  <script src="../assets/js/icons/feather-icon/feather-icon.js"></script>
+  <script src="../assets/js/scrollbar/simplebar.min.js"></script>
+  <script src="../assets/js/scrollbar/custom.js"></script>
+  <script src="../assets/js/config.js"></script>
+  <script src="../assets/js/sidebar-menu.js"></script>
+  <script src="../assets/js/script.js"></script>
+  <script src="../assets/js/script1.js"></script>
+  <script src="../assets/js/theme-customizer/customizer.js"></script>
+</body>
+</html>

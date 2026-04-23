@@ -1,0 +1,54 @@
+/**=====================
+    3.44 Navigate Links CSS start
+==========================**/
+@use "../utils/variables";
+
+.border-opacity-wrapper {
+    .border {
+        --theme-default: 84, 168, 251;
+        border-color: rgba(var(--theme-default), var(--bs-border-opacity)) !important;
+
+        a {
+            color: variables.$primary-color;
+        }
+    }
+}
+
+.bg-opacity-wrapper {
+    >div {
+        --theme-default: 84, 168, 251;
+        background-color: rgba(var(--theme-default), var(--bs-bg-opacity)) !important;
+    }
+}
+
+.underline-opacity-wrapper {
+    p {
+        a {
+            text-decoration: underline;
+            --theme-default: 84, 168, 251;
+            color: variables.$primary-color;
+            text-decoration-color: rgba(var(--theme-default), var(--bs-link-underline-opacity, 1)) !important;
+        }
+    }
+}
+
+.link-opacity-wrapper {
+    p {
+        a {
+            --theme-default: 84, 168, 251;
+            color: rgba(var(--theme-default), var(--bs-link-opacity, 1));
+
+            &:hover {
+                color: rgba(var(--theme-default), var(--bs-link-opacity, 1));
+            }
+        }
+    }
+}
+
+.link-body-emphasis {
+    text-decoration: underline;
+}
+
+/**=====================
+    3.44 Navigate Links CSS end
+==========================**/

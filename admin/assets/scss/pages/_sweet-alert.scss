@@ -1,0 +1,216 @@
+/**=====================
+    3.55 Sweet-alert CSS Start
+==========================**/
+@use "../utils/variables";
+@use "../utils/mixin";
+.swal2-container {
+
+    .swal2-image {
+        @include mixin.pixelstrap-size(calc(70px + (120 - 70) * ((100vw - 320px) / (1920 - 320))) !important, calc(70px + (120 - 70) * ((100vw - 320px) / (1920 - 320))) !important);
+        margin-bottom: 0;
+    }
+
+    .swal2-html-container {
+        font-size: 16px;
+        margin-top: 8px;
+    }
+
+    .swal2-input {
+        cursor: pointer;
+
+        &:focus,
+        &:focus-visible {
+            box-shadow: unset;
+            border-color: var(--chart-dashed-border);
+        }
+    }
+
+    .swal2-title {
+        font-size: calc(18px + (20 - 18) * ((100vw - 320px) / (1920 - 320)));
+        font-weight: 700;
+    }
+
+    .swal2-question {
+        border-color: variables.$info-color;
+        color: variables.$info-color;
+    }
+
+    .swal2-actions {
+        gap: 12px;
+
+        .swal2-confirm {
+            background-color: var(--theme-default) !important;
+
+            &:hover {
+                background-color: var(--theme-default) !important;
+            }
+
+            &:focus {
+                box-shadow: unset;
+            }
+        }
+
+        .swal2-confirm {
+            &.btn {
+                &.btn-success {
+                    background-color: variables.$success-color !important;
+                    color: var(--white);
+                }
+            }
+        }
+
+        .swal2-deny {
+            background-color: variables.$danger-color !important;
+        }
+
+        .swal2-cancel {
+            background-color: variables.$dark-gray;
+            color: variables.$white;
+
+            &:focus {
+                box-shadow: unset;
+            }
+        }
+    }
+
+    .swal2-close {
+        color: variables.$light-paragraph;
+    }
+
+
+    .swal2-error {
+        border-color: variables.$danger-color;
+        color: variables.$danger-color;
+
+        .swal2-x-mark {
+            span {
+                background-color: variables.$danger-color;
+            }
+        }
+    }
+
+    .swal2-warning {
+        border-color: variables.$warning-color;
+        color: variables.$warning-color;
+
+        .swal2-icon-content {
+            color: variables.$warning-color;
+        }
+    }
+
+    div:where(.swal2-icon).swal2-success .swal2-success-ring {
+        border: .25em solid rgba(variables.$success-color, 0.3);
+    }
+
+    div:where(.swal2-icon).swal2-success [class^=swal2-success-line] {
+        background-color: variables.$success-color;
+    }
+
+    div:where(.swal2-icon) {
+        &.swal2-info {
+            border-color: variables.$info-color !important;
+            color: variables.$info-color !important;
+        }
+    }
+
+    .swal2-loader {
+        border-color: variables.$light-paragraph rgba(0, 0, 0, 0) variables.$light-paragraph rgba(0, 0, 0, 0);
+    }
+
+
+    button {
+        font-size: 14px !important;
+        padding: 6px 28px;
+        font-weight: 400;
+        margin: 0;
+    }
+
+    button {
+        &.swal2-close {
+            font-size: 40px !important;
+
+            &:focus,
+            &:hover {
+                box-shadow: unset;
+            }
+        }
+    }
+
+    .swal2-wrapper {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+
+        .swal2-select {
+            padding: 0 !important;
+
+            label {
+                font-size: 16px !important;
+            }
+
+            .swal2-input {
+                border: 1px solid var(--recent-dashed-border);
+                border-radius: 5px;
+                font-size: 16px;
+                color: variables.$theme-body-sub-title-color;
+
+                option {
+                    font-size: 14px;
+                }
+            }
+        }
+
+        label {
+            margin: 0;
+            margin-bottom: 6px;
+        }
+
+        .swal2-input {
+            margin: 0;
+
+            &:focus {
+                box-shadow: unset;
+                border-color: var(--recent-dashed-border);
+            }
+        }
+
+        .form-check-input {
+            &:focus {
+                box-shadow: unset;
+                border-color: var(--recent-dashed-border);
+            }
+        }
+
+        .swal2-genders {
+            display: flex;
+            gap: 12px;
+            margin: 18px 0;
+
+            label {
+                margin: 0;
+            }
+        }
+
+        .swal2-radio-group,
+        .swal2-checkbox {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .form-control,
+        .form-select {
+            border-color: variables.$gray-60;
+        }
+    }
+}
+
+div:where(.swal2-container) button:where(.swal2-close) {
+    &:hover {
+        color: var(--theme-default) !important;
+    }
+}
+
+/**=====================
+    3.55 Sweet-alert CSS ends
+==========================**/

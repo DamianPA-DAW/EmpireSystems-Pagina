@@ -1,0 +1,946 @@
+- var page_Title = 'CRM Dashboard';
+- var theme_customizer      = true;
+- var apex                  = true;
+- var sidebar               = true;
+- var scrollbar             = true;
+- var counter               = true;
+- var animate               = true;
+- var customcard            = true;
+- var datatable             = true;
+- var page_datatable        = true;
+- var dashboard_2           = true;
+- var slick                 = true;
+- var select_dt             = true;
+- var tooltip               = true;
+- var clipboard             = true;
+- var header_slider         = true;
+- var prism                 = true;
+doctype html
+html(lang='en')
+  include ../../components/header-files
+  body
+    include ../../components/loader
+    include ../../components/taptop
+    // page-wrapper Start
+    #pageWrapper.page-wrapper.compact-wrapper
+      include ../../components/header
+      // Page Body Start
+      .page-body-wrapper
+        include ../../components/sidebar
+        .page-body
+          .container-fluid
+            .page-title
+              .row
+                .col-xl-6.col-sm-6.d-none.d-xl-block
+                  include ../../components/sub-header
+                .col-xl-6
+                  ol.breadcrumb
+                    li.breadcrumb-item
+                      a(href='index.html')
+                        svg.stroke-icon
+                          use(href='../assets/svg/icon-sprite.svg#breadcrumb-home')
+                    li.breadcrumb-item Dashboard
+                    li.breadcrumb-item.active CRM Dashboard
+                    li.download-icon 
+                       a(href="#!")
+                        svg.stroke-icon
+                          use(href='../assets/svg/icon-sprite.svg#stroke-download')
+                        svg
+                          use(href='../assets/svg/icon-sprite.svg#fill-download')   
+                    li.download
+                      button.dropdown-toggle(type='button', data-bs-toggle='dropdown', aria-expanded='false')
+                        | Last 7 Days
+                      .dropdown-menu
+                        a.dropdown-item(href='#!') 7 Days
+                        a.dropdown-item(href='#!') This week    
+                        a.dropdown-item(href='#!') Last Week
+          // Container-fluid starts
+          .container-fluid.dashboard-2
+            .row 
+              .col-xl-6 
+                .row 
+                  .col-md-6
+                    .card.progress-tread-card
+                      .card-header.card-no-border
+                        .header-top
+                          div
+                            h2
+                              span.counter(data-target='65340') 0
+                            span Won from 18 deals
+                          div
+                            .progress-tread.bg-light-primary.course-icon
+                              svg
+                                use(href='../assets/svg/icon-sprite.svg#progress-tread')
+                      .card-body   
+                        .main-div 
+                          .progress-striped-primary.b-r-2.progress
+                            .progress-bar.progress-bar-animated.progress-bar-striped(role='progressbar', aria-valuenow='40', aria-valuemin='0', aria-valuemax='100', style='width: 40%;')
+                          span 40%
+                  .col-md-6
+                    .card.progress-tread-card
+                      .card-header.card-no-border
+                        .header-top
+                          div
+                            h2
+                              span.counter(data-target='18290') 0
+                            span Daily average income
+                          div
+                            .progress-tread.bg-light-secondary.course-icon
+                              svg
+                                use(href='../assets/svg/icon-sprite.svg#progress-income')
+                      .card-body   
+                        .main-div 
+                          .progress-striped-secondary.b-r-2.progress
+                            .progress-bar.progress-bar-animated.progress-bar-striped(role='progressbar', aria-valuenow='33', aria-valuemin='0', aria-valuemax='100', style='width: 33%;')
+                          span 33%  
+                  .col-md-6
+                    .card.progress-tread-card
+                      .card-header.card-no-border
+                        .header-top
+                          div
+                            h2
+                              span.counter(data-target='65340') 0
+                            span Lead coversation
+                          div
+                            .progress-tread.bg-light-dark.course-icon
+                              svg
+                                use(href='../assets/svg/icon-sprite.svg#progress-lead')
+                      .card-body   
+                        .main-div 
+                          .progress-striped-dark.b-r-2.progress
+                            .progress-bar.progress-bar-animated.progress-bar-striped(role='progressbar', aria-valuenow='55', aria-valuemin='0', aria-valuemax='100', style='width: 55%;')
+                          span 55%  
+                  .col-md-6
+                    .card.progress-tread-card
+                      .card-header.card-no-border
+                        .header-top
+                          div
+                            h2
+                              span.counter(data-target='732') 0
+                            span Campaign sent
+                          div
+                            .progress-tread.bg-light-warning.course-icon
+                              svg
+                                use(href='../assets/svg/icon-sprite.svg#progress-mail')
+                      .card-body   
+                        .main-div 
+                          .progress-striped-warning.b-r-2.progress
+                            .progress-bar.progress-bar-animated.progress-bar-striped(role='progressbar', aria-valuenow='50', aria-valuemin='0', aria-valuemax='100', style='width: 50%;')
+                          span 50%  
+              .col-xl-6
+                .card.sale-performance
+                  .card-header.card-no-border.pb-0
+                    .header-top 
+                      h4 Sales Performance (Jan 2025)
+                      .card-header-right-icon
+                        .dropdown.icon-dropdown
+                          button#salesButton.btn.dropdown-toggle(type='button', data-bs-toggle='dropdown', aria-expanded='false')
+                            i.icon-more-alt
+                          .dropdown-menu.dropdown-menu-end(aria-labelledby='salesButton')
+                            a.dropdown-item(href='#!') Last 30 Days
+                            a.dropdown-item(href='#!') This Month
+                            a.dropdown-item(href='#!') Last Month  
+                  .card-body.sale-performance-table.px-0
+                    .recent-table.table-responsive.custom-scrollbar
+                      table.table#saleperfom-table
+                        thead 
+                          tr
+                            th
+                            th Sales Rep
+                            th Revenue 
+                            th Won
+                            th Lost
+                            th turnover
+                            th AvgSale
+                        tbody 
+                          tr
+                            td 
+                            td
+                              .d-flex
+                                img.img-fluid.img-40.me-2(src='../assets/images/dashboard/user/user1.jpg',alt='user')
+                                .img-content-box
+                                  a(href="products-list.html").f-w-500 Ruby Lara
+                            td
+                              span 50,000
+                            td 20  
+                            td 5
+                            td 
+                              .progress-main 80%
+                                .progress(role='progressbar', aria-label='Success example', aria-valuenow='80', aria-valuemin='0', aria-valuemax='100')
+                                  .progress-bar.bg-primary(style='width: 80%')
+                            td 2,500
+                          tr
+                            td
+                            td
+                              .d-flex
+                                img.img-fluid.img-40.me-2(src='../assets/images/dashboard/user/user2.jpg',alt='user')
+                                .img-content-box
+                                  a(href="products-list.html").f-w-500 Guy Hawkins
+                            td
+                              span 45,000
+                            td 18 
+                            td 6
+                            td 
+                              .progress-main 75%
+                                .progress.bg-light-secondary(role='progressbar', aria-label='Success example', aria-valuenow='20', aria-valuemin='0', aria-valuemax='100')
+                                  .progress-bar.bg-secondary(style='width: 20%')
+                            td 2500
+                          tr
+                            td
+                            td
+                              .d-flex
+                                img.img-fluid.img-40.me-2(src='../assets/images/dashboard/user/user8.jpg',alt='user')
+                                .img-content-box
+                                  a(href="products-list.html").f-w-500 Kira Kirby
+                            td
+                              span 35,000
+                            td 18 
+                            td 6
+                            td 
+                              .progress-main 88%
+                                .progress.bg-light-dark(role='progressbar', aria-label='Success example', aria-valuenow='80', aria-valuemin='0', aria-valuemax='100')
+                                  .progress-bar.bg-dark(style='width: 80%')
+                            td 2500
+                          tr
+                            td
+                            td
+                              .d-flex
+                                img.img-fluid.img-40.me-2(src='../assets/images/dashboard/user/user-customer1.jpg',alt='user')
+                                .img-content-box
+                                  a(href="products-list.html").f-w-500 Amy Brock
+                            td
+                              span 60,000
+                            td 24 
+                            td 3
+                            td 
+                              .progress-main 63%
+                                .progress.bg-light-warning(role='progressbar', aria-label='Success example', aria-valuenow='80', aria-valuemin='0', aria-valuemax='100')
+                                  .progress-bar.bg-warning(style='width: 80%')
+                            td 2500
+                          tr
+                            td
+                            td
+                              .d-flex
+                                img.img-fluid.img-40.me-2(src='../assets/images/dashboard/user/user3.jpg',alt='user')
+                                .img-content-box
+                                  a(href="products-list.html").f-w-500 Dani Allen
+                            td
+                              span 40,000
+                            td 15 
+                            td 9
+                            td 
+                              .progress-main 50%
+                                .progress.bg-light-primary(role='progressbar', aria-label='Success example', aria-valuenow='50', aria-valuemin='0', aria-valuemax='100')
+                                  .progress-bar.bg-primary(style='width: 50%')
+                            td 2500
+                          tr
+                            td
+                            td
+                              .d-flex
+                                img.img-fluid.img-40.me-2(src='../assets/images/dashboard/user/user-customer.jpg',alt='user')
+                                .img-content-box
+                                  a(href="products-list.html").f-w-500 Aya Rivera
+                            td
+                              span 55,000
+                            td 18 
+                            td 6
+                            td 
+                              .progress-main 20%
+                                .progress.bg-light-secondary(role='progressbar', aria-label='Success example', aria-valuenow='20', aria-valuemin='0', aria-valuemax='100')
+                                  .progress-bar.bg-secondary(style='width: 20%')
+                            td 2500
+              .col-xl-6
+                .card
+                  .card-header.pb-2.card-no-border
+                    .header-top 
+                      h4 Notification
+                      .card-header-right-icon
+                        .dropdown.icon-dropdown
+                          button#notifyButton.btn.dropdown-toggle(type='button', data-bs-toggle='dropdown', aria-expanded='false')
+                            i.icon-more-alt
+                          .dropdown-menu.dropdown-menu-end(aria-labelledby='notifyButton')
+                            a.dropdown-item(href='#!') Last 30 Days
+                            a.dropdown-item(href='#!') This Month
+                            a.dropdown-item(href='#!') Last Month  
+                  .card-body.notification-table.px-0.pt-0
+                    .recent-table.table-responsive.custom-scrollbar
+                      table.table#notification-table
+                        thead 
+                          tr
+                            th 
+                            th Date
+                            th Type
+                            th Description 
+                            th Status
+                        tbody 
+                          tr
+                            td 
+                            td 
+                              span 2025-06-15
+                              h6 09:15 AM
+                            td System Update
+                            td 
+                              p The CRM system will undergo maintenance on August 5th, 2023, from 10:00 PM to 2:00 AM (UTC).
+                            td.txt-primary Read
+                          tr
+                            td 
+                            td 
+                              span 2025-07-29
+                              h6 03:30 PM
+                            td Data Import Issue
+                            td 
+                              p Data import for the latest marketing campaign encountered errors. Please review and address.
+                            td.txt-warning Resolved   
+                          tr
+                            td 
+                            td 
+                              span 2025-07-28
+                              h6 11:45 AM
+                            td User Registration
+                            td 
+                              p A new sales representative, John Smith, has registered.Assign appropriate roles and permissions.
+                            td.txt-secondary Not Read
+                          tr
+                            td 
+                            td 
+                              span 2025-07-28
+                              h6 12:00 AM
+                            td Server Load Alert
+                            td 
+                              p The CRM system is experiencing high server load. Monitor performance and investigate the cause.
+                            td.txt-primary Read  
+                          tr
+                            td 
+                            td 
+                              span 2025-07-31
+                              h6 09:45 AM
+                            td System Update
+                            td 
+                              p Data import for the latest marketing campaign encountered errors. Please review and address.
+                            td.txt-secondary Not Read  
+                          tr
+                            td 
+                            td 
+                              span 2025-07-15
+                              h6 09:30 AM
+                            td System Update
+                            td 
+                              p A new sales representative, John Smith, has registered.Assign appropriate roles and permissions.
+                            td.txt-warning Resolved  
+                          tr
+                            td 
+                            td 
+                              span 2025-07-02
+                              h6 07:15 AM
+                            td System Update
+                            td 
+                              P The CRM system is experiencing high server load.  Monitor performance and investigate the cause.
+                            td.txt-primary Read 
+                          tr
+                            td 
+                            td 
+                              span 2025-05-15
+                              h6 10:15 AM
+                            td System Update
+                            td 
+                              P The CRM system will undergo maintenance on August 5th, 2023, from 10:00 PM to 2:00 AM (UTC).
+                            td.txt-warning Resolved
+
+              .col-xl-6 
+                .card.crm-tarffic 
+                  .card-header.card-no-border
+                    .header-top 
+                      h4 CRM Traffic (Oct, 2025)
+                      .card-header-right
+                        ul.list-unstyled.card-option
+                          li
+                            div
+                              i.icon-settings.fa-spin
+                          li
+                            i.view-html.fa.fa-code
+                          li
+                            i.icofont.icofont-maximize.full-card
+                          li
+                            i.icofont.icofont-minus.minimize-card
+                          li
+                            i.icofont.icofont-refresh.reload-card
+                          li
+                            i.icofont.icofont-error.close-card
+                  .card-body
+                    ul.customer-card 
+                      li 
+                        span.legend.bg-primary
+                        p Sales :
+                          span 40k
+                      li 
+                        span.legend.bg-secondary 
+                        p Order :
+                          span 40k           
+                    #crmtraffic
+                    .code-box-copy
+                      button.code-box-copy__btn.btn-clipboard(data-clipboard-target='#crm-sale', title='Copy')
+                        i.icofont.icofont-copy-alt
+                      pre.custom-scrollbar
+                        code.language-html#crm-sale
+                         |&lt;div class="card crm-tarffic"&gt;
+                         |  &lt;div class="card-header card-no-border pb-0"&gt;
+                         |    &lt;div class="header-top"&gt;
+                         |      &lt;h4 &gt;CRM Traffic (Oct, 2025)&lt;/h5&gt;
+                         |      &lt;div class="card-header-right"&gt;
+                         |        &lt;ul class="list-unstyled card-option"&gt;
+                         |          &lt;li&gt;
+                         |            &lt;div&gt;&lt;i class="icon-settings fa-spin"&gt;&lt;/i&gt;&lt;/div&gt;
+                         |          &lt;/li&gt;
+                         |          &lt;li&gt;&lt;i class="view-html fa fa-code"&gt;&lt;/i&gt;&lt;/li&gt;
+                         |          &lt;li&gt;&lt;i class="icofont icofont-maximize full-card"&gt;&lt;/i&gt;&lt;/li&gt;
+                         |          &lt;li&gt;&lt;i class="icofont icofont-minus minimize-card"&gt;&lt;/i&gt;&lt;/li&gt;
+                         |          &lt;li&gt;&lt;i class="icofont icofont-refresh reload-card"&gt;&lt;/i&gt;&lt;/li&gt;
+                         |          &lt;li&gt;&lt;i class="icofont icofont-error close-card"&gt;&lt;/i&gt;&lt;/li&gt;
+                         |        &lt;/ul&gt;
+                         |      &lt;/div&gt;
+                         |    &lt;/div&gt;
+                         |  &lt;/div&gt;
+                         |  &lt;div class="card-body"&gt;
+                         |    &lt;div id="crmtraffic"&gt;&lt;/div&gt;
+            .row 
+              .col-xl-4
+                .row 
+                  .col-xl-12.col-md-6
+                    .card.earning-report 
+                      .card-header.card-no-border.pb-0
+                        .header-top 
+                          .main 
+                            h4.f-w-700 Earning Report (Jan 2025)
+                            div.total-icon.mt-2
+                                p.mb-0.up-arrow.bg-light-success.me-1
+                                  svg.stroke-icon
+                                    use(href='../assets/svg/icon-sprite.svg#arrow-up')
+                                span.f-w-500.me-1 + 25.28%
+                                h6 Than last year
+                          .card-header-right
+                            ul.list-unstyled.card-option
+                              li
+                                div
+                                  i.icon-settings.fa-spin
+                              li
+                                i.view-html.fa.fa-code
+                              li
+                                i.icofont.icofont-maximize.full-card
+                              li
+                                i.icofont.icofont-minus.minimize-card
+                              li
+                                i.icofont.icofont-refresh.reload-card
+                              li
+                                i.icofont.icofont-error.close-card
+                      .card-body  
+                        #sale-week
+                        .code-box-copy
+                          button.code-box-copy__btn.btn-clipboard(data-clipboard-target='#earning-report', title='Copy')
+                            i.icofont.icofont-copy-alt
+                          pre.custom-scrollbar
+                            code.language-html#earning-report
+                             |&lt;div class="card earning-report"&gt;
+                             |  &lt;div class="card-header card-no-border pb-0"&gt;
+                             |    &lt;div class="header-top"&gt;
+                             |      &lt;div class="main"&gt;
+                             |        &lt;h4 class="f-w-700"&gt;Earning Report (Jan 2025)&lt;/h5&gt;
+                             |        &lt;div class="total-icon mt-2"&gt;
+                             |          &lt;p class="mb-0 up-arrow bg-light-success me-1"&gt;
+                             |            &lt;svg class="stroke-icon"&gt;
+                             |             &lt;use href="../assets/svg/icon-sprite.svg#arrow-up"&gt;&lt;/use&gt;
+                             |            &lt;/svg&gt;
+                             |          &lt;/p&gt;&lt;span class="f-w-500 me-1"&gt;+ 25.28%&lt;/span&gt;
+                             |          &lt;h6&gt;Than last year&lt;/h6&gt;
+                             |        &lt;/div&gt;
+                             |      &lt;/div&gt;
+                             |      &lt;div class="card-header-right"&gt;
+                             |        &lt;ul class="list-unstyled card-option"&gt;
+                             |          &lt;li&gt;
+                             |            &lt;div&gt;&lt;i class="icon-settings fa-spin"&gt;&lt;/i&gt;&lt;/div&gt;
+                             |          &lt;/li&gt;
+                             |          &lt;li&gt;&lt;i class="view-html fa fa-code"&gt;&lt;/i&gt;&lt;/li&gt;
+                             |          &lt;li&gt;&lt;i class="icofont icofont-maximize full-card"&gt;&lt;/i&gt;&lt;/li&gt;
+                             |          &lt;li&gt;&lt;i class="icofont icofont-minus minimize-card"&gt;&lt;/i&gt;&lt;/li&gt;
+                             |          &lt;li&gt;&lt;i class="icofont icofont-refresh reload-card"&gt;&lt;/i&gt;&lt;/li&gt;
+                             |          &lt;li&gt;&lt;i class="icofont icofont-error close-card"&gt;&lt;/i&gt;&lt;/li&gt;
+                             |        &lt;/ul&gt;
+                             |      &lt;/div&gt;
+                             |    &lt;/div&gt;
+                             |    &lt;/div&gt;
+                             |    &lt;div class="card-body"&gt;
+                             |      &lt;div id="sale-week"&gt;&lt;/div&gt;
+                             |    &lt;/div&gt;
+                             |  &lt;/div&gt;
+                  .col-xl-12.col-md-6
+                    .card.funnel-chart
+                      .card-header.card-no-border
+                        .header-top 
+                          .main 
+                            h4.f-w-700 Deals Funnel (Feb 2025)  
+                          .card-header-right
+                            ul.list-unstyled.card-option
+                              li
+                                div
+                                  i.icon-settings.fa-spin
+                              li
+                                i.view-html.fa.fa-code
+                              li
+                                i.icofont.icofont-maximize.full-card
+                              li
+                                i.icofont.icofont-minus.minimize-card
+                              li
+                                i.icofont.icofont-refresh.reload-card
+                              li
+                                i.icofont.icofont-error.close-card
+                      .card-body.pt-0
+                        #funnel-chart
+                        ul.balance-data.funnel-charts
+                          li
+                            .d-flex.align-items-center
+                              span.circle.bg-primary
+                              span.c-light.ms-1 Opened
+                            span $ 134,355
+                          li
+                            .d-flex.align-items-center
+                              span.circle.bg-secondary 
+                              span.c-light.ms-1 Lost
+                            span $ 44,830
+                          li
+                            .d-flex.align-items-center
+                              span.circle.bg-dark
+                              span.c-light.ms-1 Completed
+                            span $ 10,854 
+                          li
+                            .d-flex.align-items-center
+                              span.circle.bg-warning
+                              span.c-light.ms-1 Won
+                            span $ 54,546
+                          li
+                            .d-flex.align-items-center
+                              span.circle.bg-light-primary
+                              span.c-light.ms-1 Option
+                            span $ 2,954 
+                        .code-box-copy
+                          button.code-box-copy__btn.btn-clipboard(data-clipboard-target='#avatar-size', title='Copy')
+                            i.icofont.icofont-copy-alt
+                          pre.custom-scrollbar
+                            code.language-html#avatar-size
+                              |&lt;div class="card funnel-chart"&gt;
+                              |   &lt;div class="card-header card-no-border pb-0"&gt;
+                              |     &lt;div class="header-top"&gt;
+                              |       &lt;div class="main"&gt;
+                              |         &lt;h4 class="f-w-700"&gt;Deals Funnel (Feb 2025) &lt;/h5&gt;
+                              |       &lt;/div&gt;
+                              |       &lt;div class="card-header-right"&gt;
+                              |         &lt;ul class="list-unstyled card-option"&gt;
+                              |           &lt;li&gt;
+                              |             &lt;div&gt;&lt;i class="icon-settings fa-spin"&gt;&lt;/i&gt;&lt;/div&gt;
+                              |           &lt;/li&gt;
+                              |           &lt;li&gt;&lt;i class="view-html fa fa-code"&gt;&lt;/i&gt;&lt;/li&gt;
+                              |           &lt;li&gt;&lt;i class="icofont icofont-maximize full-card"&gt;&lt;/i&gt;&lt;/li&gt;
+                              |           &lt;li&gt;&lt;i class="icofont icofont-minus minimize-card"&gt;&lt;/i&gt;&lt;/li&gt;
+                              |           &lt;li&gt;&lt;i class="icofont icofont-refresh reload-card"&gt;&lt;/i&gt;&lt;/li&gt;
+                              |           &lt;li&gt;&lt;i class="icofont icofont-error close-card"&gt;&lt;/i&gt;&lt;/li&gt;
+                              |         &lt;/ul&gt;
+                              |       &lt;/div&gt;
+                              |     &lt;/div&gt;
+                              |  &lt;/div&gt;
+                              |  &lt;div class="card-body pt-0"&gt;
+                              |   &lt;div id="funnel-chart"&gt;&lt;/div&gt;
+                              |     &lt;ul class="balance-data funnel-charts"&gt;
+                              |       &lt;li&gt;
+                              |         &lt;div class="d-flex align-items-center"&gt;&lt;span class="circle bg-primary"&gt;&lt;/span&gt;&lt;span class="c-light ms-1"&gt;Opened&lt;/span&gt;&lt;/div&gt;&lt;span&gt;$ 134,355&lt;/span&gt;
+                              |       &lt;/li&gt;
+                              |       &lt;li&gt;
+                              |         &lt;div class="d-flex align-items-center"&gt;&lt;span class="circle bg-secondary"&gt; &lt;/span&gt;&lt;span class="c-light ms-1"&gt;Lost&lt;/span&gt;&lt;/div&gt;&lt;span&gt;$ 44,830&lt;/span&gt;
+                              |       &lt;/li&gt;
+                              |       &lt;li&gt;
+                              |         &lt;div class="d-flex align-items-center"&gt;&lt;span class="circle bg-dark"&gt;&lt;/span&gt;&lt;span class="c-light ms-1"&gt;Completed&lt;/span&gt;&lt;/div&gt;&lt;span&gt;$ 10,854 &lt;/span&gt;
+                              |       &lt;/li&gt;
+                              |       &lt;li&gt;
+                              |         &lt;div class="d-flex align-items-center"&gt;&lt;span class="circle bg-warning"&gt;&lt;/span&gt;&lt;span class="c-light ms-1"&gt;Won&lt;/span&gt;&lt;/div&gt;&lt;span&gt;$ 54,546&lt;/span&gt;
+                              |       &lt;/li&gt;
+                              |       &lt;li&gt;
+                              |         &lt;div class="d-flex align-items-center"&gt;&lt;span class="circle bg-light-primary"&gt;&lt;/span&gt;&lt;span class="c-light ms-1"&gt;Option&lt;/span&gt;&lt;/div&gt;&lt;span&gt;$ 2,954 &lt;/span&gt;
+                              |       &lt;/li&gt;
+                              |     &lt;/ul&gt;
+                              |   &lt;/div&gt;
+                              |  &lt;/div&gt;
+              .col-xl-8
+                  .row 
+                    .col-lg-6.col-sm-12 
+                      .card
+                        .card-header.card-no-border.pb-0
+                          .header-top 
+                            h4 Top Sellers
+                            .card-header-right-icon
+                              .dropdown.icon-dropdown
+                                button#topsellerButton.btn.dropdown-toggle(type='button', data-bs-toggle='dropdown', aria-expanded='false')
+                                  i.icon-more-alt
+                                .dropdown-menu.dropdown-menu-end(aria-labelledby='topsellerButton')
+                                  a.dropdown-item(href='#!') Last 30 Days
+                                  a.dropdown-item(href='#!') This Month
+                                  a.dropdown-item(href='#!') Last Month  
+                        .card-body.top-seller-table.px-0
+                          .recent-table.table-responsive.custom-scrollbar 
+                            table.table#topseller-table
+                              thead 
+                                tr
+                                  th
+                                  th Salesperson
+                                  th Won 
+                                  th Rate
+                                  th AvgSale
+                              tbody 
+                                tr
+                                  td 
+                                  td
+                                    .d-flex
+                                      img.img-fluid.img-40.me-2(src='../assets/images/dashboard-2/user1.jpg',alt='user')
+                                      .img-content-box
+                                        a(href="products-list.html").f-w-500 Esther Howard
+                                        p.mb-0.f-light $200,000
+                                  td 70
+                                  td.radial-chart-wrap.p-0 
+                                    #radial-1.widgetsChart
+                                  td 2,500
+                                tr
+                                  td 
+                                  td
+                                    .d-flex
+                                      img.img-fluid.img-40.me-2(src='../assets/images/dashboard-2/users1.jpg',alt='user')
+                                      .img-content-box
+                                        a(href="products-list.html").f-w-500 Veda Sloan
+                                        p.mb-0.f-light $180,000
+                                  td 60
+                                  td.radial-chart-wrap.p-0 
+                                    #radial-2.widgetsChart
+                                  td 2,570
+                                tr
+                                  td 
+                                  td
+                                    .d-flex
+                                      img.img-fluid.img-40.me-2(src='../assets/images/dashboard/user/user6.jpg',alt='user')
+                                      .img-content-box
+                                        a(href="products-list.html").f-w-500 Guy Hawkins
+                                        p.mb-0.f-light $160,000
+                                  td 50
+                                  td.radial-chart-wrap.p-0 
+                                    #radial-3.widgetsChart
+                                  td 2,667
+                                tr
+                                  td 
+                                  td
+                                    .d-flex
+                                      img.img-fluid.img-40.me-2(src='../assets/images/dashboard/user/user4.jpg',alt='user')
+                                      .img-content-box
+                                        a(href="products-list.html").f-w-500 Lana Gibbs
+                                        p.mb-0.f-light $180,000
+                                  td 50
+                                  td.radial-chart-wrap.p-0 
+                                    #radial-4.widgetsChart
+                                  td 2,500
+                                tr
+                                  td 
+                                  td
+                                    .d-flex
+                                      img.img-fluid.img-40.me-2(src='../assets/images/dashboard-2/users3.jpg',alt='user')
+                                      .img-content-box
+                                        a(href="products-list.html").f-w-500 Jacob Jones
+                                        p.mb-0.f-light $140,000
+                                  td 45
+                                  td.radial-chart-wrap.p-0 
+                                    #radial-5.widgetsChart
+                                  td 2,800
+                    .col-lg-6.col-sm-12
+                      .card.top-country
+                        .card-header.card-no-border.pb-0
+                          .header-top 
+                            .main 
+                              h4.f-w-700 Top Contries by order
+                              div.total-icon.mt-2
+                                p.mb-0.up-arrow.bg-light-success.me-1
+                                  svg.stroke-icon
+                                    use(href='../assets/svg/icon-sprite.svg#arrow-up')
+                                span.f-w-500.me-1 + 08.12%
+                                h6 7,634 Active Order 
+                              .card-header-right
+                                ul.list-unstyled.card-option
+                                  li
+                                    div
+                                      i.icon-settings.fa-spin
+                                  li
+                                    i.view-html.fa.fa-code
+                                  li
+                                    i.icofont.icofont-maximize.full-card
+                                  li
+                                    i.icofont.icofont-minus.minimize-card
+                                  li
+                                    i.icofont.icofont-refresh.reload-card
+                                  li
+                                    i.icofont.icofont-error.close-card
+                        .card-body
+                          .country-flag
+                            img.img-fluid.img-45.me-2(src='../assets/images/dashboard-2/flag1.jpg',alt='Uk')
+                            .f-w-600 United kingdom
+                              span ( $7.54k )
+                              .progress.mt-2.bg-light-primary(role='progressbar', aria-label='Success example', aria-valuenow='80', aria-valuemin='0', aria-valuemax='100')
+                                .progress-bar.bg-primary(style='width: 80%')  
+                            div.progess-content 
+                              span 80%
+                          .country-flag
+                            img.img-fluid.img-45.me-2(src='../assets/images/dashboard-2/flag2.jpg',alt='germany')
+                            .f-w-600 Germany
+                              span ( $3.83k )
+                              .progress.mt-2.bg-light-secondary(role='progressbar', aria-label='Success example', aria-valuenow='30', aria-valuemin='0', aria-valuemax='100')
+                                .progress-bar.bg-secondary(style='width: 30%')  
+                            div.progess-content 
+                              span 30%
+                          .country-flag
+                            img.img-fluid.img-45.me-2(src='../assets/images/dashboard-2/flag3.jpg',alt='Portugal')
+                            .f-w-600 Portugal
+                              span ( $6.12k )
+                              .progress.mt-2.bg-light-dark(role='progressbar', aria-label='Success example', aria-valuenow='50', aria-valuemin='0', aria-valuemax='100')
+                                .progress-bar.bg-dark(style='width: 50%')  
+                            div.progess-content 
+                              span 50%
+                          .country-flag
+                            img.img-fluid.img-45.me-2(src='../assets/images/dashboard-2/flag4.jpg',alt='Switzerland')
+                            .f-w-600 Switzerland
+                              span ( $7.83k )
+                              .progress.mt-2.bg-light-warning(role='progressbar', aria-label='Success example', aria-valuenow='25', aria-valuemin='0', aria-valuemax='100')
+                                .progress-bar.bg-warning(style='width: 25%')  
+                            div.progess-content 
+                              span 25%
+                          .code-box-copy
+                              button.code-box-copy__btn.btn-clipboard(data-clipboard-target='#top-country', title='Copy')
+                                i.icofont.icofont-copy-alt
+                              pre.custom-scrollbar
+                                code.language-html#top-country
+                                  |&lt;div class="card top-country"&gt;
+                                  | &lt;div class="card-header card-no-border pb-0"&gt;
+                                  |   &lt;div class="header-top"&gt;
+                                  |     &lt;div class="main"&gt;
+                                  |       &lt;h4 class="f-w-700"&gt;Top Contries by order&lt;/h5&gt;
+                                  |       &lt;div class="total-icon mt-2"&gt;
+                                  |         &lt;p class="mb-0 up-arrow bg-light-success me-1"&gt;
+                                  |           &lt;svg class="stroke-icon"&gt;
+                                  |             &lt;use href="../assets/svg/icon-sprite.svg#arrow-up"&gt;&lt;/use&gt;
+                                  |           &lt;/svg&gt;
+                                  |         &lt;/p&gt;&lt;span class="f-w-500 me-1"&gt;+ 08.12%&lt;/span&gt;
+                                  |         &lt;h6&gt;7,634 Active Order &lt;/h6&gt;
+                                  |       &lt;/div&gt;
+                                  |       &lt;div class="card-header-right"&gt;
+                                  |         &lt;ul class="list-unstyled card-option"&gt;
+                                  |           &lt;li&gt;
+                                  |             &lt;div&gt;&lt;i class="icon-settings fa-spin"&gt;&lt;/i&gt;&lt;/div&gt;
+                                  |           &lt;/li&gt;
+                                  |           &lt;li&gt;&lt;i class="view-html fa fa-code"&gt;&lt;/i&gt;&lt;/li&gt;
+                                  |           &lt;li&gt;&lt;i class="icofont icofont-maximize full-card"&gt;&lt;/i&gt;&lt;/li&gt;
+                                  |           &lt;li&gt;&lt;i class="icofont icofont-minus minimize-card"&gt;&lt;/i&gt;&lt;/li&gt;
+                                  |           &lt;li&gt;&lt;i class="icofont icofont-refresh reload-card"&gt;&lt;/i&gt;&lt;/li&gt;
+                                  |           &lt;li&gt;&lt;i class="icofont icofont-error close-card"&gt;&lt;/i&gt;&lt;/li&gt;
+                                  |         &lt;/ul&gt;
+                                  |       &lt;/div&gt;
+                                  |     &lt;/div&gt;
+                                  |   &lt;/div&gt;
+                                  | &lt;/div&gt;
+                                  | &lt;div class="card-body"&gt;
+                                  |   &lt;div class="country-flag"&gt;&lt;img class="img-fluid img-45 me-2" src="../assets/images/dashboard-2/flag1.jpg" alt="Uk"&gt;
+                                  |     &lt;div class="f-w-600"&gt;United kingdom&lt;span&gt;( $7.54k )&lt;/span&gt;
+                                  |       &lt;div class="progress mt-2 bg-light-primary" role="progressbar" aria-label="Success example" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"&gt;
+                                  |         &lt;div class="progress-bar bg-primary" style="width: 80%"&gt; &lt;/div&gt;
+                                  |       &lt;/div&gt;
+                                  |     &lt;/div&gt;
+                                  |     &lt;div class="progess-content"&gt; &lt;span&gt;80%&lt;/span&gt;&lt;/div&gt;
+                                  |   &lt;/div&gt;
+                                  |   &lt;div class="country-flag"&gt;&lt;img class="img-fluid img-45 me-2" src="../assets/images/dashboard-2/flag2.jpg" alt="germany"&gt;
+                                  |     &lt;div class="f-w-600"&gt;Germany&lt;span&gt;( $3.83k )&lt;/span&gt;
+                                  |       &lt;div class="progress mt-2 bg-light-secondary" role="progressbar" aria-label="Success example" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"&gt;
+                                  |         &lt;div class="progress-bar bg-secondary" style="width: 30%"&gt; &lt;/div&gt;
+                                  |       &lt;/div&gt;
+                                  |     &lt;/div&gt;
+                                  |     &lt;div class="progess-content"&gt; &lt;span&gt;30%&lt;/span&gt;&lt;/div&gt;
+                                  |   &lt;/div&gt;
+                                  |   &lt;div class="country-flag"&gt;&lt;img class="img-fluid img-45 me-2" src="../assets/images/dashboard-2/flag3.jpg" alt="Portugal"&gt;
+                                  |     &lt;div class="f-w-600"&gt;Portugal&lt;span&gt;( $6.12k )&lt;/span&gt;
+                                  |       &lt;div class="progress mt-2 bg-light-dark" role="progressbar" aria-label="Success example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"&gt;
+                                  |         &lt;div class="progress-bar bg-dark" style="width: 50%"&gt; &lt;/div&gt;
+                                  |       &lt;/div&gt;
+                                  |     &lt;/div&gt;
+                                  |     &lt;div class="progess-content"&gt; &lt;span&gt;50%&lt;/span&gt;&lt;/div&gt;
+                                  |   &lt;/div&gt;
+                                  |   &lt;div class="country-flag"&gt;&lt;img class="img-fluid img-45 me-2" src="../assets/images/dashboard-2/flag4.jpg" alt="Switzerland"&gt;
+                                  |     &lt;div class="f-w-600"&gt;Switzerland&lt;span&gt;( $7.83k )&lt;/span&gt;
+                                  |       &lt;div class="progress mt-2 bg-light-warning" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"&gt;
+                                  |         &lt;div class="progress-bar bg-warning" style="width: 25%"&gt; &lt;/div&gt;
+                                  |       &lt;/div&gt;
+                                  |     &lt;/div&gt;
+                                  |     &lt;div class="progess-content"&gt; &lt;span&gt;25% &lt;/span&gt;&lt;/div&gt;
+                                  |    &lt;/div&gt;
+                    .col-md-12
+                      .card
+                        .card-header.card-no-border.pb-0
+                          .header-top 
+                            h4 Recent Orders
+                            .card-header-right-icon
+                              .dropdown.icon-dropdown
+                                button#orderButton.btn.dropdown-toggle(type='button', data-bs-toggle='dropdown', aria-expanded='false')
+                                  i.icon-more-alt
+                                .dropdown-menu.dropdown-menu-end(aria-labelledby='orderButton')
+                                  a.dropdown-item(href='#!') Last 30 Days
+                                  a.dropdown-item(href='#!') This Month
+                                  a.dropdown-item(href='#!') Last Month  
+                        .card-body.recent-seller-table.px-0
+                          .recent-table.table-responsive.custom-scrollbar
+                            table.table#recentseller-table
+                              thead 
+                                tr
+                                  th
+                                  th id
+                                  th Product 
+                                  th Order time
+                                  th Status
+                                  th Qty
+                                  th Total Price
+                                  th Customer
+                              tbody 
+                                tr
+                                  td 
+                                  td #03805
+                                  td
+                                    .d-flex
+                                      img.img-fluid.img-40.me-2(src='../assets/images/dashboard-2/product/iphone.jpg',alt='user')
+                                      .img-content-box
+                                        a(href="products-list.html").f-w-500 iPhone 13
+                                  td 01/12/2023, 13:00
+                                  td.txt-primary Verified  
+                                  td 23
+                                  td $234.93
+                                  td 
+                                    .d-flex
+                                      img.img-fluid.img-40.me-2(src='../assets/images/dashboard-2/user-1.jpg',alt='user')
+                                      .img-content-box
+                                        a(href="products-list.html").f-w-500 Wade Warren
+                                tr
+                                  td 
+                                  td #64892
+                                  td
+                                    .d-flex
+                                      img.img-fluid.img-40.me-2(src='../assets/images/dashboard-2/product/macbook.jpg',alt='user')
+                                      .img-content-box
+                                        a(href="products-list.html").f-w-500 Latest Macbook
+                                  td 01/12/2023, 12:00
+                                  td.txt-secondary Rejected  
+                                  td 42
+                                  td $658.24
+                                  td 
+                                    .d-flex
+                                      img.img-fluid.img-40.me-2(src='../assets/images/dashboard-2/user-2.jpg',alt='user')
+                                      .img-content-box
+                                        a(href="products-list.html").f-w-500 Esther Howard
+                                tr
+                                  td 
+                                  td #32489
+                                  td
+                                    .d-flex
+                                      img.img-fluid.img-40.me-2(src='../assets/images/dashboard-2/product/shoes.jpg',alt='user')
+                                      .img-content-box
+                                        a(href="products-list.html").f-w-500 Standard Shoes
+                                  td 01/12/2023, 14:10
+                                  td.txt-primary Verified  
+                                  td 62
+                                  td $348.19
+                                  td 
+                                    .d-flex
+                                      img.img-fluid.img-40.me-2(src='../assets/images/dashboard-2/user-3.jpg',alt='user')
+                                      .img-content-box
+                                        a(href="products-list.html").f-w-500 Bria Gilbert
+                                tr
+                                  td 
+                                  td #67368
+                                  td
+                                    .d-flex
+                                      img.img-fluid.img-40.me-2(src='../assets/images/dashboard-2/product/t-shirt.jpg',alt='user')
+                                      .img-content-box
+                                        a(href="products-list.html").f-w-500 Branded t-Shirt
+                                  td 01/12/2023, 13:00
+                                  td.txt-warning Pending    
+                                  td 35
+                                  td $78.78
+                                  td 
+                                    .d-flex
+                                      img.img-fluid.img-40.me-2(src='../assets/images/dashboard-2/user-4.jpg',alt='user')
+                                      .img-content-box
+                                        a(href="products-list.html").f-w-500 Jenny Wilson
+                                tr
+                                  td 
+                                  td #03808
+                                  td
+                                    .d-flex
+                                      img.img-fluid.img-40.me-2(src='../assets/images/dashboard-2/product/sunglasses.jpg',alt='user')
+                                      .img-content-box
+                                        a(href="products-list.html").f-w-500 sunglasses
+                                  td 01/12/2023, 13:00
+                                  td.txt-primary Verified  
+                                  td 23
+                                  td $234.93
+                                  td 
+                                    .d-flex
+                                      img.img-fluid.img-40.me-2(src='../assets/images/dashboard-2/user-5.jpg',alt='user')
+                                      .img-content-box
+                                        a(href="products-list.html").f-w-500 Colin Hubbard
+                                tr
+                                  td 
+                                  td #03845
+                                  td
+                                    .d-flex
+                                      img.img-fluid.img-40.me-2(src='../assets/images/dashboard-2/product/cotton-shirt.jpg',alt='user')
+                                      .img-content-box
+                                        a(href="products-list.html").f-w-500 cotton t-shirt
+                                  td 01/12/2023, 13:00
+                                  td.txt-primary Verified  
+                                  td 23
+                                  td $234.93
+                                  td 
+                                    .d-flex
+                                      img.img-fluid.img-40.me-2(src='../assets/images/dashboard-2/user-6.jpg',alt='user')
+                                      .img-content-box
+                                        a(href="products-list.html").f-w-500 Tyson Michael
+                                tr
+                                  td 
+                                  td #55804
+                                  td
+                                    .d-flex
+                                      img.img-fluid.img-40.me-2(src='../assets/images/dashboard/user/headphone.jpg',alt='user')
+                                      .img-content-box
+                                        a(href="products-list.html").f-w-500 Headphone
+                                  td 01/12/2023, 13:00
+                                  td.txt-secondary Rejected  
+                                  td 23
+                                  td $234.93
+                                  td 
+                                    .d-flex
+                                      img.img-fluid.img-40.me-2(src='../assets/images/dashboard-2/user-7.jpg',alt='user')
+                                      .img-content-box
+                                        a(href="products-list.html").f-w-500 Kiana Jimenez
+                                tr
+                                  td 
+                                  td #01504
+                                  td
+                                    .d-flex
+                                      img.img-fluid.img-40.me-2(src='../assets/images/dashboard/user/television.jpg',alt='user')
+                                      .img-content-box
+                                        a(href="products-list.html").f-w-500 television
+                                  td 01/12/2023, 13:00
+                                  td.txt-warning Pending  
+                                  td 23
+                                  td $234.93
+                                  td 
+                                    .d-flex
+                                      img.img-fluid.img-40.me-2(src='../assets/images/dashboard-2/user-8.jpg',alt='user')
+                                      .img-content-box
+                                        a(href="products-list.html").f-w-500 Emma Avery
+          // Container-fluid Ends
+        include ../../components/footer
+    include ../../components/footer-files

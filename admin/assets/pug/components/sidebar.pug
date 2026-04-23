@@ -1,0 +1,868 @@
+- var status_toggle = (sidebar_open ? undefined : 'checked');
+// Page Sidebar Start
+.sidebar-wrapper(data-sidebar-layout="stroke-svg")
+  div
+    .logo-wrapper
+      a(href='index.html')
+        img.img-fluid(src='../assets/images/logo/logo-icon.png', alt='')
+      .back-btn
+        i.fa.fa-angle-left    
+    nav.sidebar-main
+      #sidebar-menu
+        ul.sidebar-links#simple-bar
+          li.back-btn
+            a(href="index.html")
+            .mobile-back.text-end
+              span Back
+              i.fa.fa-angle-right.ps-2(aria-hidden='true')
+          li.sidebar-list
+            a.sidebar-link.sidebar-title(href='javascript:void(0)')
+              svg.stroke-icon
+                use(href='../assets/svg/icon-sprite.svg#stroke-home')
+              svg.fill-icon
+                use(href='../assets/svg/icon-sprite.svg#fill-home')
+              span.lan-1 General
+            ul.sidebar-submenu.custom-scrollbar
+              li.sidebar-head.lan-1 General
+              li.main-submenu
+                  a.d-flex.sidebar-menu(href='javascript:void(0)')
+                    svg.stroke-icon
+                      use(href='../assets/svg/icon-sprite.svg#stroke-dash')
+                    svg.fill-icon
+                      use(href='../assets/svg/icon-sprite.svg#fill-side')
+                    span.lan-2 Dashboards
+                    svg.arrow 
+                      use(href='../assets/svg/icon-sprite.svg#arrow-right')
+                  ul.submenu-wrapper
+                    li
+                      a(href='./index.html').lan-3 Shopping Place
+                    li
+                      a(href='./dashboard-02.html').lan-4 CRM Dashboard
+              li.main-submenu
+                  a.d-flex.sidebar-menu(href='javascript:void(0)')
+                    svg.stroke-icon
+                      use(href='../assets/svg/icon-sprite.svg#stroke-widget')
+                    svg.fill-icon
+                      use(href='../assets/svg/icon-sprite.svg#fill-widget')
+                    span.lan-5 Widget
+                    svg.arrow
+                      use(href='../assets/svg/icon-sprite.svg#arrow-right')
+                  ul.submenu-wrapper
+                    li
+                      a(href='./general-widget.html').lan-1 General
+                    li
+                      a(href='./chart-widget.html').lan-6 Chart
+              li.main-submenu
+                  a.d-flex.sidebar-menu(href='javascript:void(0)')
+                    svg.stroke-icon
+                      use(href='../assets/svg/icon-sprite.svg#stroke-layout')
+                    svg.fill-icon
+                      use(href='../assets/svg/icon-sprite.svg#fill-layout')
+                    span.lan-7 Page layout 
+                    svg.arrow
+                      use(href='../assets/svg/icon-sprite.svg#arrow-right')
+                  ul.submenu-wrapper
+                    li
+                      a(href='box-layout.html').lan-8 Boxed
+                    li
+                      a(href='layout-rtl.html').lan-9 RTL
+                    li
+                      a(href='layout-dark.html').lan-10 Dark Layout
+                    li
+                      a(href='hide-on-scroll.html').lan-11 Hide Nav Scroll
+                    li
+                      a(href='footer-light.html').lan-12 Footer Light
+                    li
+                      a(href='footer-dark.html').lan-13 Footer Dark 
+                    li
+                      a(href='footer-fixed.html').lan-14 Footer Fixed 
+          li.sidebar-list
+            a.sidebar-link.sidebar-title(href='javascript:void(0)')
+              svg.stroke-icon
+                use(href='../assets/svg/icon-sprite.svg#Ui-kites')
+              svg.fill-icon
+                use(href='../assets/svg/icon-sprite.svg#fill-ui-graph')
+              span.lan-15 Ui Kits
+            ul.sidebar-submenu.custom-scrollbar
+              li.sidebar-head Components
+              li.main-submenu
+                  a.d-flex.sidebar-menu(href='javascript:void(0)')
+                    svg.stroke-icon
+                      use(href='../assets/svg/icon-sprite.svg#stroke-ui-kits')
+                    svg.fill-icon
+                      use(href='../assets/svg/icon-sprite.svg#fill-kits')
+                    span.lan-15 Ui Kits
+                    svg.arrow
+                      use(href='../assets/svg/icon-sprite.svg#arrow-right')
+                  ul.submenu-wrapper
+                    li
+                      a(href='./typography.html').lan-16 Typography
+                    li
+                      a(href='./avatars.html').lan-17 Avatars
+                    li
+                      a(href='./divider.html').lan-18 Divider  
+                    li
+                      a(href='./helper-classes.html').lan-19 Helper Classes
+                    li
+                      a(href='./grid.html').lan-20 Grid
+                    li
+                      a(href='./tag-pills.html').lan-21 Tag & Pills
+                    li
+                      a(href='./progress-bar.html').lan-22 Progress
+                    li
+                      a(href='./modal.html').lan-23 Modal
+                    li
+                      a(href='./alert.html').lan-24 Alert
+                    li
+                      a(href='./popover.html').lan-25 Popover
+                    li
+                      a(href='./placeholders.html').lan-26 Placeholders  
+                    li
+                      a(href='./tooltip.html').lan-27 Tooltip
+                    li
+                      a(href='./dropdown.html').lan-28 Dropdown
+                    li
+                      a(href='./according.html').lan-29 Accordion
+                    li
+                      a(href='./tab-bootstrap.html').lan-30 Tabs
+                    li
+                      a(href='./offcanvas.html').lan-31 Offcanvas
+                    li
+                      a(href='./navigate-links.html').lan-32 Navigate Links    
+                    li
+                      a(href='./list.html').lan-33 Lists
+              li.main-submenu
+                a.d-flex.sidebar-menu(href='javascript:void(0)')
+                  svg.stroke-icon
+                    use(href='../assets/svg/icon-sprite.svg#stroke-animation')
+                  svg.fill-icon
+                    use(href='../assets/svg/icon-sprite.svg#fill-animation')
+                  span.lan-34 Animations
+                  svg.arrow
+                    use(href='../assets/svg/icon-sprite.svg#arrow-right')
+                ul.submenu-wrapper
+                  li
+                    a(href='animate.html').lan-35 Animate
+                  li
+                    a(href='scroll-reval.html').lan-36 Scroll Reveal
+                  li
+                    a(href='AOS.html').lan-37 AOS animation
+                  li
+                    a(href='tilt.html').lan-38 Tilt Animation
+                  li
+                    a(href='wow.html').lan-39 Wow Animation
+                  li
+                    a(href='flash-icon.html').lan-40 Flash Icons  
+          li.sidebar-list
+            a.sidebar-link.sidebar-title(href='javascript:void(0)')
+              svg.stroke-icon
+                use(href='../assets/svg/icon-sprite.svg#Perk-Ui')
+              svg.fill-icon
+                use(href='../assets/svg/icon-sprite.svg#fill-perk-ui')
+              span.lan-41 Perk Ui
+            ul.sidebar-submenu.custom-scrollbar
+              li.sidebar-head.lan-42 Components
+              li.main-submenu
+                  a.d-flex.sidebar-menu(href='javascript:void(0)')
+                    svg.stroke-icon
+                      use(href='../assets/svg/icon-sprite.svg#stroke-bonus-kit')
+                    svg.fill-icon
+                      use(href='../assets/svg/icon-sprite.svg#fill-bonus-kit')
+                    span.lan-43 Bonus Ui
+                    svg.arrow
+                      use(href='../assets/svg/icon-sprite.svg#arrow-right')
+                  ul.submenu-wrapper
+                    li
+                      a(href='scrollable.html').lan-44 Scrollable
+                    li
+                      a(href='tree.html').lan-45 Tree view
+                    li
+                      a(href='toasts.html').lan-46 Toasts
+                    li
+                      a(href='block-ui.html').lan-47 BlockUI 
+                    li
+                      a(href='rating.html').lan-48 Rating
+                    li
+                      a(href='dropzone.html').lan-49 Dropzone
+                    li
+                      a(href='tour.html').lan-50 Tour
+                    li
+                      a(href='sweet-alert2.html').lan-51 SweetAlert2
+                    li
+                      a(href='modal-animated.html').lan-52 Animated Modal
+                    li
+                      a(href='owl-carousel.html').lan-53 Owl Carousel
+                    li
+                      a(href='ribbons.html').lan-54 Ribbons
+                    li
+                      a(href='pagination.html').lan-55 Pagination
+                    li
+                      a(href='scrollspy.html').lan-56 ScrollSpy  
+                    li
+                      a(href='breadcrumb.html').lan-57 Breadcrumb
+                    li
+                      a(href='range-slider.html').lan-58 Range Slider
+                    li
+                      a(href='ratios.html').lan-59 Ratios  
+                    li
+                      a(href='image-cropper.html').lan-60 Image cropper
+                    li
+                      a(href='basic-card.html').lan-61 Basic Card
+                    li
+                      a(href='creative-card.html').lan-62 Creative Card
+                    li
+                      a(href='draggable-card.html').lan-63 Draggable Card
+                    li
+                      a(href='timeline-v-1.html').lan-64 Timeline 
+              li.main-submenu
+                a.d-flex.sidebar-menu(href='javascript:void(0)')
+                  svg.stroke-icon
+                    use(href='../assets/svg/icon-sprite.svg#stroke-icons')
+                  svg.fill-icon
+                    use(href='../assets/svg/icon-sprite.svg#fill-icons')
+                  span.lan-65 Icons
+                  svg.arrow
+                    use(href='../assets/svg/icon-sprite.svg#arrow-right')
+                ul.submenu-wrapper
+                  li
+                    a(href='flag-icon.html').lan-66 Flag icon
+                  li
+                    a(href='font-awesome.html').lan-67 Fontawesome Icon
+                  li
+                    a(href='ico-icon.html').lan-68 Ico Icon
+                  li
+                    a(href='themify-icon.html').lan-69 Themify Icon
+                  li
+                    a(href='feather-icon.html').lan-70 Feather icon
+                  li
+                    a(href='weather-icon.html').lan-71 Weather Icon
+              li.main-submenu
+                a.d-flex.sidebar-menu(href='buttons.html')
+                  svg.stroke-icon
+                    use(href='../assets/svg/icon-sprite.svg#stroke-button')
+                  svg.fill-icon
+                    use(href='../assets/svg/icon-sprite.svg#fill-button')
+                  span.lan-72 Buttons
+          li.sidebar-list
+            a.sidebar-link.sidebar-title(href='javascript:void(0)')
+              svg.stroke-icon
+                use(href='../assets/svg/icon-sprite.svg#stroke-form')
+              svg.fill-icon
+                use(href='../assets/svg/icon-sprite.svg#fill-form')
+              span.lan-73 Forms
+            ul.sidebar-submenu.custom-scrollbar
+              li.sidebar-head.lan-74 Forms & Tables
+              li.main-submenu
+                  a.d-flex.sidebar-menu(href='javascript:void(0)')
+                    svg.stroke-icon
+                      use(href='../assets/svg/icon-sprite.svg#stroke-form')
+                    svg.fill-icon
+                      use(href='../assets/svg/icon-sprite.svg#fill-form')
+                    span.lan-73 Forms
+                    svg.arrow
+                      use(href='../assets/svg/icon-sprite.svg#arrow-right')
+                  ul.submenu-wrapper
+                    li                                                                    
+                      a.submenu-title(href='javascript:void(0)')
+                        span.lan-75 Form Controls
+                        span.sub-arrow
+                          i.fa.fa-angle-right
+                      ul.nav-sub-childmenu.submenu-content
+                        li
+                          a(href='form-validation.html').lan-76 Form Validation
+                        li
+                          a(href='base-input.html').lan-77 Base Inputs
+                        li
+                          a(href='radio-checkbox-control.html').lan-78 Checkbox & Radio
+                        li
+                          a(href='input-group.html').lan-79 Input Groups
+                        li 
+                          a(href='input-mask.html').lan-80 Input Mask
+                        li
+                          a(href='megaoptions.html').lan-81 Mega Options
+                    li
+                      a.submenu-title(href='javascript:void(0)')
+                        span.lan-82 Form Widgets
+                        span.sub-arrow
+                          i.fa.fa-angle-right
+                      ul.nav-sub-childmenu.submenu-content
+                        li
+                          a(href='datepicker.html').lan-83 Datepicker
+                        li
+                          a(href='touchspin.html').lan-84 Touchspin
+                        li
+                          a(href='select2.html').lan-85 Select2
+                        li
+                          a(href='switch.html').lan-86 Switch
+                        li
+                          a(href='typeahead.html').lan-87 Typeahead
+                        li
+                          a(href='clipboard.html').lan-88 Clipboard
+                    li
+                      a.submenu-title(href='javascript:void(0)')
+                        span.lan-89 Form layout
+                        span.sub-arrow
+                          i.fa.fa-angle-right
+                      ul.nav-sub-childmenu.submenu-content
+                        li
+                          a(href='form-wizard.html').lan-90 Form Wizard 1
+                        li
+                          a(href='form-wizard-two.html').lan-91 Form Wizard 2
+                        li
+                          a(href='two-factor.html').lan-92 Two Factor
+              li.main-submenu
+                  a.d-flex.sidebar-menu(href='javascript:void(0)')
+                    svg.stroke-icon
+                      use(href='../assets/svg/icon-sprite.svg#stroke-table')
+                    svg.fill-icon
+                      use(href='../assets/svg/icon-sprite.svg#fill-table')
+                    span.lan-93 Tables
+                    svg.arrow
+                      use(href='../assets/svg/icon-sprite.svg#arrow-right')
+                  ul.submenu-wrapper
+                    li
+                      a.submenu-title(href='javascript:void(0)')
+                        span.lan-94 Bootstrap Tables
+                        span.sub-arrow
+                          i.fa.fa-angle-right
+                      ul.nav-sub-childmenu.submenu-content
+                        li
+                          a(href='bootstrap-basic-table.html').lan-95 Basic Tables
+                        li
+                          a(href='table-components.html').lan-96 Table components
+                    li
+                      a.submenu-title(href='javascript:void(0)')
+                        span.lan-97 Data Tables
+                        span.sub-arrow
+                          i.fa.fa-angle-right
+                      ul.nav-sub-childmenu.submenu-content
+                        li
+                          a(href='datatable-basic-init.html').lan-98 Basic Init
+                        li 
+                          a(href="datatable-advance.html").lan-99 Advance Init 
+                        li
+                          a(href='datatable-API.html').lan-100 API
+                        li
+                          a(href='datatable-data-source.html').lan-101 Data Sources
+                        li
+                          a(href='datatable-ext-autofill.html').lan-102 Extensions  
+                    li
+                      a(href='jsgrid-table.html').lan-103 Js Grid Table  
+          li.sidebar-list
+            a.sidebar-link.sidebar-title(href='javascript:void(0)')
+              svg.stroke-icon
+                use(href='../assets/svg/icon-sprite.svg#stroke-chart')
+              svg.fill-icon
+                use(href='../assets/svg/icon-sprite.svg#fill-chart')
+              span.lan-104 Charts
+            ul.sidebar-submenu.custom-scrollbar
+              li.sidebar-head.lan-42 Components
+              li.main-submenu
+                  a.d-flex.sidebar-menu(href='javascript:void(0)')
+                    svg.stroke-icon
+                      use(href='../assets/svg/icon-sprite.svg#stroke-chartist')
+                    svg.fill-icon
+                      use(href='../assets/svg/icon-sprite.svg#fill-charts')
+                    span.lan-104 Charts
+                    svg.arrow
+                      use(href='../assets/svg/icon-sprite.svg#arrow-right')
+                  ul.submenu-wrapper
+                    li
+                      a(href='chart-apex.html').lan-105 Apex Chart
+                    li
+                      a(href='chart-google.html').lan-106 Google Chart
+                    li
+                      a(href='chart-sparkline.html').lan-107 Sparkline chart
+                    li
+                      a(href='chart-flot.html').lan-108 Flot Chart
+                    li
+                      a(href='chart-knob.html').lan-109 Knob Chart
+                    li
+                      a(href='chart-morris.html').lan-110 Morris Chart
+                    li
+                      a(href='chartjs.html').lan-111 Chatjs Chart
+                    li
+                      a(href='chartist.html').lan-112 Chartist Chart
+                    li
+                      a(href='chart-peity.html').lan-113 Peity Chart
+          li.sidebar-list
+            a.sidebar-link.sidebar-title(href='javascript:void(0)')
+              svg.stroke-icon
+                use(href='../assets/svg/icon-sprite.svg#stroke-editor')
+              svg.fill-icon 
+                use(href='../assets/svg/icon-sprite.svg#fill-editor')
+              span.lan-114 Apps
+            ul.sidebar-submenu.custom-scrollbar
+              li.sidebar-head Application
+              li.main-submenu
+                  a.d-flex.sidebar-menu(href='javascript:void(0)')
+                    svg.stroke-icon
+                      use(href='../assets/svg/icon-sprite.svg#stroke-project')
+                    svg.fill-icon
+                      use(href='../assets/svg/icon-sprite.svg#fill-project')
+                    span.lan-115 Project
+                    svg.arrow
+                      use(href='../assets/svg/icon-sprite.svg#arrow-right')
+                  ul.submenu-wrapper
+                    li
+                      a(href='project-details.html').lan-116 Project Details
+                    li
+                      a(href='project-list.html').lan-117 Project List
+                    li
+                      a(href='createnew.html').lan-118 Create new
+              li.main-submenu
+                  a.d-flex(href='file-manager.html')
+                    svg.stroke-icon
+                      use(href='../assets/svg/icon-sprite.svg#stroke-file')
+                    svg.fill-icon
+                      use(href='../assets/svg/icon-sprite.svg#fill-file')
+                    span.lan-119 File manager
+              li.main-submenu
+                  a.d-flex(href='kanban.html')
+                    svg.stroke-icon
+                      use(href='../assets/svg/icon-sprite.svg#stroke-board')
+                    svg.fill-icon
+                      use(href='../assets/svg/icon-sprite.svg#fill-board')
+                    span.lan-120 Kanban Board 
+              li.main-submenu
+                  a.d-flex.sidebar-menu(href='javascript:void(0)')
+                    svg.stroke-icon
+                      use(href='../assets/svg/icon-sprite.svg#stroke-ecommerce')
+                    svg.fill-icon
+                      use(href='../assets/svg/icon-sprite.svg#fill-ecommerce')
+                    span.lan-121 Ecommerce 
+                    svg.arrow
+                      use(href='../assets/svg/icon-sprite.svg#arrow-right') 
+                  ul.submenu-wrapper
+                    li
+                      a.submenu-title(href='javascript:void(0)')
+                        span.lan-122 Products
+                        span.sub-arrow
+                          i.fa.fa-angle-right
+                      ul.nav-sub-childmenu.submenu-content
+                        li
+                          a(href='add-products.html').lan-123 Add Product
+                        li
+                          a(href='product-grid.html').lan-124 Product Grid
+                        li
+                          a(href='products-list.html').lan-125 Products List
+                        li
+                          a(href='product-details.html').lan-126 Product Details
+                    li
+                      a(href='category.html').lan-127 Category
+                    li
+                      a.submenu-title(href='javascript:void(0)')
+                        span.lan-128 Seller
+                        span.sub-arrow
+                          i.fa.fa-angle-right
+                      ul.nav-sub-childmenu.submenu-content
+                        li
+                          a(href='seller-list.html').lan-129 Seller List
+                        li
+                          a(href='seller-details.html').lan-130 Seller Details
+                    li
+                      a.submenu-title(href='javascript:void(0)')
+                        span.lan-131 Orders
+                        span.sub-arrow
+                          i.fa.fa-angle-right
+                      ul.nav-sub-childmenu.submenu-content
+                        li
+                          a(href='order-history.html').lan-132 Order History
+                        li
+                          a(href='order-details.html').lan-133 Order Details
+                    li
+                      a.submenu-title(href='javascript:void(0)')
+                        span.lan-134 Invoices
+                        span.sub-arrow
+                          i.fa.fa-angle-right
+                      ul.nav-sub-childmenu.submenu-content
+                        li
+                          a(href='invoice-1.html').lan-135 Invoice-1
+                        li
+                          a(href='invoice-2.html').lan-136 Invoice-2
+                        li
+                          a(href='invoice-3.html').lan-137 Invoice-3
+                        li
+                          a(href='invoice-4.html').lan-138 Invoice-4
+                        li
+                          a(href='invoice-5.html').lan-139 Invoice-5
+                        li
+                          a(href='invoice-template.html').lan-140 Invoice-6              
+                    li
+                      a(href='cart.html').lan-141 Cart
+                    li
+                      a(href='wishlist.html').lan-142 Wishlist
+                    li
+                      a(href='checkout.html').lan-143 Checkout
+                    li
+                      a(href='manage-review.html').lan-144 Manage Review
+                    li
+                      a(href='settings.html').lan-145 Settings  
+              li.main-submenu
+                  a.d-flex(href='mail-box.html')
+                    svg.stroke-icon
+                      use(href='../assets/svg/icon-sprite.svg#stroke-file')
+                    svg.fill-icon
+                      use(href='../assets/svg/icon-sprite.svg#fill-file')
+                    span.lan-146 Mail-Box
+              li.main-submenu
+                  a.d-flex.sidebar-menu(href='javascript:void(0)')
+                    svg.stroke-icon
+                      use(href='../assets/svg/icon-sprite.svg#stroke-chat')
+                    svg.fill-icon
+                      use(href='../assets/svg/icon-sprite.svg#fill-chat')
+                    span.lan-147 Chat  
+                    svg.arrow
+                      use(href='../assets/svg/icon-sprite.svg#arrow-right')
+                  ul.submenu-wrapper
+                    li
+                      a(href='private-chat.html').lan-148 Private Chat
+                    li
+                      a(href='group-chat.html').lan-149 Group chat
+              li.main-submenu
+                  a.d-flex.sidebar-menu(href='javascript:void(0)')
+                    svg.stroke-icon
+                      use(href='../assets/svg/icon-sprite.svg#stroke-user')
+                    svg.fill-icon
+                      use(href='../assets/svg/icon-sprite.svg#fill-user')
+                    span.lan-150 Users  
+                    svg.arrow
+                      use(href='../assets/svg/icon-sprite.svg#arrow-right')
+                  ul.submenu-wrapper
+                    li
+                      a(href='user-profile.html').lan-151 Users Profile
+                    li
+                      a(href='add-user.html').lan-152 Add User
+                    li
+                      a(href='user-list.html').lan-153 User List
+                    li
+                      a(href='user-cards.html').lan-154 User Cards
+                    li
+                      a(href='roles-permission.html').lan-155 Roles & Permission 
+              li.main-submenu
+                  a.d-flex.sidebar-menu(href='javascript:void(0)')
+                    svg.stroke-icon
+                      use(href='../assets/svg/icon-sprite.svg#stroke-user')
+                    svg.fill-icon
+                      use(href='../assets/svg/icon-sprite.svg#fill-user')
+                    span.lan-156 Reports  
+                    svg.arrow
+                      use(href='../assets/svg/icon-sprite.svg#arrow-right')
+                  ul.submenu-wrapper
+                    li
+                      a(href='product-report.html').lan-122 Products
+                    li
+                      a(href='sales-report.html').lan-157 Sales
+                    li
+                      a(href='sales-return.html').lan-158 Sales Return
+                    li
+                      a(href='customer-order.html').lan-159 Customer Order        
+              li.main-submenu
+                  a.d-flex(href='bookmark.html')
+                    svg.stroke-icon
+                      use(href='../assets/svg/icon-sprite.svg#stroke-bookmark')
+                    svg.fill-icon
+                      use(href='../assets/svg/icon-sprite.svg#fill-bookmark')
+                    span.lan-160 Bookmarks
+              li.main-submenu
+                  a.d-flex(href='contacts.html')
+                    svg.stroke-icon
+                      use(href='../assets/svg/icon-sprite.svg#stroke-contact')
+                    svg.fill-icon
+                      use(href='../assets/svg/icon-sprite.svg#fill-contact')
+                    span.lan-161 Contacts
+              li.main-submenu
+                  a.d-flex(href='task.html')
+                    svg.stroke-icon
+                      use(href='../assets/svg/icon-sprite.svg#stroke-task')
+                    svg.fill-icon
+                      use(href='../assets/svg/icon-sprite.svg#fill-task')
+                    span.lan-162 Tasks
+              li.main-submenu
+                  a.d-flex(href='calendar.html')
+                    svg.stroke-icon
+                      use(href='../assets/svg/icon-sprite.svg#stroke-calendar')
+                    svg.fill-icon
+                      use(href='../assets/svg/icon-sprite.svg#fill-calender')
+                    span.lan-163 Calendar
+              li.main-submenu
+                  a.d-flex(href='social-app.html')
+                    svg.stroke-icon
+                      use(href='../assets/svg/icon-sprite.svg#stroke-social')
+                    svg.fill-icon
+                      use(href='../assets/svg/icon-sprite.svg#fill-social')
+                    span.lan-164 Social App
+              li.main-submenu
+                  a.d-flex(href='to-do.html')
+                    svg.stroke-icon
+                      use(href='../assets/svg/icon-sprite.svg#stroke-to-do')
+                    svg.fill-icon
+                      use(href='../assets/svg/icon-sprite.svg#fill-to-do')
+                    span.lan-165 To-Do
+              li.main-submenu
+                  a.d-flex(href='search-result.html')
+                    svg.stroke-icon
+                      use(href='../assets/svg/icon-sprite.svg#stroke-search')
+                    svg.fill-icon
+                      use(href='../assets/svg/icon-sprite.svg#fill-search')
+                    span.lan-166 Search Result
+          li.sidebar-list
+            a.sidebar-link.sidebar-title(href='javascript:void(0)')
+              svg.stroke-icon
+                use(href='../assets/svg/icon-sprite.svg#stroke-grid')
+              svg.fill-icon
+                use(href='../assets/svg/icon-sprite.svg#fill-grid')
+              span.lan-167 Pages
+            ul.sidebar-submenu.custom-scrollbar
+              li.sidebar-head.lan-168 Miscellaneous
+              li.main-submenu
+                  a.d-flex(href='landing-page.html')
+                    svg.stroke-icon
+                      use(href='../assets/svg/icon-sprite.svg#stroke-landing-page')
+                    svg.fill-icon
+                      use(href='../assets/svg/icon-sprite.svg#fill-landing-page')
+                    span.lan-169 Landing page
+              li.main-submenu
+                  a.d-flex(href='sample-page.html')
+                    svg.stroke-icon
+                      use(href='../assets/svg/icon-sprite.svg#stroke-sample-page')
+                    svg.fill-icon
+                      use(href='../assets/svg/icon-sprite.svg#fill-sample-page')
+                    span.lan-170 Sample page
+              li.main-submenu
+                  a.d-flex(href='internationalization.html')
+                    svg.stroke-icon
+                      use(href='../assets/svg/icon-sprite.svg#stroke-internationalization')
+                    svg.fill-icon
+                      use(href='../assets/svg/icon-sprite.svg#fill-internationalization')
+                    span.lan-171 Internationalization
+              li.main-submenu
+                  a.d-flex(href='../starter-kit/index.html')
+                    svg.stroke-icon
+                      use(href='../assets/svg/icon-sprite.svg#stroke-starter-kit')
+                    svg.fill-icon
+                      use(href='../assets/svg/icon-sprite.svg#fill-starter-kit')
+                    span.lan-172 Starter kit
+              li.main-submenu
+                  a.d-flex.sidebar-menu(href='javascript:void(0)')
+                    svg.stroke-icon
+                      use(href='../assets/svg/icon-sprite.svg#stroke-others')
+                    svg.fill-icon
+                      use(href='../assets/svg/icon-sprite.svg#fill-others')
+                    span.lan-173 Other
+                    svg.arrow
+                      use(href='../assets/svg/icon-sprite.svg#arrow-right')
+                  ul.submenu-wrapper
+                    li
+                      a.submenu-title(href='javascript:void(0)')
+                        span.lan-174 Error Page
+                        span.sub-arrow
+                          i.fa.fa-angle-right
+                      ul.nav-sub-childmenu.submenu-content
+                        li
+                          a(href='error-403.html').lan-175 Error 403
+                        li
+                          a(href='error-404.html').lan-176 Error 404
+                        li
+                          a(href='error-500.html').lan-177 Error 500
+                    li
+                      a.submenu-title(href='javascript:void(0)')
+                        span.lan-178 Authentication
+                        span.sub-arrow
+                          i.fa.fa-angle-right
+                      ul.nav-sub-childmenu.submenu-content
+                        li
+                          a(href='login.html' target="_blank").lan-179 Login Simple
+                        li
+                          a(href='login_one.html' target="_blank").lan-180 Login With Bg Image
+                        li
+                          a(href='login_two.html' target="_blank").lan-181 Login With Image Two
+                        li
+                          a(href='login_three.html' target="_blank").lan-182 Login With Image Three
+                        li
+                          a(href='login_with_tooltip.html' target="_blank").lan-183 Login With Tooltip
+                        li
+                          a(href='login_with_sweetalert.html' target="_blank").lan-184 Login With Sweetalret                               
+                        li
+                          a(href='register_simple.html' target="_blank").lan-185 Resgiter Simple
+                        li
+                          a(href='register_with_bg_image.html' target="_blank").lan-186 Resgister With Bg Image
+                        li
+                          a(href='register_with_image_two.html' target="_blank").lan-187 Resgister With Image Two
+                        li
+                          a(href='register_wizard.html' target="_blank").lan-188 Register wizard
+                        li
+                          a(href='account-restricted.html' target="_blank").lan-189 Account Restricted
+                        li
+                          a(href='unlock.html').lan-190 Unlock User
+                        li
+                          a(href='forgot-password.html').lan-191 Forgot Password
+                        li
+                          a(href='reset-password.html').lan-192 Reset Password
+                        li
+                          a(href='maintenance.html').lan-193 Maintenance  
+                    li
+                      a.submenu-title(href='javascript:void(0)')
+                        span.lan-194 Coming Soon
+                        span.sub-arrow
+                          i.fa.fa-angle-right
+                      ul.nav-sub-childmenu.submenu-content
+                        li
+                          a(href='comingsoon.html').lan-195 Coming Simple
+                        li
+                          a(href='comingsoon-bg-video.html').lan-196 Coming with Bg video
+                        li
+                          a(href='comingsoon-bg-img.html').lan-197 Coming with Bg Image
+                    li
+                      a.submenu-title(href='javascript:void(0)')
+                        span.lan-198 Email templates
+                        span.sub-arrow
+                          i.fa.fa-angle-right
+                      ul.nav-sub-childmenu.submenu-content
+                        li
+                          a(href='basic-template.html').lan-199
+                            | Basic Email
+                        li
+                          a(href='email-header.html').lan-200
+                            | Basic With Header
+                        li
+                          a(href='template-email.html').lan-201
+                            | Ecomerce Template
+                        li
+                          a(href='template-email-2.html').lan-202
+                            | Email Template 2
+                        li
+                          a(href='ecommerce-templates.html').lan-203
+                            | Ecommerce Email
+                        li
+                          a(href='email-order-success.html').lan-204
+                            | Order Success
+              li.main-submenu
+                  a.d-flex.sidebar-menu(href='javascript:void(0)')
+                    svg.stroke-icon
+                      use(href='../assets/svg/icon-sprite.svg#stroke-gallery')
+                    svg.fill-icon
+                      use(href='../assets/svg/icon-sprite.svg#fill-gallery')
+                    span.lan-205 Gallery
+                    svg.arrow
+                      use(href='../assets/svg/icon-sprite.svg#arrow-right') 
+                  ul.submenu-wrapper
+                    li
+                      a(href='gallery.html').lan-206 Gallery Grid
+                    li
+                      a(href='gallery-with-description.html').lan-207 Gallery Grid Desc
+                    li
+                      a(href='gallery-masonry.html').lan-208 Masonry Gallery
+                    li
+                      a(href='masonry-gallery-with-disc.html').lan-209 Masonry with Desc
+                    li
+                      a(href='hover-effects.html').lan-210 Hover Effects
+                    li
+                      a(href='gallery-with-placeholder.html').lan-211 Gallery Placeholder  
+              li.main-submenu
+                  a.d-flex.sidebar-menu(href='javascript:void(0)')
+                    svg.stroke-icon
+                      use(href='../assets/svg/icon-sprite.svg#stroke-blog')
+                    svg.fill-icon
+                      use(href='../assets/svg/icon-sprite.svg#fill-blog')
+                    span.lan-212 Blog
+                    svg.arrow
+                      use(href='../assets/svg/icon-sprite.svg#arrow-right') 
+                  ul.submenu-wrapper
+                    li
+                      a(href='blog.html').lan-212 Blog 
+                    li
+                      a(href='blog-details.html').lan-213 Blog Details
+                    li
+                      a(href='add-blog.html').lan-214 Add Blog
+              li.main-submenu
+                  a.d-flex(href='faq.html')
+                    svg.stroke-icon
+                      use(href='../assets/svg/icon-sprite.svg#stroke-faq')
+                    svg.fill-icon
+                      use(href='../assets/svg/icon-sprite.svg#fill-faq')
+                    span.lan-215 Faq
+              li.main-submenu
+                  a.d-flex.sidebar-menu(href='javascript:void(0)')
+                    svg.stroke-icon
+                      use(href='../assets/svg/icon-sprite.svg#stroke-job-search')
+                    svg.fill-icon
+                      use(href='../assets/svg/icon-sprite.svg#fill-job-search')
+                    span.lan-216 Job Search
+                    svg.arrow
+                      use(href='../assets/svg/icon-sprite.svg#arrow-right') 
+                  ul.submenu-wrapper
+                    li
+                      a(href='job-cards-view.html').lan-217 Cards view
+                    li
+                      a(href='job-list-view.html').lan-218 List View
+                    li
+                      a(href='job-details.html').lan-219 Job Details
+                    li
+                      a(href='candidates.html').lan-220 Candidates
+                    li
+                      a(href='companies.html').lan-221 Companies  
+                    li
+                      a(href='job-apply.html').lan-222 Apply
+              li.main-submenu
+                  a.d-flex.sidebar-menu(href='javascript:void(0)')
+                    svg.stroke-icon
+                      use(href='../assets/svg/icon-sprite.svg#stroke-learning')
+                    svg.fill-icon
+                      use(href='../assets/svg/icon-sprite.svg#fill-learning')
+                    span.lan-223 Courses
+                    svg.arrow
+                      use(href='../assets/svg/icon-sprite.svg#arrow-right') 
+                  ul.submenu-wrapper
+                    li
+                      a(href='course-list-view.html').lan-224 Course List
+                    li
+                      a(href='course-details.html').lan-225 Course Details
+              li.main-submenu
+                  a.d-flex.sidebar-menu(href='javascript:void(0)')
+                    svg.stroke-icon
+                      use(href='../assets/svg/icon-sprite.svg#stroke-maps')
+                    svg.fill-icon
+                      use(href='../assets/svg/icon-sprite.svg#fill-maps')
+                    span.lan-226 Maps
+                    svg.arrow
+                      use(href='../assets/svg/icon-sprite.svg#arrow-right') 
+                  ul.submenu-wrapper
+                    li
+                      a(href='map-js.html').lan-227 Maps JS
+                    li
+                      a(href='vector-map.html').lan-228 Vector Maps
+              li.main-submenu
+                  a.d-flex.sidebar-menu(href='javascript:void(0)')
+                    svg.stroke-icon
+                      use(href='../assets/svg/icon-sprite.svg#stroke-editors')
+                    svg.fill-icon
+                      use(href='../assets/svg/icon-sprite.svg#fill-editors')
+                    span.lan-229 Editors
+                    svg.arrow
+                      use(href='../assets/svg/icon-sprite.svg#arrow-right') 
+                  ul.submenu-wrapper
+                    li
+                      a(href='quilleditor.html').lan-230 Quill Editor
+                    li
+                      a(href='ckeditor.html').lan-231 CK editor
+                    li
+                      a(href='ace-code-editor.html').lan-232 ACE code editor 
+              li.main-submenu
+                  a.d-flex(href='knowledgebase.html')
+                    svg.stroke-icon
+                      use(href='../assets/svg/icon-sprite.svg#stroke-knowledgebase')
+                    svg.fill-icon
+                      use(href='../assets/svg/icon-sprite.svg#fill-knowledgebase')
+                    span.lan-233 Knowledgebase
+              li.main-submenu
+                  a.d-flex(href='support-ticket.html')
+                    svg.stroke-icon
+                      use(href='../assets/svg/icon-sprite.svg#stroke-support-tickets')
+                    svg.fill-icon
+                      use(href='../assets/svg/icon-sprite.svg#fill-support-tickets')
+                    span.lan-234 Support Ticket
+
+
+// Page Sidebar Ends
+

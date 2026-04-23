@@ -1,0 +1,941 @@
+- var page_Title = 'General Dashboard';
+- var full_calendar         = true;
+- var theme_customizer      = true;
+- var apex                  = true;
+- var sidebar               = true;
+- var scrollbar             = true;
+- var notify                = true;
+- var counter               = true;
+- var animate               = true;
+- var typeahead             = true; 
+- var typeahead_search      = true;
+- var select_dt             = true;
+- var customcard            = true;
+- var datatable             = true; 
+- var page_datatable        = true; 
+- var swiper                = true;
+- var custom_swiper         = true;
+- var dashboard_default     = true;  
+- var slick                 = true; 
+- var header_slider         = true;
+- var prism                 = true;
+- var clock                 = true;
+- var height_equal          = true;
+- var tooltip               = true;
+- var clipboard             = true;
+
+doctype html
+html(lang='en')
+  include ../../components/header-files
+  body
+    include ../../components/loader
+    include ../../components/taptop
+    // page-wrapper Start
+    #pageWrapper.page-wrapper.compact-wrapper
+      include ../../components/header 
+      // Page Body Start
+      .page-body-wrapper
+        include ../../components/sidebar
+        .page-body
+          .container-fluid         
+            .page-title
+              .row
+                .col-xl-6.col-sm-6.d-none.d-xl-block
+                  include ../../components/sub-header
+                .col-xl-6.col-md-12.col-lg-12.col-sm-12
+                  ol.breadcrumb
+                    li.breadcrumb-item
+                      a(href='index.html')                                        
+                        svg.stroke-icon
+                          use(href='../assets/svg/icon-sprite.svg#breadcrumb-home')
+                    li.breadcrumb-item Dashboard
+                    li.breadcrumb-item.active Shopping Place    
+                    li.download-icon 
+                       a(href="")
+                        svg.stroke-icon
+                          use(href='../assets/svg/icon-sprite.svg#stroke-download')
+                        svg
+                          use(href='../assets/svg/icon-sprite.svg#fill-download')   
+                    li.download             
+                      button.dropdown-toggle(type='button', data-bs-toggle='dropdown', aria-expanded='false')
+                        | Last 7 Days
+                      .dropdown-menu
+                          a.dropdown-item(href='#!') 7 Days  
+                          a.dropdown-item(href='#!') This week    
+                          a.dropdown-item(href='#!') Last week
+          // Container-fluid starts
+          .container-fluid.default-dashboard 
+              .row.widget-grid 
+                .col-xl-3.col-lg-5.col-md-4
+                  .card.new-userchart
+                    .card-header.card-no-border   
+                      .header-top
+                        h4 New User
+                        .card-header-right
+                          ul.list-unstyled.card-option
+                            li
+                              div
+                                i.icon-settings.fa-spin
+                            li
+                              i.view-html.fa.fa-code
+                            li
+                              i.icofont.icofont-maximize.full-card
+                            li
+                              i.icofont.icofont-minus.minimize-card
+                            li
+                              i.icofont.icofont-refresh.reload-card
+                            li
+                              i.icofont.icofont-error.close-card  
+                    .card-body  
+                      #salesStatsRadialChart        
+                      .chart-box
+                        .row
+                          .col-6.col-100
+                            .chart  
+                              .user-chart
+                                #total-project
+                              .chart-detail
+                                h5 25%
+                                span Weekly
+                          .col-6.col-100 
+                            .chart-content
+                                h2.mb-1
+                                  |
+                                  span.counter(data-target='3584') 0
+                                span Total New User
+                      .code-box-copy
+                        button.code-box-copy__btn.btn-clipboard(data-clipboard-target='#use-country')
+                          i.icofont.icofont-copy-alt
+                        pre.custom-scrollbar
+                          code.language-html#use-country
+                           |&lt;div class="card new-userchart"&gt;
+                           |  &lt;div class="card-header pb-0 card-no-border"&gt;
+                           |    &lt;div class="header-top"&gt;
+                           |      &lt;h4&gt;New User&lt;/h5&gt;
+                           |      &lt;div class="card-header-right"&gt;
+                           |        &lt;ul class="list-unstyled card-option"&gt;
+                           |          &lt;li&gt;
+                           |            &lt;div&gt;&lt;i class="icon-settings fa-spin"&gt;&lt;/i&gt;&lt;/div&gt;
+                           |          &lt;/li&gt;
+                           |            &lt;li&gt;&lt;i class="view-html fa fa-code"&gt;&lt;/i&gt;&lt;/li&gt;
+                           |          &lt;li&gt;&lt;i class="icofont icofont-maximize full-card"&gt;&lt;/i&gt;&lt;/li&gt;
+                           |          &lt;li&gt;&lt;i class="icofont icofont-minus minimize-card"&gt;&lt;/i&gt;&lt;/li&gt;
+                           |          &lt;li&gt;&lt;i class="icofont icofont-refresh reload-card"&gt;&lt;/i&gt;&lt;/li&gt;
+                           |          &lt;li&gt;&lt;i class="icofont icofont-error close-card"&gt; &lt;/i&gt;&lt;/li&gt;
+                           |        &lt;/ul&gt;
+                           |      &lt;/div&gt;
+                           |    &lt;/div&gt;
+                           |  &lt;/div&gt;
+                           |  &lt;div class="card-body"&gt;
+                           |    &lt;div id="salesStatsRadialChart"&gt; &lt;/div&gt;
+                           |    &lt;div class="chart-box"&gt;
+                           |      &lt;div class="row"&gt;
+                           |        &lt;div class="col-6 col-100"&gt;
+                           |           &lt;div class="chart"&gt;
+                           |             &lt;div class="user-chart"&gt;
+                           |               &lt;div id="total-project"&gt;&lt;/div&gt;
+                           |             &lt;/div&gt;
+                           |             &lt;div class="chart-detail"&gt;
+                           |               &lt;h5&gt;25%&lt;/h5&gt;&lt;span&gt;Weekly&lt;/span&gt;
+                           |             &lt;/div&gt;
+                           |           &lt;/div&gt;
+                           |         &lt;/div&gt;
+                           |         &lt;div class="col-6 col-100"&gt;
+                           |           &lt;div class="chart-content"&gt;
+                           |             &lt;h2 class="mb-1"&gt;&lt;span class="counter" data-target="3584"&gt;0&lt;/span&gt;&lt;/h2&gt;&lt;span&gt;Total New User&lt;/span&gt;
+                           |           &lt;/div&gt;
+                           |         &lt;/div&gt;
+                           |       &lt;/div&gt;
+                           |     &lt;/div&gt;                    
+                .col-xl-6.col-lg-7.col-md-8
+                  .card
+                    .card-header.card-no-border.pb-0
+                      .header-top 
+                        h4 User Information
+                        .card-header-right-icon
+                          .dropdown.icon-dropdown
+                            button#userButton.btn.dropdown-toggle(type='button', data-bs-toggle='dropdown', aria-expanded='false')
+                              i.icon-more-alt
+                            .dropdown-menu.dropdown-menu-end(aria-labelledby='userButton')
+                              a.dropdown-item(href='#!') Last 30 Days
+                              a.dropdown-item(href='#!') This Month
+                              a.dropdown-item(href='#!') Last Month  
+                    .card-body.user-information-table.px-0
+                      .recent-table.table-responsive.custom-scrollbar
+                        table.table#user-info
+                          thead 
+                            tr
+                              th
+                              th Name
+                              th Email Address 
+                              th Status
+                              th Role
+                              th Action
+                          tbody 
+                            tr
+                              td 
+                              td
+                                .d-flex
+                                  img.img-fluid.img-40.me-2(src='../assets/images/dashboard/user/user1.jpg',alt='user')
+                                  .img-content-box
+                                    a(href="products-list.html").f-w-500 David Owen
+                                    p.mb-0.f-light Africa
+                              td
+                                span david@gmail.com
+                              td.text-prime Invited  
+                              td Interface Designer
+                              td
+                                .card-header-right-icon
+                                  .dropdown.icon-dropdown
+                                    button#dropButton.btn.dropdown-toggle(type='button', data-bs-toggle='dropdown', aria-expanded='false')
+                                      i.icon-more-alt
+                                    .dropdown-menu.dropdown-menu-end(aria-labelledby='dropButton')
+                                      a.dropdown-item(href='#!') Edit
+                                      a.dropdown-item(href='#!') Delete
+                                      a.dropdown-item(href='#!') Share
+                            tr
+                              td
+                              td
+                                .d-flex
+                                  img.img-fluid.img-40.me-2(src='../assets/images/dashboard/user/user2.jpg',alt='user')
+                                  .img-content-box
+                                    a(href="products-list.html").f-w-500 Sarah Smith
+                                    p.mb-0.f-light Australia
+                                
+                              td
+                                span sarah@gmail.com
+                              td.text-second Active 
+                              td Product Owner
+                              td
+                                .card-header-right-icon
+                                  .dropdown.icon-dropdown
+                                    button#usersButton.btn.dropdown-toggle(type='button', data-bs-toggle='dropdown', aria-expanded='false')
+                                      i.icon-more-alt
+                                    .dropdown-menu.dropdown-menu-end(aria-labelledby='usersButton')
+                                      a.dropdown-item(href='#!') Edit
+                                      a.dropdown-item(href='#!') Delete
+                                      a.dropdown-item(href='#!') Share
+                            tr
+                              td 
+                              td
+                                .d-flex
+                                  img.img-fluid.img-40.me-2(src='../assets/images/dashboard/user/user3.jpg',alt='user')
+                                  .img-content-box
+                                    a(href="products-list.html").f-w-500 Anna Lewis
+                                    p.mb-0.f-light Canada
+                              td
+                                span anna@gmail.com
+                              td.text-prime Invited  
+                              td Project Manager
+                              td
+                                .card-header-right-icon
+                                  .dropdown.icon-dropdown
+                                    button#customButton.btn.dropdown-toggle(type='button', data-bs-toggle='dropdown', aria-expanded='false')
+                                      i.icon-more-alt
+                                    .dropdown-menu.dropdown-menu-end(aria-labelledby='customButton')
+                                      a.dropdown-item(href='#!') Edit
+                                      a.dropdown-item(href='#!') Delete
+                                      a.dropdown-item(href='#!') Share
+                            tr
+                              td 
+                              td
+                                .d-flex
+                                  img.img-fluid.img-40.me-2(src='../assets/images/dashboard/user/user4.jpg',alt='user')
+                                  .img-content-box
+                                    a(href="products-list.html").f-w-500 Lana Gibbs
+                                    p.mb-0.f-light Netherlands
+                              td
+                                span lana@gmail.com
+                              td.text-second Active  
+                              td Backend Engineer
+                              td
+                                .card-header-right-icon
+                                  .dropdown.icon-dropdown
+                                    button#iconsButton.btn.dropdown-toggle(type='button', data-bs-toggle='dropdown', aria-expanded='false')
+                                      i.icon-more-alt
+                                    .dropdown-menu.dropdown-menu-end(aria-labelledby='iconsButton')
+                                      a.dropdown-item(href='#!') Edit
+                                      a.dropdown-item(href='#!') Delete
+                                      a.dropdown-item(href='#!') Share
+                            tr
+                              td 
+                              td
+                                .d-flex
+                                  img.img-fluid.img-40.me-2(src='../assets/images/dashboard/user/user5.jpg',alt='user')
+                                  .img-content-box
+                                    a(href="products-list.html").f-w-500 Marco Testi
+                                    p.mb-0.f-light Brazil
+                              td
+                                span marco@gmail.com
+                              td.text-prime Invited  
+                              td Project Cordinator
+                              td
+                                .card-header-right-icon
+                                  .dropdown.icon-dropdown
+                                    button#headerButton.btn.dropdown-toggle(type='button', data-bs-toggle='dropdown', aria-expanded='false')
+                                      i.icon-more-alt
+                                    .dropdown-menu.dropdown-menu-end(aria-labelledby='headerButton')
+                                      a.dropdown-item(href='#!') Edit 
+                                      a.dropdown-item(href='#!') Delete 
+                                      a.dropdown-item(href='#!') Share 
+                            tr
+                              td 
+                              td
+                                .d-flex
+                                  img.img-fluid.img-40.me-2(src='../assets/images/dashboard/user/user6.jpg',alt='user')
+                                  .img-content-box
+                                    a(href="products-list.html").f-w-500 Aiony Haust
+                                    p.mb-0.f-light Australia
+                              td
+                                span aiony78@gmail.com
+                              td.text-second Active  
+                              td Scrum Master
+                              td
+                                .card-header-right-icon
+                                  .dropdown.icon-dropdown
+                                    button#headerrightButton.btn.dropdown-toggle(type='button', data-bs-toggle='dropdown', aria-expanded='false')
+                                      i.icon-more-alt
+                                    .dropdown-menu.dropdown-menu-end(aria-labelledby='headerrightButton')
+                                      a.dropdown-item(href='#!') Edit 
+                                      a.dropdown-item(href='#!') Delete
+                                      a.dropdown-item(href='#!') Share
+                            tr
+                              td 
+                              td
+                                .d-flex
+                                  img.img-fluid.img-40.me-2(src='../assets/images/dashboard/user/user7.jpg',alt='user')
+                                  .img-content-box
+                                    a(href="products-list.html").f-w-500 Elise Wilcox
+                                    p.mb-0.f-light Australia
+                              td
+                                span elisewil@gmail.com
+                              td.text-second Active  
+                              td Portfolio Manager
+                              td
+                                .card-header-right-icon
+                                  .dropdown.icon-dropdown
+                                    button#cardButton.btn.dropdown-toggle(type='button', data-bs-toggle='dropdown', aria-expanded='false')
+                                      i.icon-more-alt
+                                    .dropdown-menu.dropdown-menu-end(aria-labelledby='cardButton')
+                                      a.dropdown-item(href='#!') Edit
+                                      a.dropdown-item(href='#!') Delete
+                                      a.dropdown-item(href='#!') Share
+                            tr
+                              td 
+                              td
+                                .d-flex
+                                  img.img-fluid.img-40.me-2(src='../assets/images/dashboard/user/user8.jpg',alt='user')
+                                  .img-content-box
+                                    a(href="products-list.html").f-w-500 Carly Clark
+                                    p.mb-0.f-light Bangalore
+                              td
+                                span carly@gmail.com
+                              td.text-second Active  
+                              td Software Engineer
+                              td
+                                .card-header-right-icon
+                                  .dropdown.icon-dropdown
+                                    button#dropdownButton.btn.dropdown-toggle(type='button', data-bs-toggle='dropdown', aria-expanded='false')
+                                      i.icon-more-alt
+                                    .dropdown-menu.dropdown-menu-end(aria-labelledby='dropdownButton')
+                                      a.dropdown-item(href='#!') Edit        
+                                      a.dropdown-item(href='#!') Delete
+                                      a.dropdown-item(href='#!') Share
+                .col-xl-3.col-lg-6.od-xl-2.col-md-6
+                  .row     
+                    .col-12 
+                      .card.revenues-box 
+                        .card-header.pb-0.card-no-border 
+                          .header-top 
+                            .revenue-box 
+                              h4 revenue    
+                              .revenues-price
+                                h2 $4,875
+                                p
+                                  span 36.28%
+                                  svg
+                                    use(href='../assets/svg/icon-sprite.svg#arrow-down')
+                            .customers
+                              ul 
+                                li.d-inline-block(data-bs-toggle='tooltip', href="index.html" data-bs-placement='top', data-bs-title='Liam Liu')
+                                  a(href="user-profile.html")
+                                    img.img-fluid.rounded-circle(src="../assets/images/dashboard/user/user-customer.jpg", alt="") 
+                                li.d-inline-block(data-bs-toggle='tooltip', data-bs-placement='top', data-bs-title='Axel Beard')
+                                  a(href="user-profile.html")
+                                    img.img-fluid.rounded-circle(src="../assets/images/dashboard/user/user-customer1.jpg", alt="") 
+                                li.d-inline-block(data-bs-toggle='tooltip', data-bs-placement='top', data-bs-title='26+ More')
+                                  .light-card 
+                                    span.f-w-700 26+    
+                        .card-body.pb-0.px-0
+                          #revenue-chart
+                    .col-12
+                      .card.review  
+                        .card-header.card-no-border
+                          .header-top 
+                            h4 Review 
+                            .card-header-right
+                              ul.list-unstyled.card-option
+                                li
+                                  div
+                                    i.icon-settings.fa-spin
+                                li
+                                  i.view-html.fa.fa-code
+                                li
+                                  i.icofont.icofont-maximize.full-card
+                                li
+                                  i.icofont.icofont-minus.minimize-card
+                                li
+                                  i.icofont.icofont-refresh.reload-card
+                                li
+                                  i.icofont.icofont-error.close-card
+                        .card-body.pt-0.z-0
+                          .task-box
+                            .swiper.review-slider
+                              .swiper-pagination
+                              .swiper-wrapper
+                                .swiper-slide   
+                                  .task-box
+                                    .common-space
+                                      p “The way y’all listen to your customers while also prioritizing product enhancements shoould be the gold standard.
+                                      div.rating 
+                                        i.fa-solid.fa-star.txt-warning
+                                        i.fa-solid.fa-star.txt-warning
+                                        i.fa-solid.fa-star.txt-warning
+                                        i.fa-solid.fa-star.txt-warning
+                                        i.fa-solid.fa-star.txt-warning        
+                                      h6 John Connor
+                                      img.img-fluid(src="../assets/images/dashboard/quotes.png", alt="")
+                                .swiper-slide   
+                                  .task-box
+                                    .common-space
+                                      p Fantastic experience! The goods beyond my expectations, and the service was outstanding. It was pre.custom-scrollbarcisely as stated.
+                                      div.rating 
+                                        i.fa-solid.fa-star.txt-warning
+                                        i.fa-solid.fa-star.txt-warning
+                                        i.fa-solid.fa-star.txt-warning
+                                        i.fa-regular.fa-star.txt-warning
+                                        i.fa-regular.fa-star.txt-warning
+                                      h6 Emma Bunton
+                                      img.img-fluid(src="../assets/images/dashboard/quotes.png", alt="")
+                                .swiper-slide   
+                                  .task-box
+                                    .common-space
+                                      p I'm really pleased with what I bought! The thing functions flawlessly and is of excellent quality. The package was safe.
+                                      div.rating 
+                                        i.fa-solid.fa-star.txt-warning
+                                        i.fa-solid.fa-star.txt-warning
+                                        i.fa-solid.fa-star.txt-warning
+                                        i.fa-solid.fa-star.txt-warning
+                                        i.fa-regular.fa-star.txt-warning        
+                                      h6 David Beckham
+                                      img.img-fluid(src="../assets/images/dashboard/quotes.png", alt="")
+                            .code-box-copy
+                                button.code-box-copy__btn.btn-clipboard(data-clipboard-target='#review-code')
+                                  i.icofont.icofont-copy-alt
+                                pre.custom-scrollbar
+                                  code.language-html#review-code  
+                                    |&lt;div class="card review"&gt;
+                                    |  &lt;div class="card-header card-no-border pb-0"&gt;
+                                    |    &lt;div class="header-top"&gt;
+                                    |      &lt;h4 class="mb-3"&gt;Review &lt;/h5&gt;
+                                    |      &lt;div class="card-header-right"&gt;
+                                    |        &lt;ul class="list-unstyled card-option"&gt;
+                                    |          &lt;li&gt;
+                                    |            &lt;div&gt;&lt;i class="icon-settings fa-spin"&gt;&lt;/i&gt;&lt;/div&gt;
+                                    |          &lt;/li&gt;
+                                    |          &lt;li&gt;&lt;i class="view-html fa fa-code"&gt;&lt;/i&gt;&lt;/li&gt;
+                                    |          &lt;li&gt;&lt;i class="icofont icofont-maximize full-card"&gt;&lt;/i&gt;&lt;/li&gt;
+                                    |          &lt;li&gt;&lt;i class="icofont icofont-minus minimize-card"&gt;&lt;/i&gt;&lt;/li&gt;
+                                    |          &lt;li&gt;&lt;i class="icofont icofont-refresh reload-card"&gt;&lt;/i&gt;&lt;/li&gt;
+                                    |          &lt;li&gt;&lt;i class="icofont icofont-error close-card"&gt;&lt;/i&gt;&lt;/li&gt;
+                                    |         &lt;/ul&gt;
+                                    |        &lt;/div&gt;
+                                    |      &lt;/div&gt;
+                                    |    &lt;/div&gt;
+                                    |    &lt;div class="card-body pt-0 z-0"&gt;
+                                    |      &lt;div class="task-box"&gt;
+                                    |        &lt;div class="swiper review-slider"&gt;
+                                    |          &lt;div class="swiper-wrapper"&gt;
+                                    |            &lt;div class="swiper-slide"&gt;
+                                    |              &lt;div class="task-box"&gt;
+                                    |                &lt;div class="common-space"&gt;
+                                    |                  &lt;p&gt;&ldquo;The way y&rsquo;all listen to your customers while also prioritizing product enhancements shoould be the gold standard.&lt;/p&gt;
+                                    |                  &lt;div class="rating"&gt; &lt;i class="fa-solid fa-star txt-warning"&gt;&lt;/i&gt;&lt;i class="fa-solid fa-star txt-warning"&gt;&lt;/i&gt;&lt;i class="fa-solid fa-star txt-warning"&gt;&lt;/i&gt;&lt;i class="fa-solid fa-star txt-warning"&gt;&lt;/i&gt;&lt;i class="fa-solid fa-star txt-warning"&gt; &lt;/i&gt;&lt;/div&gt;
+                                    |                  &lt;h6&gt;John Connor&lt;/h6&gt;&lt;img class="img-fluid" src="../assets/images/dashboard/quotes.png" alt=""&gt;
+                                    |                &lt;/div&gt;
+                                    |              &lt;/div&gt;
+                                    |            &lt;/div&gt;
+                                    |            &lt;div class="swiper-slide"&gt;
+                                    |              &lt;div class="task-box"&gt;
+                                    |                &lt;div class="common-space"&gt;
+                                    |                  &lt;p&gt;Fantastic experience! The goods beyond my expectations, and the service was outstanding. It was pre.custom-scrollbarcisely as stated.&lt;/p&gt;
+                                    |                  &lt;div class="rating"&gt; &lt;i class="fa-solid fa-star txt-warning"&gt;&lt;/i&gt;&lt;i class="fa-solid fa-star txt-warning"&gt;&lt;/i&gt;&lt;i class="fa-solid fa-star txt-warning"&gt;&lt;/i&gt;&lt;i class="fa-regular fa-star txt-warning"&gt;&lt;/i&gt;&lt;i class="fa-regular fa-star txt-warning"&gt;&lt;/i&gt;&lt;/div&gt;
+                                    |                  &lt;h6&gt;Emma Bunton&lt;/h6&gt;&lt;img class="img-fluid" src="../assets/images/dashboard/quotes.png" alt=""&gt;
+                                    |                &lt;/div&gt;
+                                    |              &lt;/div&gt;
+                                    |            &lt;/div&gt;
+                                    |            &lt;div class="swiper-slide"&gt;
+                                    |              &lt;div class="task-box"&gt;
+                                    |                &lt;div class="common-space"&gt;
+                                    |                  &lt;p&gt;I'm really pleased with what I bought! The thing functions flawlessly and is of excellent quality. The package was safe.&lt;/p&gt;
+                                    |                  &lt;div class="rating"&gt; &lt;i class="fa-solid fa-star txt-warning"&gt;&lt;/i&gt;&lt;i class="fa-solid fa-star txt-warning"&gt;&lt;/i&gt;&lt;i class="fa-solid fa-star txt-warning"&gt;&lt;/i&gt;&lt;i class="fa-solid fa-star txt-warning"&gt;&lt;/i&gt;&lt;i class="fa-regular fa-star txt-warning"&gt; &lt;/i&gt;&lt;/div&gt;
+                                    |                  &lt;h6&gt;David Beckham&lt;/h6&gt;&lt;img class="img-fluid" src="../assets/images/dashboard/quotes.png" alt=""&gt;
+                                    |                &lt;/div&gt;
+                                    |              &lt;/div&gt;
+                                    |            &lt;/div&gt;
+                                    |          &lt;/div&gt;
+                                    |        &lt;/div&gt;
+                                    |       &lt;div class="swiper-pagination"&gt; &lt;/div&gt;
+                                    |      &lt;/div&gt;
+                                    |    &lt;/div&gt;
+                                    |  &lt;/div&gt;    
+                .col-xl-6.od-xl-3  
+                  .card
+                    .card-header.pb-2.card-no-border
+                      .header-top 
+                        h4 Order Activity
+                        .card-header-right-icon
+                          .dropdown.icon-dropdown
+                            button#recentButton.btn.dropdown-toggle(type='button', data-bs-toggle='dropdown', aria-expanded='false')
+                              i.icon-more-alt
+                            .dropdown-menu.dropdown-menu-end(aria-labelledby='recentButton')
+                              a.dropdown-item(href='#!') Last 30 Days
+                              a.dropdown-item(href='#!') This Month
+                              a.dropdown-item(href='#!') Last Month  
+                    .card-body.recent-order-table.px-0.pt-0
+                      .recent-table.table-responsive.custom-scrollbar
+                        table.table#recent-order
+                          thead 
+                            tr
+                              th 
+                              th ID
+                              th Product Name
+                              th Date 
+                              th Payment
+                              th Status
+                              th Total
+                          tbody 
+                            tr
+                              td 
+                              td A8576
+                              td
+                                .d-flex
+                                  img.img-fluid.img-40.me-2(src='../assets/images/dashboard/user/shoes.jpg',alt='user')
+                                  .img-content-box
+                                    a(href="products-list.html").f-w-500 Nike Sports
+                                    p.mb-0.f-light Free delivery
+                              td
+                                span Aug 15,2025
+                              td
+                                button.recent-btn Paid  
+                              td.text-prime Pending  
+                              td.number $51.50
+                            tr 
+                              td
+                              td K6556
+                              td
+                                .d-flex
+                                  img.img-fluid.img-40.me-2(src='../assets/images/dashboard/user/sub-product.jpg',alt='user')
+                                  .img-content-box
+                                    a(href="products-list.html").f-w-500 Women Bag
+                                    p.mb-0.f-light Delivery               
+                              td
+                                span Jun 25,2025
+                              td
+                                button.recent-btn Unpaid   
+                              td.text-second Cancel 
+                              td.number $64.16
+                            tr 
+                              td
+                              td Y6485
+                              td
+                                .d-flex
+                                  img.img-fluid.img-40.me-2(src='../assets/images/dashboard/user/sub-product1.jpg',alt='user')
+                                  .img-content-box
+                                    a(href="products-list.html").f-w-500 Women Bag
+                                    p.mb-0.f-light Delivery
+                              td
+                                span May 08,2025
+                              td
+                                button.recent-btn Unpaid   
+                              td Delivered
+                              td.number $35.95   
+                            tr
+                              td 
+                              td G5653
+                              td
+                                .d-flex
+                                  img.img-fluid.img-40.me-2(src='../assets/images/dashboard/user/sub-product2.jpg',alt='user')
+                                  .img-content-box
+                                    a(href="products-list.html").f-w-500 Sunglasses
+                                    p.mb-0.f-light Free delivery
+                              td
+                                span Feb 14,2025
+                              td
+                                button.recent-btn Paid  
+                              td.text-second Cancel  
+                              td.number $44.54 
+                            tr
+                              td 
+                              td K6556
+                              td
+                                .d-flex
+                                  img.img-fluid.img-40.me-2(src='../assets/images/dashboard/user/headphone.jpg',alt='user')
+                                  .img-content-box
+                                    a(href="products-list.html").f-w-500 Headphone
+                                    p.mb-0.f-light Free delivery
+                              td
+                                span Jul 08,2025
+                              td
+                                button.recent-btn Unpaid  
+                              td.text-prime Pending 
+                              td.number $51.50 
+                            tr
+                              td 
+                              td Y6485
+                              td
+                                .d-flex
+                                  img.img-fluid.img-40.me-2(src='../assets/images/dashboard/user/sub-product2.jpg',alt='user')
+                                  .img-content-box
+                                    a(href="products-list.html").f-w-500 Cotton T-shirt
+                                    p.mb-0.f-light Delivery
+                              td
+                                span Sep 25,2025
+                              td
+                                button.recent-btn Paid  
+                              td Delivered 
+                              td.number $325.00 
+                            tr
+                              td 
+                              td Y6485
+                              td
+                                .d-flex
+                                  img.img-fluid.img-40.me-2(src='../assets/images/dashboard/user/sub-product1.jpg',alt='user')
+                                  .img-content-box
+                                    a(href="products-list.html").f-w-500 Sunglasses
+                                    p.mb-0.f-light Free delivery
+                              td
+                                span Jan 15,2025
+                              td
+                                button.recent-btn Unpaid 
+                              td.text-second Cancel  
+                              td.number $64.16
+                            tr
+                              td 
+                              td G5653
+                              td
+                                .d-flex
+                                  img.img-fluid.img-40.me-2(src='../assets/images/dashboard/user/shoes.jpg',alt='user')
+                                  .img-content-box
+                                    a(href="products-list.html").f-w-500 Sunglasses
+                                    p.mb-0.f-light Free delivery
+                              td
+                                span Mar 25,2025
+                              td
+                                button.recent-btn Unpaid 
+                              td Delivered  
+                              td.number $35.95                            
+                .col-xl-6.col-lg-6.od-xl-1.col-md-6
+                  .card.sale-active
+                    .card-header.card-no-border
+                      .header-top
+                        h4 Sales Report
+                        .card-header-right
+                          ul.list-unstyled.card-option
+                            li
+                              div
+                                i.icon-settings.fa-spin
+                            li
+                              i.view-html.fa.fa-code
+                            li
+                              i.icofont.icofont-maximize.full-card
+                            li
+                              i.icofont.icofont-minus.minimize-card
+                            li
+                              i.icofont.icofont-refresh.reload-card
+                            li
+                              i.icofont.icofont-error.close-card
+                    .card-body.pt-0 
+                      ul.balance-data.sale-chart
+                        li
+                          span.circle.bg-font-color.round1
+                          span.c-light.ms-1 Online Sales
+                        li
+                          span.circle.bg-primary.round1 
+                          span.c-light.ms-1 Offline Sales     
+                      .tab-content(id="social-pills-tabContent") 
+                        div.tab-pane.fade.show.active(id="v-pills-youtube" role="tabpanel")
+                          .chart-sale   
+                            #lastOrdersChart   
+                        div.tab-pane.fade(id="pills-sales-chart1" role="tabpanel")
+                          .chart-sale   
+                            #salereportChart   
+                        div.tab-pane.fade(id="pills-sales-chart2" role="tabpanel")
+                          .chart-sale   
+                            #saleperformanceChart
+                        div.tab-pane.fade(id="pills-sales-chart3" role="tabpanel")
+                          .chart-sale   
+                            #salebusinessChart
+                        div.tab-pane.fade(id="pills-sales-chart4" role="tabpanel")
+                          .chart-sale   
+                            #salemonthlyChart
+                        div.tab-pane.fade(id="pills-sales-chart5" role="tabpanel")
+                          .chart-sale   
+                            #saleallChart    
+                      .nav.nav-pills.custom-scrollbar(id="social-pills-tab" role="tablist")
+                        a.active(href ="#!" id="v-pills-youtube-tab" data-bs-toggle="pill" data-bs-target="#v-pills-youtube" role="tab" aria-controls="v-pills-youtube" aria-selected="true").social-box
+                          span 1d
+                        a(id="pills-sales-chart1-tab" href="#!" data-bs-toggle="pill" data-bs-target="#pills-sales-chart1" role="tab" aria-controls="pills-sales-chart1" aria-selected="false").social-box
+                          span 1w
+                        a(id="pills-sales-chart2-tab" href="#!" data-bs-toggle="pill" data-bs-target="#pills-sales-chart2" role="tab" aria-controls="pills-sales-chart2" aria-selected="false").social-box
+                          span 1m  
+                        a(id="pills-sales-chart3-tab" href="#!" data-bs-toggle="pill" data-bs-target="#pills-sales-chart3" role="tab" aria-controls="pills-sales-chart3" aria-selected="false").social-box
+                          span 3m
+                        a(id="pills-sales-chart4-tab" href="#!" data-bs-toggle="pill" data-bs-target="#pills-sales-chart4" role="tab" aria-controls="pills-sales-chart4" aria-selected="false").social-box
+                          span 1m
+                        a(id="pills-sales-chart5-tab" href="#!" data-bs-toggle="pill" data-bs-target="#pills-sales-chart5" role="tab" aria-controls="pills-sales-chart5" aria-selected="false").social-box
+                          span All
+                      .code-box-copy
+                          button.code-box-copy__btn.btn-clipboard(data-clipboard-target='#salereport-tab')
+                            i.icofont.icofont-copy-alt
+                          pre.custom-scrollbar
+                            code.language-html#salereport-tab
+                             |&lt;div class="card sale-active"&gt;
+                             |  &lt;div class="card-header pb-2 card-no-border"&gt;
+                             |    &lt;div class="header-top"&gt;
+                             |      &lt;h4&gt;Sales Report&lt;/h5&gt;
+                             |      &lt;div class="card-header-right"&gt;
+                             |        &lt;ul class="list-unstyled card-option"&gt;
+                             |          &lt;li&gt;
+                             |            &lt;div&gt;&lt;i class="icon-settings fa-spin"&gt;&lt;/i&gt;&lt;/div&gt;
+                             |          &lt;/li&gt;
+                             |          &lt;li&gt;&lt;i class="view-html fa fa-code"&gt;&lt;/i&gt;&lt;/li&gt;
+                             |          &lt;li&gt;&lt;i class="icofont icofont-maximize full-card"&gt;&lt;/i&gt;&lt;/li&gt;
+                             |          &lt;li&gt;&lt;i class="icofont icofont-minus minimize-card"&gt;&lt;/i&gt;&lt;/li&gt;
+                             |          &lt;li&gt;&lt;i class="icofont icofont-refresh reload-card"&gt;&lt;/i&gt;&lt;/li&gt;
+                             |          &lt;li&gt;&lt;i class="icofont icofont-error close-card"&gt;&lt;/i&gt;&lt;/li&gt;
+                             |        &lt;/ul&gt;
+                             |      &lt;/div&gt;
+                             |    &lt;/div&gt;
+                             |  &lt;/div&gt;
+                             |  &lt;div class="card-body pt-0"&gt;
+                             |    &lt;ul class="balance-data sale-chart"&gt;
+                             |      &lt;li&gt;&lt;span class="circle bg-font-color round1"&gt;&lt;/span&gt;&lt;span class="c-light ms-1"&gt;Online Sales&lt;/span&gt;&lt;/li&gt;
+                             |      &lt;li&gt;&lt;span class="circle bg-primary round1"&gt; &lt;/span&gt;&lt;span class="c-light ms-1"&gt;Offline Sales &lt;/span&gt;&lt;/li&gt;
+                             |    &lt;/ul&gt;
+                             |    &lt;div class="tab-content" id="social-pills-tabContent"&gt;
+                             |      &lt;div class="tab-pane fade show active" id="v-pills-youtube" role="tabpanel"&gt;
+                             |        &lt;div class="chart-sale"&gt;
+                             |          &lt;div id="lastOrdersChart"&gt; &lt;/div&gt;
+                             |        &lt;/div&gt;
+                             |      &lt;/div&gt;
+                             |    &lt;div class="tab-pane fade" id="pills-sales-chart1" role="tabpanel"&gt;
+                             |      &lt;div class="chart-sale"&gt;
+                             |        &lt;div id="salereportChart"&gt; &lt;/div&gt;
+                             |      &lt;/div&gt;
+                             |    &lt;/div&gt;
+                             |    &lt;div class="tab-pane fade" id="pills-sales-chart2" role="tabpanel"&gt;
+                             |      &lt;div class="chart-sale"&gt;
+                             |        &lt;div id="saleperformanceChart"&gt;&lt;/div&gt;
+                             |      &lt;/div&gt;
+                             |    &lt;/div&gt;
+                             |    &lt;div class="tab-pane fade" id="pills-sales-chart3" role="tabpanel"&gt;
+                             |      &lt;div class="chart-sale"&gt;
+                             |        &lt;div id="salebusinessChart"&gt;&lt;/div&gt;
+                             |      &lt;/div&gt;
+                             |    &lt;/div&gt;
+                             |    &lt;div class="tab-pane fade" id="pills-sales-chart4" role="tabpanel"&gt;
+                             |      &lt;div class="chart-sale"&gt;
+                             |        &lt;div id="salemonthlyChart"&gt;&lt;/div&gt;
+                             |      &lt;/div&gt;
+                             |    &lt;/div&gt;
+                             |    &lt;div class="tab-pane fade" id="pills-sales-chart5" role="tabpanel"&gt;
+                             |      &lt;div class="chart-sale"&gt;
+                             |        &lt;div id="saleallChart"&gt; &lt;/div&gt;
+                             |      &lt;/div&gt;
+                             |    &lt;/div&gt;
+                             |  &lt;/div&gt;
+                             |  &lt;div class="nav nav-pills custom-scrollbar" id="social-pills-tab" role="tablist"&gt;&lt;a class="active social-box" href="#!" id="v-pills-youtube-tab" data-bs-toggle="pill" data-bs-target="#v-pills-youtube" role="tab" aria-controls="v-pills-youtube" aria-selected="true"&gt;&lt;span&gt;1d&lt;/span&gt;&lt;/a&gt;&lt;a class="social-box" id="pills-sales-chart1-tab" href="#!" data-bs-toggle="pill" data-bs-target="#pills-sales-chart1" role="tab" aria-controls="pills-sales-chart1" aria-selected="false"&gt;&lt;span&gt;1w&lt;/span&gt;&lt;/a&gt;&lt;a class="social-box" id="pills-sales-chart2-tab" href="#!" data-bs-toggle="pill" data-bs-target="#pills-sales-chart2" role="tab" aria-controls="pills-sales-chart2" aria-selected="false"&gt;&lt;span&gt;1m &lt;/span&gt;&lt;/a&gt;&lt;a class="social-box" id="pills-sales-chart3-tab" href="#!" data-bs-toggle="pill" data-bs-target="#pills-sales-chart3" role="tab" aria-controls="pills-sales-chart3" aria-selected="false"&gt;&lt;span&gt;3m&lt;/span&gt;&lt;/a&gt;&lt;a class="social-box" id="pills-sales-chart4-tab" href="#!" data-bs-toggle="pill" data-bs-target="#pills-sales-chart4" role="tab" aria-controls="pills-sales-chart4" aria-selected="false"&gt;&lt;span&gt;1m&lt;/span&gt;&lt;/a&gt;&lt;a class="social-box" id="pills-sales-chart5-tab" href="#!" data-bs-toggle="pill" data-bs-target="#pills-sales-chart5" role="tab" aria-controls="pills-sales-chart5" aria-selected="false"&gt;&lt;span&gt;All &lt;/span&gt;&lt;/a&gt;&lt;/div&gt;
+                             |&lt;/div&gt;
+                             |&lt;/div&gt;
+            
+                .col-xl-3.col-lg-6.od-xl-4.col-sm-6
+                  .card.course-box
+                    .card-body.total-sale.px-0
+                      .d-flex.align-items-center.gap-2
+                        .course-icon.flex-shrink-0.bg-light-secondary
+                            svg.stroke-icon
+                              use(href='../assets/svg/icon-sprite.svg#chart-cart')
+                        .flex-grow-1
+                            .d-flex.align-items-center
+                              h4.mb-1
+                                |
+                                span.counter(data-target='65340') 0
+                              span.text-truncate Total Sales
+                              div.total-icon.sale-icon.mt-1
+                                p.mb-0.up-arrow.bg-light-success.me-1
+                                  svg.stroke-icon
+                                    use(href='../assets/svg/icon-sprite.svg#arrow-up')
+                                span.f-w-500.me-1 + 90.28%
+                                h6 Than last week
+                      #total-sales
+                .col-xl-3.col-lg-6.od-xl-5.col-sm-6
+                  .card.overflow-hidden.course-box
+                    .card-body.total-sale.px-0
+                      .d-flex.align-items-center.gap-2
+                        .course-icon.flex-shrink-0.flex-visitor.bg-light-primary
+                          svg.stroke-icon
+                            use(href='../assets/svg/icon-sprite.svg#user-icon')
+                        .flex-grow-1
+                            .d-flex.align-items-center
+                              h4.mb-1
+                                | 
+                                span.counter(data-target='54568') 0     
+                              span.text-truncate Total Visitor
+                              div.total-icon.mt-1
+                                p.mb-0.up-arrow.bg-light-success.me-1
+                                  svg.stroke-icon
+                                    use(href='../assets/svg/icon-sprite.svg#arrow-up')
+                                span.f-w-500.me-1 + 80.50%
+                                h6 Than last week
+                      #expensesChart
+                .col-xl-6.od-xl-6
+                  .card
+                    .card-header.pb-2.card-no-border
+                      .header-top 
+                        h4 Sale Product
+                        .card-header-right-icon
+                          .dropdown.icon-dropdown
+                            button#saleButton.btn.dropdown-toggle(type='button', data-bs-toggle='dropdown', aria-expanded='false')
+                              i.icon-more-alt
+                            .dropdown-menu.dropdown-menu-end(aria-labelledby='saleButton')
+                              a.dropdown-item(href='#!') Last 30 Days
+                              a.dropdown-item(href='#!') This Month                     
+                              a.dropdown-item(href='#!') Last Month
+                    .card-body.sale-product-table.px-0.pt-0
+                      .recent-table.table-responsive.custom-scrollbar
+                        table.table#top-customer
+                          thead 
+                            tr
+                              th
+                              th Product Name
+                              th Customers 
+                              th Shipping
+                              th Total
+                              th Status
+                          tbody 
+                            tr
+                              td 
+                              td
+                                .d-flex
+                                  img.img-fluid.img-40.me-2(src='../assets/images/dashboard/user/shoes.jpg',alt='user')
+                                  .img-content-box
+                                    a(href="products-list.html").f-w-500 Nike Sports
+                                    p.mb-0.f-light Free delivery
+                                
+                              td
+                                span Rodney Cannon
+                                h6 rodney@gmail.com
+                              td.number $ 18.00  
+                              td.number $ 512.00
+                              td
+                                button.btn Done 
+                            tr 
+                              td
+                              td
+                                .d-flex
+                                  img.img-fluid.img-40.me-2(src='../assets/images/dashboard/user/sub-product.jpg',alt='user')
+                                  .img-content-box
+                                    a(href="products-list.html").f-w-500 Women Bag
+                                    p.mb-0.f-light delivery
+                                
+                              td
+                                span Mike franklin
+                                h6 mike@gmail.com
+                              td.number $ 62.00 
+                              td.number $ 325.00
+                              td
+                                button.btn Pending 
+                            tr
+                              td 
+                              td
+                                .d-flex
+                                  img.img-fluid.img-40.me-2(src='../assets/images/dashboard/user/sub-product1.jpg',alt='user')
+                                  .img-content-box
+                                    a(href="products-list.html").f-w-500 Sky Shades
+                                    p.mb-0.f-light Free delivery
+                              td
+                                span Louis Franklin
+                                h6 louis238@gmail.com
+                              td.number $ 51.00  
+                              td.number $ 956.00
+                              td
+                                button.btn Done 
+                            tr
+                              td 
+                              td
+                                .d-flex
+                                  img.img-fluid.img-40.me-2(src='../assets/images/dashboard/user/tv.jpg',alt='user')
+                                  .img-content-box
+                                    a(href="products-list.html").f-w-500 Television
+                                    p.mb-0.f-light Free delivery
+                              td
+                                span Lia Hoover
+                                h6 liahoover@gmail.com
+                              td.number $ 18.00  
+                              td.number $ 512.00
+                              td
+                                button.btn Pending 
+                            tr
+                              td 
+                              td
+                                .d-flex
+                                  img.img-fluid.img-40.me-2(src='../assets/images/dashboard/user/chair.jpg',alt='user')
+                                  .img-content-box
+                                    a(href="products-list.html").f-w-500 Chair
+                                    p.mb-0.f-light delivery
+                              td
+                                span Jaziel Reese
+                                h6 jaziel89@gmail.com
+                              td.number $ 62.00  
+                              td.number $ 325.00
+                              td
+                                button.btn Done 
+                            tr
+                              td 
+                              td
+                                .d-flex
+                                  img.img-fluid.img-40.me-2(src='../assets/images/dashboard/user/smart-watch.jpg',alt='user')
+                                  .img-content-box
+                                    a(href="products-list.html").f-w-500 Smart-watch
+                                    p.mb-0.f-light Free delivery
+                              td
+                                span Hunter Rosas
+                                h6 hunter@gmail.com
+                              td.number $ 51.00  
+                              td.number $ 956.00
+                              td
+                                button.btn Pending                          
+                .col-xl-12.od-xl-7
+                  .card.schedule
+                    .card-header.pb-0
+                      .header-top
+                        h4 Schedule
+                        .customers
+                          ul 
+                            li.d-inline-block(data-bs-toggle='tooltip', data-bs-placement='top', data-bs-title='Ray Carr')
+                              a(href="user-profile.html")
+                                img.img-40.rounded-circle(src="../assets/images/dashboard/user/user-customer.jpg", alt="") 
+                            li.d-inline-block(data-bs-toggle='tooltip', data-bs-placement='top', data-bs-title='Taylor Leal')
+                              a(href="user-profile.html") 
+                                img.img-40.rounded-circle(src="../assets/images/dashboard/user/user-customer1.jpg", alt="")
+                            li.d-inline-block(data-bs-toggle='tooltip', data-bs-placement='top', data-bs-title='26+ More')
+                              .light-card 
+                                span.f-w-700 26+
+                      .card-body 
+                        #calendar-container.weekly-schedule
+                          #calendar.custom-scrollbar     
+        // Container-fluid Ends
+        include ../../components/footer        
+    include ../../components/footer-files 
+    

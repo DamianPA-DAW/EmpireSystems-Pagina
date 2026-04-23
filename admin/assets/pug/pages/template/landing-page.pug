@@ -1,0 +1,481 @@
+- var landing_sticky        = true;
+- var wow                   = true;
+- var animate               = true;
+- var tooltip               = true;
+- var jarallax_libs         = true;
+- var landing_icon          = true;
+- var slick                 = true;
+- var landing_slider        = true;
+- var landing_font          = true;
+doctype html
+html(lang='en')
+  include ../../components/landing-header
+  body.landing-page
+    include ../../components/taptop
+    // header start
+    header.landing-header
+      .custom-container
+        .row 
+          .col-12
+            .navbar.navbar-light.p-0#navbar-example2
+              a.navbar-brand(href="javascript:void(0)")
+                img.img-fluid.img-90(src="../assets/images/logo/logo_dark.png" alt="logo")
+              ul.landing-menu.nav.nav-pills
+                li.nav-item.menu-back
+                  | back
+                  i.fa.fa-angle-right
+                li.nav-item
+                  a.nav-link(href='#home') Home
+                li.nav-item
+                  a.nav-link(href='#demo') Layout
+                li.nav-item
+                  a.nav-link(href='#Applications') Applications
+                li.nav-item
+                  a.nav-link(href='#core-feature') Core Feature 
+                li.nav-item
+                  a.nav-link(href='https://docs.pixelstrap.net/admin/olix/document/index.html' target="_blank") Documentation
+                li.nav-item
+                  a.nav-link(href='https://docs.google.com/forms/d/e/1FAIpQLSe6hKUXw_By-pg7yabL0FxoTM02ZPTxoXy8PE3yboRuUCuyeA/viewform' target="_blank") Hire us
+              .buy-block
+                a.btn-landing.btn-white(href="https://themeforest.net/user/pixelstrap/portfolio" target="_blank") Purchase
+                .toggle-menu
+                  i.fa.fa-bars              
+    //- // header end
+    
+    section.landing-home
+      .row#home
+          .col-12
+            .content
+              .content-title.wow.fadeInDown
+                h1.wow.fadeInUp
+                  | Ultimate 
+                  span Customer
+                  |  Dashboard Template
+                p.wow.fadeInUp When it comes to dashboard or web apps. One of the first impression you consider is the design. It needs to be high quality enough otherwise you will lose potential users due to bad
+                .main-button
+                  a.btn.main-primary.border-gradient.wow.fadeInUp(href="index.html" target="_blank") View Demo
+                  a.btn.main-secondary.border-gradient.wow.fadeInUp(href="" target="_blank") Documentation
+              .preview-images
+                img.img-fluid(src='../assets/images/landing/1.png', alt='')
+            img.img-fluid.home-card1(src='../assets/images/landing/home1.png', alt='')
+            img.img-fluid.home-card2(src='../assets/images/landing/home2.png', alt='')
+            img.img-fluid.home-card3(src='../assets/images/landing/home3.png', alt='')
+            img.img-fluid.home-card4(src='../assets/images/landing/home4.png', alt='')
+    // layout start
+    section#demo.section-py-space.layout-section
+      .custom-container
+        .row.layout-block
+          .col-sm-12.wow.pulse
+            .title
+              a(href="") Creative Layouts
+              p The most creative and versatile dashboard template.
+        .row.g-4
+          .col-md-6
+            .demo-content.wow.animate__.animate__fadeIn.animated(data-wow-delay="0.1s")
+              .demo-img
+                .layout-wrapper.text-center
+                  .demo-color
+                    a(href="index.html")
+                      img(src="../assets/images/landing/layout/1.png", class="img-fluid" alt="") 
+                  h3 Shopping place
+          .col-md-6
+            .demo-content.wow.animate__.animate__fadeIn.animated(data-wow-delay="0.2s")
+              .demo-img
+                .layout-wrapper.text-center
+                  .demo-color
+                    a(href="dashboard-02.html")
+                      img(src="../assets/images/landing/layout/2.png", class="img-fluid" alt="") 
+                  h3 CRM Dashboard       
+    // layout end
+    // framework start
+    section.section-py-space.framework-section.light-bg.section-px-space
+      .custom-container 
+        .row.layout-block
+          .col-sm-12
+            .title
+              a(href="#!") Top Framework
+              p Built with today’s most powerful and reliable frameworks.
+        .row.row-cols-1.row-cols-sm-2.row-cols-md-3.row-cols-lg-4.row-cols-xl-5.gy-5.demo-img1
+          .col
+            .nav-item.wow.animate__animated.animate__fadeIn(data-wow-delay="0.1s")
+              .frame-img  
+                img(src="../assets/images/landing/icon/html/Bootstrap.png", class="img-fluid" alt="")
+              span.text-start.nav-text Bootstrap 5
+          .col
+            .nav-item.wow.animate__animated.animate__fadeIn(data-wow-delay="0.2s")
+              .frame-img  
+                img(src="../assets/images/landing/icon/html/css.png", class="img-fluid" alt="")
+              span.text-start.nav-text CSS
+          .col
+            .nav-item.wow.animate__animated.animate__fadeIn(data-wow-delay="0.3s")
+              .frame-img  
+                img(src="../assets/images/landing/icon/html/sass.png", class="img-fluid" alt="")
+              span.text-start.nav-text SCSS
+          .col
+            .nav-item.wow.animate__animated.animate__fadeIn(data-wow-delay="0.4s")
+              .frame-img  
+                img(src="../assets/images/landing/icon/html/pug.png", class="img-fluid" alt="")
+              span.text-start.nav-text Pug
+          .col
+            .nav-item.wow.animate__animated.animate__fadeIn(data-wow-delay="0.5s")
+              .frame-img  
+                img(src="../assets/images/landing/icon/html/npm.png", class="img-fluid" alt="")
+              span.text-start.nav-text NPM
+          .col
+            .nav-item.wow.animate__animated.animate__fadeIn(data-wow-delay="0.6s")
+              .frame-img  
+                img(src="../assets/images/landing/icon/html/vite.png", class="img-fluid" alt="")
+              span.text-start.nav-text Vite
+          .col
+            .nav-item.wow.animate__animated.animate__fadeIn(data-wow-delay="0.7s")
+              .frame-img  
+                img(src="../assets/images/landing/icon/html/ui.png", class="img-fluid" alt="")
+              span.text-start.nav-text Ui Kits
+          .col
+            .nav-item.wow.animate__animated.animate__fadeIn(data-wow-delay="0.8s")
+              .frame-img  
+                img(src="../assets/images/landing/icon/html/gallery.png", class="img-fluid" alt="")
+              span.text-start.nav-text Gallery
+          .col
+            .nav-item.wow.animate__animated.animate__fadeIn(data-wow-delay="0.9s")
+              .frame-img  
+                img(src="../assets/images/landing/icon/html/layout.png", class="img-fluid" alt="")
+              span.text-start.nav-text Layouts  
+          .col
+            .nav-item.wow.animate__animated.animate__fadeIn(data-wow-delay="1.0s")
+              .frame-img  
+                img(src="../assets/images/landing/icon/html/chartist.png", class="img-fluid" alt="")
+              span.text-start.nav-text Chartist
+          .col
+            .nav-item.wow.animate__animated.animate__fadeIn(data-wow-delay="1.1s")
+              .frame-img  
+                img(src="../assets/images/landing/icon/html/icon.png", class="img-fluid" alt="")
+              span.text-start.nav-text Icon
+          .col
+            .nav-item.wow.animate__animated.animate__fadeIn(data-wow-delay="1.2s")
+              .frame-img  
+                img(src="../assets/images/landing/icon/html/form.png", class="img-fluid" alt="")
+              span.text-start.nav-text Forms
+          .col
+            .nav-item.wow.animate__animated.animate__fadeIn(data-wow-delay="1.3s")
+              .frame-img  
+                img(src="../assets/images/landing/icon/html/apps.png", class="img-fluid" alt="")
+              span.text-start.nav-text Apps                                            
+          //- .nav-item
+          //-   .frame-img  
+          //-     img(src="../assets/images/landing/icon/html/css.png", class="img-fluid" alt="")
+          //-   span.text-start.nav-text Bootstrap 5
+          //- .nav-item
+          //-   .frame-img  
+          //-     img(src="../assets/images/landing/icon/html/css.png", class="img-fluid" alt="")
+          //-   span.text-start.nav-text Bootstrap 5
+          //- .nav-item
+          //-   .frame-img  
+          //-     img(src="../assets/images/landing/icon/html/css.png", class="img-fluid" alt="")
+          //-   span.text-start.nav-text Bootstrap 5
+          //- .nav-item
+          //-   .frame-img  
+          //-     img(src="../assets/images/landing/icon/html/css.png", class="img-fluid" alt="")
+          //-   span.text-start.nav-text Bootstrap 5 
+          //- .nav-item
+          //-   .frame-img  
+          //-     img(src="../assets/images/landing/icon/html/css.png", class="img-fluid" alt="")
+          //-   span.text-start.nav-text Bootstrap 5 
+          //- .nav-item
+          //-   .frame-img  
+          //-     img(src="../assets/images/landing/icon/html/css.png", class="img-fluid" alt="")
+          //-   span.text-start.nav-text Bootstrap 5
+          //- .nav-item
+          //-   .frame-img  
+          //-     img(src="../assets/images/landing/icon/html/css.png", class="img-fluid" alt="")
+          //-   span.text-start.nav-text Bootstrap 5 
+          //- .nav-item
+          //-   .frame-img  
+          //-     img(src="../assets/images/landing/icon/html/css.png", class="img-fluid" alt="")
+          //-   span.text-start.nav-text Bootstrap 5 
+          //- .nav-item
+          //-   .frame-img  
+          //-     img(src="../assets/images/landing/icon/html/css.png", class="img-fluid" alt="")
+          //-   span.text-start.nav-text Bootstrap 5
+          //- .nav-item
+          //-   .frame-img  
+          //-     img(src="../assets/images/landing/icon/html/css.png", class="img-fluid" alt="")
+          //-   span.text-start.nav-text Bootstrap 5 
+          //- .nav-item
+          //-   .frame-img  
+          //-     img(src="../assets/images/landing/icon/html/css.png", class="img-fluid" alt="")
+          //-   span.text-start.nav-text Bootstrap 5 
+          //- .nav-item
+            .frame-img  
+              img(src="../assets/images/landing/icon/html/css.png", class="img-fluid" alt="")
+            span.text-start.nav-text Bootstrap 5                
+    // framework end
+    // application start
+    section.section-py-space.application-section#Applications
+      .custom-container 
+        .row.layout-block
+          .col-sm-12
+            .title
+              a(href="#!") Usefull Application
+              p Simplify complex workflows with intelligent, scalable tools.
+        .row.g-4 
+          .col-xl-4.col-lg-4.col-sm-6.wow.animate__.animate__fadeIn.animated(data-wow-delay="0.1s")
+            .app-box
+              .app-wrapper
+                .app-image 
+                  a(href="social-app.html" target="_blank")
+                    img(src="../assets/images/landing/apps/1.jpg", alt="social-app")
+              .app-detail
+                a.btn(href="social-app.html" target="_blank") social app
+          .col-xl-4.col-lg-4.col-sm-6.wow.animate__.animate__fadeIn.animated(data-wow-delay="0.2s")
+            .app-box
+              .app-wrapper
+                .app-image 
+                  a(href="knowledgebase.html" target="_blank")
+                    img(src="../assets/images/landing/apps/2.jpg", alt="Knowledgebase")
+              .app-detail
+                a.btn(href="knowledgebase.html" target="_blank") Knowledgebase
+          .col-xl-4.col-lg-4.col-sm-6.wow.animate__.animate__fadeIn.animated(data-wow-delay="0.3s")
+            .app-box
+              .app-wrapper
+                .app-image 
+                  a(href="support-ticket.html" target="_blank")
+                    img(src="../assets/images/landing/apps/3.jpg", alt="Support-Ticket")
+              .app-detail
+                a.btn(href="support-ticket.html" traget="_blank") Support Ticket
+          .col-xl-4.col-lg-4.col-sm-6.wow.animate__.animate__fadeIn.animated(data-wow-delay="0.4s")
+            .app-box
+              .app-wrapper
+                .app-image 
+                  a(href="mail-box.html" target="_blank")
+                    img(src="../assets/images/landing/apps/4.jpg", alt="email-dashboard")
+              .app-detail
+                a.btn(href="mail-box.html" target="_blank") Email Dashboard
+          .col-xl-4.col-lg-4.col-sm-6.wow.animate__.animate__fadeIn.animated(data-wow-delay="0.5s")
+            .app-box
+              .app-wrapper
+                .app-image 
+                  a(href="to-do.html" target="_blank")
+                    img(src="../assets/images/landing/apps/5.jpg", alt="to-do")
+              .app-detail
+                a.btn(href="to-do.html" target="_blank") To-Do
+          .col-xl-4.col-lg-4.col-sm-6.wow.animate__.animate__fadeIn.animated(data-wow-delay="0.6s")
+            .app-box
+              .app-wrapper
+                .app-image 
+                  a(href="job-cards-view.html" target="_blank")
+                    img(src="../assets/images/landing/apps/6.jpg", alt="job-search")
+              .app-detail
+                a.btn(href="job-cards-view.html" target="_blank") Job Search
+          .col-xl-4.col-lg-4.col-sm-6.wow.animate__.animate__fadeIn.animated(data-wow-delay="0.7s")
+            .app-box
+              .app-wrapper
+                .app-image 
+                  a(href="product-grid.html" target="_blank")
+                    img(src="../assets/images/landing/apps/7.jpg", alt="e-commerce")
+              .app-detail
+                a.btn(href="product-grid.html" target="_blank") E-commerce
+          .col-xl-4.col-lg-4.col-sm-6.wow.animate__.animate__fadeIn.animated(data-wow-delay="0.8s")
+            .app-box
+              .app-wrapper
+                .app-image 
+                  a(href="kanban.html" target="_blank")
+                    img(src="../assets/images/landing/apps/8.jpg", alt="kanban")
+              .app-detail
+                a.btn(href="kanban.html" target="_blank") Kanban
+          .col-xl-4.col-lg-4.col-sm-6.wow.animate__.animate__fadeIn.animated(data-wow-delay="0.9s")
+            .app-box
+              .app-wrapper
+                .app-image 
+                  a(href="file-manager.html" target="_blank")
+                    img(src="../assets/images/landing/apps/9.jpg", alt="file-manager")
+              .app-detail
+                a.btn(href="file-manager.html" target="_blank") File Manager
+          .col-xl-4.col-lg-4.col-sm-6.wow.animate__.animate__fadeIn.animated(data-wow-delay="1.0s")
+            .app-box
+              .app-wrapper
+                .app-image 
+                  a(href="project-list.html" target="_blank")
+                    img(src="../assets/images/landing/apps/10.jpg", alt="project")
+              .app-detail
+                a.btn(href="project-list.html" target="_blank") Project
+          .col-xl-4.col-lg-4.col-sm-6.wow.animate__.animate__fadeIn.animated(data-wow-delay="1.1s")
+            .app-box
+              .app-wrapper
+                .app-image 
+                  a(href="contacts.html" target="_blank")
+                    img(src="../assets/images/landing/apps/11.jpg", alt="contacts")                                                                                                         
+              .app-detail
+                a.btn(href="contacts.html" target="_blank") Contacts
+          .col-xl-4.col-lg-4.col-sm-6.wow.animate__.animate__fadeIn.animated(data-wow-delay="1.2s")
+            .app-box
+              .app-wrapper
+                .app-image 
+                  a(href="private-chat.html" target="_blank")
+                    img(src="../assets/images/landing/apps/12.jpg", alt="chat")      
+              .app-detail
+                a.btn(href="private-chat.html" target="_blank") Chat
+    // application end
+    // feature start
+    section.features-section.section-py-space#core-feature
+      .custom-container 
+        .row.layout-block
+          .col-sm-12
+            .title
+              a(href="#!") Powerful Features
+              p Discover tools that deliver performance and precision.
+        .row.g-sm-5.g-4  
+          .col-xl-3.col-sm-6.fadeInUp.wow
+            .feature-box
+              .feature-icon
+                img(src="/assets/images/landing/feature-icon/bootstrap.png", alt="")                                                                                                 
+              .feature-details 
+                h5 Bootstrap 5 
+                p.mb-0 Cloud ui is built with latest version of bootstrap5
+          .col-xl-3.col-sm-6.fadeInUp.wow
+            .feature-box
+              .feature-icon
+                img(src="/assets/images/landing/feature-icon/code.png", alt="")                                                                                                 
+              .feature-details 
+                h5 Seamless Coding 
+                p.mb-0 Refined templates, W3C code for top quality
+          .col-xl-3.col-sm-6.fadeInUp.wow
+            .feature-box
+              .feature-icon
+                img(src="/assets/images/landing/feature-icon/setting.png", alt="")                                                                                                 
+              .feature-details 
+                h5 Easy to Customize 
+                p.mb-0 Our Template is easy to do any required changes
+          .col-xl-3.col-sm-6.fadeInUp.wow
+            .feature-box
+              .feature-icon
+                img(src="/assets/images/landing/feature-icon/table.png", alt="")                                                                                                 
+              .feature-details 
+                h5 Lots of table example 
+                p.mb-0 Many table options for you to choose.
+          .col-xl-3.col-sm-6.fadeInUp.wow
+            .feature-box
+              .feature-icon
+                img(src="/assets/images/landing/feature-icon/upload.png", alt="")                                                                                                 
+              .feature-details 
+                h5 Multiple file uploads
+                p.mb-0 Option to upload more than one file at one time
+          .col-xl-3.col-sm-6.fadeInUp.wow
+            .feature-box
+              .feature-icon
+                img(src="/assets/images/landing/feature-icon/calendar.png", alt="")                                                                                                 
+              .feature-details 
+                h5 Calendar design
+                p.mb-0 Included calendar app with material design
+          .col-xl-3.col-sm-6.fadeInUp.wow
+            .feature-box
+              .feature-icon
+                img(src="/assets/images/landing/feature-icon/image.png", alt="")                                                                                                 
+              .feature-details 
+                h5 Gallery options
+                p.mb-0 Included gallery options for you to showcase products
+          .col-xl-3.col-sm-6.fadeInUp.wow
+            .feature-box
+              .feature-icon
+                img(src="/assets/images/landing/feature-icon/editor.png", alt="")                                                                                                 
+              .feature-details 
+                h5 Editors
+                p.mb-0 Options to select the editors that you are comfortable with
+          .col-xl-3.col-sm-6.fadeInUp.wow
+            .feature-box
+              .feature-icon
+                img(src="/assets/images/landing/feature-icon/sliders.png", alt="")                                                                                                 
+              .feature-details 
+                h5 Owl carousel 
+                p.mb-0 Responsive jQuery carousel plugin: beautiful motion
+          .col-xl-3.col-sm-6.fadeInUp.wow
+            .feature-box
+              .feature-icon
+                img(src="/assets/images/landing/feature-icon/airplay.png", alt="")                                                                                                 
+              .feature-details 
+                h5 Fully responsive
+                p.mb-0 Fully responsive: displays well on any device size
+          .col-xl-3.col-sm-6.fadeInUp.wow
+            .feature-box
+              .feature-icon
+                img(src="/assets/images/landing/feature-icon/droplet.png", alt="")                                                                                                 
+              .feature-details 
+                h5 3000s of icons
+                p.mb-0 More than 3000 different icon options
+          .col-xl-3.col-sm-6.fadeInUp.wow
+            .feature-box
+              .feature-icon
+                img(src="/assets/images/landing/feature-icon/help-circle.png", alt="")                                                                                                 
+              .feature-details 
+                h5 Premium support
+                p.mb-0 Reliable support for every query, always available
+          .col-xl-3.col-sm-6.fadeInUp.wow
+            .feature-box
+              .feature-icon
+                img(src="/assets/images/landing/feature-icon/trash.png", alt="")                                                                                                 
+              .feature-details 
+                h5 Clean design
+                p.mb-0 Design that is clear and appealing
+          .col-xl-3.col-sm-6.fadeInUp.wow
+            .feature-box
+              .feature-icon
+                img(src="/assets/images/landing/feature-icon/aperture.png", alt="")                                                                                                 
+              .feature-details 
+                h5 Color templates
+                p.mb-0 Dark and light templates available
+          .col-xl-3.col-sm-6.fadeInUp.wow
+            .feature-box
+              .feature-icon
+                img(src="/assets/images/landing/feature-icon/codepen.png", alt="")                                                                                                 
+              .feature-details 
+                h5 Data visualization
+                p.mb-0 Data visualization aids understanding
+          .col-xl-3.col-sm-6.fadeInUp.wow
+            .feature-box
+              .feature-icon
+                img(src="/assets/images/landing/feature-icon/layers.png", alt="")                                                                                                 
+              .feature-details 
+                h5 Limitless Components
+                p.mb-0 Vast layout collection and UI kit library: the largest...                                                                                                                                                              
+    // feature end
+    //- section.support-section 
+    section.license-support.section-py-space
+      .custom-container
+        .row 
+          .col-md-6.support-wrapper.wow.bounceInLeft
+            .license-wrapper 
+              h2.title Our Support
+            h3.subtitle We Give It As We Think That Excellent Support Is Needed
+            p.description
+              | Check our reviews for fast and accurate support to ensure support. We offer premium
+              | assistance around-the-clock for any bugs you encounter. And we’ll do best to help 
+              | you out with any future updates for free.
+            a.btn.link-text(href="https://support.pixelstrap.com/portal/en/signin" target="_blank") Support
+          .col-md-6.wow.bounceInRight
+            .image-wrapper
+              img.img-fluid(src="../assets/images/landing/support.png", alt="Support Illustration")
+    //footer start
+    section#footer.landing-footer.section-py-space.light-bg
+        .custom-container
+          .row
+            .col-12
+              .footer-contain.fadeInUp.wow
+                img.img-fluid(src="../assets/images/logo/logo_dark.png" alt="")
+                h2 The Olix theme trusted by thousands of developers worldwide.
+                ul.star-rate
+                  li
+                    i.fa.fa-star.font-warning
+                  li
+                    i.fa.fa-star.font-warning
+                  li
+                    i.fa.fa-star.font-warning
+                  li
+                    i.fa.fa-star.font-warning
+                  li
+                    i.fa-solid.fa-star-half-stroke.font-warning
+                .btn-footer
+                  a.fadeInUp.wow(class="btn btn-lg footer-btn border-gradient" target="_blank" href="index.html" data-bs-original-title="" title="") Check Now
+                  a.fadeInUp.wow(class="btn btn-lg footer-btn border-gradient" target="_blank" href="https://themeforest.net/user/pixelstrap/portfolio" data-bs-original-title="" title="") Buy Now
+                  a.fadeInUp.wow(class="btn btn-lg footer-btn border-gradient" target="_blank" href="https://themeforest.net/user/pixelstrap/portfolio" data-bs-original-title="" title="") Our Portfolio
+          //footer end
+    include ../../components/landing-footer-files
