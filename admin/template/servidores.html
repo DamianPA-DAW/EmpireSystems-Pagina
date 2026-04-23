@@ -44,34 +44,72 @@
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
     <style>
-      :root {
-        --espacio-entre-bloques: 5px;
-      }
-
+      /* ── Espaciado base ── */
       .page-wrapper .page-body {
         min-height: auto !important;
         padding-top: 0 !important;
         padding-bottom: 0 !important;
       }
 
-      .page-wrapper .page-body + .page-body {
-        margin-top: 550px;
-        margin-top: var(--espacio-entre-bloques) !important;
-      }
-    </style>
-  </head>
-      
-
-      .page-wrapper .page-body-wrapper > .page-body + .page-body {
-        margin-top: var(--espacio-entre-bloques) !important;
-      }
-
       .page-wrapper .page-title {
         margin-bottom: 0 !important;
       }
 
-      .page-wrapper .container-fluid.default-dashboard {
-        margin-top: var(--espacio-entre-bloques) !important;
+      /* ── Espaciado entre paneles ──
+         Los page-body de paneles 2,3,4 están anidados dentro del primero
+         (DOM heredado), por lo que el selector + no funciona.
+         Se usa el selector descendiente para añadir margen entre ellos. */
+      .page-body .page-body {
+        margin-top: 12px !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+      }
+
+      /* ── Botón copiar — icono centrado con flexbox ── */
+      .btn-copy-icon {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 28px !important;
+        height: 28px !important;
+        padding: 0 !important;
+        border: 1.5px solid #7c5fc5 !important;
+        border-radius: 4px !important;
+        background: transparent !important;
+        flex-shrink: 0;
+        cursor: pointer;
+      }
+      .btn-copy-icon:hover {
+        background: #f3eeff !important;
+      }
+
+      /* ── Botón Google Drive ── */
+      .btn-gdrive {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 6px !important;
+        width: 100% !important;
+        border: 1.5px solid #4caf50 !important;
+        color: #4caf50 !important;
+        background: transparent !important;
+        font-size: 11px !important;
+        padding: 5px 8px !important;
+        border-radius: 4px !important;
+        font-weight: 500 !important;
+        cursor: pointer !important;
+        text-decoration: none !important;
+        margin-bottom: 4px;
+      }
+      .btn-gdrive:hover {
+        background: #f0faf0 !important;
+        color: #388e3c !important;
+        border-color: #388e3c !important;
+      }
+      .gdrive-icon {
+        width: 14px;
+        height: 14px;
+        flex-shrink: 0;
       }
     </style>
   </head>
@@ -99,299 +137,6 @@
           <svg class="stroke-icon toggle-sidebar">
             <use class="status_toggle middle sidebar-toggle" href="../assets/svg/icon-sprite.svg#stroke-toggle"> </use>
           </svg>
-          <form class="col-auto form-inline search-full" action="#" method="get">
-            <div class="form-group form-inline search-full d-none d-xl-block">
-              <div class="Typeahead Typeahead--twitterUsers">
-                <div class="u-posRelative">
-                  <input class="demo-input Typeahead-input form-control-plaintext" type="text" placeholder="Type to Search .." name="q" title="" autofocus>
-                  <svg class="search-bg svg-color">
-                    <use href="../assets/svg/icon-sprite.svg#stroke-search"></use>
-                  </svg>
-                </div>
-                <div class="Typeahead-menu"></div>
-              </div>
-            </div>
-          </form>
-          <div class="nav-right col-auto pull-right right-header p-0 ms-auto">
-            <ul class="nav-menus">
-              <li class="serchinput">
-                <div class="serchbox">
-                  <svg class="stroke-icon search-stroke">
-                    <use href="../assets/svg/icon-sprite.svg#searchbox"></use>
-                  </svg>
-                </div>
-                <div class="form-group search-form">
-                  <input type="text" placeholder="Search here...">
-                </div>
-              </li>
-              <li>
-                <div class="mode">
-                  <svg>
-                    <use href="../assets/svg/icon-sprite.svg#stroke-dark-light"></use>
-                  </svg>
-                </div>
-              </li>
-              <li class="onhover-dropdown">
-                <div class="notification-box">
-                  <svg>
-                    <use href="../assets/svg/icon-sprite.svg#stroke-notify"></use>
-                  </svg>
-                </div>
-                <div class="onhover-show-div notification-dropdown">
-                  <h6 class="f-18 mb-0 dropdown-title">Notifications</h6>
-                  <ul>
-                    <li class="b-l-primary border-4 toast default-show-toast notification-toast align-items-center text-light border-0 fade show" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
-                      <div class="d-flex justify-content-between">
-                        <div class="toast-body d-flex p-0">
-                          <div class="flex-shrink-0 notification-circle bg-light-primary">
-                            <svg class="stroke-primary stroke-icon">
-                              <use href="../assets/svg/icon-sprite.svg#stroke-chat"></use>
-                            </svg>
-                          </div>
-                          <div class="flex-grow-1"><a href="private-chat.html">
-                              <h6 class="m-0">System Reminders </h6></a>
-                            <p class="m-0"> Warnings on faults</p>
-                          </div>
-                        </div>
-                        <button class="btn-close btn-close-white shadow-none msg-remove" type="button" data-bs-dismiss="toast" aria-label="Close"></button>
-                      </div>
-                    </li>
-                    <li class="b-l-secondary border-4 toast default-show-toast notification-toast align-items-center text-light border-0 fade show" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
-                      <div class="d-flex justify-content-between">
-                        <div class="toast-body d-flex p-0">
-                          <div class="flex-shrink-0 notification-circle bg-light-secondary">
-                            <svg class="stroke-secondary stroke-icon">
-                              <use href="../assets/svg/icon-sprite.svg#stroke-task"></use>
-                            </svg>
-                          </div>
-                          <div class="flex-grow-1"><a href="private-chat.html">
-                              <h6 class="m-0">Info Card</h6></a>
-                            <p class="m-0"> Important Updates</p>
-                          </div>
-                        </div>
-                        <button class="btn-close btn-close-white msg-remove" type="button" data-bs-dismiss="toast" aria-label="Close"></button>
-                      </div>
-                    </li>
-                    <li class="b-l-warning border-4 toast default-show-toast notification-toast align-items-center text-light border-0 fade show" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
-                      <div class="d-flex justify-content-between">
-                        <div class="toast-body d-flex p-0">
-                          <div class="flex-shrink-0 notification-circle bg-light-warning">
-                            <svg class="stroke-warning stroke-icon">
-                              <use href="../assets/svg/icon-sprite.svg#stroke-board"></use>
-                            </svg>
-                          </div>
-                          <div class="flex-grow-1"><a href="private-chat.html">
-                              <h6 class="m-0">Rapid View </h6></a>
-                            <p class="m-0"> Quick information</p>
-                          </div>
-                        </div>
-                        <button class="btn-close btn-close-white msg-remove" type="button" data-bs-dismiss="toast" aria-label="Close"></button>
-                      </div>
-                    </li>
-                    <li class="b-l-success border-4 toast default-show-toast notification-toast align-items-center text-light border-0 fade show" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
-                      <div class="d-flex justify-content-between">
-                        <div class="toast-body d-flex p-0">
-                          <div class="flex-shrink-0 notification-circle bg-light-success">
-                            <svg class="stroke-success stroke-icon">
-                              <use href="../assets/svg/icon-sprite.svg#stroke-layout"></use>
-                            </svg>
-                          </div>
-                          <div class="flex-grow-1"><a href="private-chat.html">
-                              <h6 class="m-0">Caution Panel </h6></a>
-                            <p class="m-0"> Immediate cautions</p>
-                          </div>
-                        </div>
-                        <button class="btn-close btn-close-white msg-remove" type="button" data-bs-dismiss="toast" aria-label="Close"></button>
-                      </div>
-                    </li>
-                    <li class="card-body p-0 empty-card trash-items">
-                      <div class="empty-cart-wrapper">
-                        <div class="empty-cart-content">
-                          <svg>
-                            <use href="../assets/svg/icon-sprite.svg#empty-messages"></use>
-                          </svg>
-                        </div>
-                        <h6 class="text-gray">No updates available..</h6><a href="category.html"></a>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="onhover-dropdown bookmark">
-                <svg>
-                  <use href="../assets/svg/icon-sprite.svg#star"></use>
-                </svg>
-                <div class="onhover-show-div bookmark-flip">
-                  <div class="flip-card">
-                    <div class="flip-card-inner">
-                      <div class="front">
-                        <h6 class="f-18 mb-0 dropdown-title">Bookmark</h6>
-                        <ul class="bookmark-dropdown">
-                          <li>
-                            <div class="row">
-                              <div class="col-4 text-center"><a href="form-validation.html">
-                                  <div class="bookmark-content">
-                                    <div class="bookmark-icon"><i data-feather="file-text"></i></div><span>Forms </span>
-                                  </div></a></div>
-                              <div class="col-4 text-center"><a href="user-profile.html">
-                                  <div class="bookmark-content">
-                                    <div class="bookmark-icon"><i data-feather="user"></i></div><span>Profile </span>
-                                  </div></a></div>
-                              <div class="col-4 text-center"><a href="bootstrap-basic-table.html">
-                                  <div class="bookmark-content">
-                                    <div class="bookmark-icon"><i data-feather="server"></i></div><span>Tables </span>
-                                  </div></a></div>
-                            </div>
-                          </li>
-                          <li class="text-center media-body"> <a class="flip-btn f-w-700" id="flip-btn" href="javascript:void(0)">Add New Bookmark</a></li>
-                        </ul>
-                      </div>
-                      <div class="back">
-                        <ul>
-                          <li>
-                            <div class="bookmark-dropdown flip-back-content">
-                              <input type="text" placeholder="search...">
-                            </div>
-                          </li>
-                          <li class="media-body"><a class="f-w-700 d-block flip-back" id="flip-back" href="javascript:void(0)">Back                   </a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li class="onhover-dropdown message-box">
-                <div class="message notification-box">
-                  <svg>
-                    <use href="../assets/svg/icon-sprite.svg#stroke-messages"></use>
-                  </svg><span class="rounded-pill badge-danger"></span>
-                </div>
-                <div class="onhover-show-div message-dropdown">
-                  <h6 class="f-18 mb-0 dropdown-title">Message                               </h6>
-                  <ul>
-                    <li class="bg-light-primary gap-2">
-                      <div class="d-flex align-items-start">
-                        <div class="message-img bg-light-primary"><img src="../assets/images/user/3.jpg" alt=""></div>
-                        <div class="flex-grow-1">
-                          <h5 class="mb-1"><a class="font-primary" href="private-chat.html">Liv Roach</a></h5>
-                          <p>Guess what? I have some exciting news! </p>
-                        </div>
-                        <div class="notification-right"><i class="close-icon stroke-primary" data-feather="x"></i></div>
-                      </div>
-                    </li>
-                    <li class="bg-light-secondary gap-2">
-                      <div class="d-flex align-items-start">
-                        <div class="message-img bg-light-primary"><img src="../assets/images/user/6.jpg" alt=""></div>
-                        <div class="flex-grow-1">
-                          <h5 class="mb-1"><a class="font-secondary" href="private-chat.html">Jason Borne</a></h5>
-                          <p>Good morning! I hope you have an amazing day. </p>
-                        </div>
-                        <div class="notification-right"><i class="close-icon stroke-secondary" data-feather="x"></i></div>
-                      </div>
-                    </li>
-                    <li class="bg-light-success gap-2">
-                      <div class="d-flex align-items-start">
-                        <div class="message-img bg-light-primary"><img src="../assets/images/user/10.jpg" alt=""></div>
-                        <div class="flex-grow-1">
-                          <h5 class="mb-1"><a class="font-success" href="private-chat.html">Sarah Loren</a></h5>
-                          <p>Soon, let's have a movie night! </p>
-                        </div>
-                        <div class="notification-right"><i class="close-icon stroke-success" data-feather="x"></i></div>
-                      </div>
-                    </li>
-                    <li class="no-messages text-center" style="display: none;">
-                      <svg>
-                        <use href="../assets/svg/icon-sprite.svg#empty-sms"></use>
-                      </svg>
-                      <p>No messages to show. </p>
-                    </li>
-                    <li class="text-center"><a class="btn bg-primary f-w-700" href="mail-box.html">Check all</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="cart-nav onhover-dropdown">
-                <div class="cart-box">
-                  <svg>
-                    <use href="../assets/svg/icon-sprite.svg#cart"></use>
-                  </svg>
-                </div>
-                <div class="cart-dropdown onhover-show-div">
-                  <h6 class="f-18 mb-0 dropdown-title">Cart</h6>
-                  <ul>
-                    <li class="cart-list">
-                      <div class="d-flex"><img class="img-fluid b-r-5 me-3 img-60" src="../assets/images/other-images/cart-img.jpg" alt="">
-                        <div class="flex-grow-1"><a href="../template/product-grid.html">Furniture Chair for Home</a>
-                          <div class="touchspin-wrapper"> 
-                            <button class="decrement-touchspin btn-touchspin touchspin-primary"><i class="fa-solid fa-minus"> </i></button>
-                            <input class="input-touchspin spin-outline-primary" type="number" value="2">
-                            <button class="increment-touchspin btn-touchspin touchspin-primary"><i class="fa-solid fa-plus"></i></button>
-                          </div>
-                          <h6 class="font-primary">$12.45</h6>
-                        </div>
-                        <div class="close-circle"><a class="bg-danger" href="#"><i data-feather="x"></i></a></div>
-                      </div>
-                    </li>
-                    <li class="cart-list">
-                      <div class="d-flex"><img class="img-fluid b-r-5 me-3 img-60" src="../assets/images/other-images/cart-img1.jpg" alt="">
-                        <div class="flex-grow-1"><a href="../template/product-grid.html">Rest Well Chair</a>
-                          <div class="touchspin-wrapper"> 
-                            <button class="decrement-touchspin btn-touchspin touchspin-primary"><i class="fa-solid fa-minus"> </i></button>
-                            <input class="input-touchspin spin-outline-primary" type="number" value="1">
-                            <button class="increment-touchspin btn-touchspin touchspin-primary"><i class="fa-solid fa-plus"></i></button>
-                          </div>
-                          <h6 class="font-primary">$49.00</h6>
-                        </div>
-                        <div class="close-circle"><a class="bg-danger" href="#"><i data-feather="x"></i></a></div>
-                      </div>
-                    </li>
-                    <li class="empty-msgs cart-bag" style="display: none;"><img src="../assets/images/gif/empty-cart.gif" alt="empty-cart"></li>
-                    <li class="total">
-                      <h6 class="mb-0">Order Total : <span class="f-right">$1000.00</span></h6>
-                    </li>
-                    <li class="text-center"><a class="d-block view-cart f-w-700 btn btn-primary w-100" href="cart.html">View Cart</a><a class="btn btn-primary view-checkout btn btn-primary w-100 f-w-700" href="checkout.html">Checkout</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="language-nav">
-                <div class="translate_wrapper">
-                  <div class="current_lang">
-                    <div class="lang stroke-lang"><i class="flag-icon flag-icon-us"></i><span class="lang-txt">EN</span>
-                      <svg>
-                        <use href="../assets/svg/icon-sprite.svg#arrow">                               </use>
-                      </svg>
-                    </div>
-                  </div>
-                  <div class="more_lang">
-                    <div class="lang selected" data-value="en"><i class="flag-icon flag-icon-us"></i><span class="lang-txt">English<span> (US)</span></span></div>
-                    <div class="lang" data-value="de"><i class="flag-icon flag-icon-de"></i><span class="lang-txt">Deutsch</span></div>
-                    <div class="lang" data-value="es"><i class="flag-icon flag-icon-es"></i><span class="lang-txt">Español</span></div>
-                    <div class="lang" data-value="fr"><i class="flag-icon flag-icon-fr"></i><span class="lang-txt">Français</span></div>
-                    <div class="lang" data-value="pt"><i class="flag-icon flag-icon-pt"></i><span class="lang-txt">Português<span> (BR)</span></span></div>
-                    <div class="lang" data-value="cn"><i class="flag-icon flag-icon-cn"></i><span class="lang-txt">简体中文</span></div>
-                    <div class="lang" data-value="ae"><i class="flag-icon flag-icon-ae"></i><span class="lang-txt">لعربية <span> (ae)</span></span></div>
-                  </div>
-                </div>
-              </li>
-              <li class="profile-nav onhover-dropdown pe-0 py-0">
-                <div class="d-flex profile-media"><img class="img-fluid rounded-circle" src="../assets/images/dashboard/profile.png" alt="">
-                  <div class="flex-grow-1"><span>Atlas Grey</span>
-                    <p class="mb-0 profile-arrow">Admin 
-                      <svg>
-                        <use href="../assets/svg/icon-sprite.svg#arrow"></use>
-                      </svg>
-                    </p>
-                  </div>
-                </div>
-                <ul class="profile-dropdown onhover-show-div">
-                  <li><a href="sign-up.html"><i data-feather="user"></i><span>Account </span></a></li>
-                  <li><a href="mail-box.html"><i data-feather="mail"></i><span>Inbox</span></a></li>
-                  <li><a href="task.html"><i data-feather="file-text"></i><span>Taskboard</span></a></li>
-                  <li><a href="add-user.html"><i data-feather="settings"></i><span>Settings</span></a></li>
-                  <li><a href="login.html"><i data-feather="log-in"> </i><span>Log out</span></a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
           <script class="result-template" type="text/x-handlebars-template">
             <div class="ProfileCard u-cf">                        
             <div class="ProfileCard-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-airplay m-0"><path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path><polygon points="12 15 17 21 7 21 12 15"></polygon></svg></div>
@@ -434,43 +179,6 @@
                       <span>Servidores</span>
                     </a>
                   </li>
-                  <!-- Webs -->
-                  <li class="sidebar-list">
-  <a class="sidebar-link sidebar-title" href="javascript:void(0)">
-    <svg class="stroke-icon">
-      <use href="../assets/svg/icon-sprite.svg#Gestion"></use>
-    </svg>
-    <svg class="fill-icon">
-      <use href="../assets/svg/icon-sprite.svg#fill-gestion"></use>
-    </svg>
-    <span>Webs</span>
-  </a>
-  <ul class="sidebar-submenu custom-scrollbar">
-    
-    <li class="main-submenu">
-      <a class="d-flex sidebar-menu" href="panel1_configuracion_inicial.html">
-        <svg class="stroke-icon"><use href="../assets/svg/icon-sprite.svg#stroke-button"></use></svg>
-        <span>Gestión de hosting</span>
-      </a>
-    </li>
-
-    <li class="main-submenu">
-      <a class="d-flex sidebar-menu" href="panel2_conexion_hosting.html">
-        <svg class="stroke-icon"><use href="../assets/svg/icon-sprite.svg#stroke-button"></use></svg>
-        <span>Conexión de hosting</span>
-      </a>
-    </li>
-
-  </ul>
-</li>
-                  <!-- Justificador web -->
-                  <li class="sidebar-list">
-                    <a class="sidebar-link sidebar-title" href="panel3_configuracion_dominio.html">
-                      <svg class="stroke-icon"><use href="../assets/svg/icon-sprite.svg#stroke-sample-page"></use></svg>
-                      <svg class="fill-icon"><use href="../assets/svg/icon-sprite.svg#fill-sample-page"></use></svg>
-                      <span>Justificador web</span>
-                    </a>
-                  </li>
 
                 </ul>
               </div>
@@ -480,345 +188,6 @@
         <!-- Page Sidebar Ends-->
         <div class="page-body">
           <div class="container-fluid">        
-            <div class="page-title">
-              <div class="row">
-                <div class="col-xl-6 col-sm-6 d-none d-xl-block">
-                  <!-- Page Sub Header Start-->
-                  <div class="left-header main-sub-header p-0">
-                    <div class="left-menu-header">
-                      <ul class="header-left"> 
-                        <li class="onhover-dropdown"> <span class="f-w-700 sub-menu sub-menu">General </span>
-                          <ul class="onhover-show-div left-dropdown">
-                            <li class="flyout-right"><a href="#">Dashboards</a><i class="fa fa-angle-right"></i>
-                              <ul>
-                                <li> <a href="index.html">Shopping Place  </a></li>
-                                <li> <a href="dashboard-02.html">CRM Dashboard</a></li>
-                              </ul>
-                            </li>
-                            <li class="flyout-right"><a href="#">Widgets</a><i class="fa fa-angle-right"></i>
-                              <ul>
-                                <li><a href="general-widget.html">General</a></li>
-                                <li> <a href="chart-widget.html">Chart</a></li>
-                              </ul>
-                            </li>
-                            <li class="flyout-right"> <a href="#">Page layout</a><i class="fa fa-angle-right"></i>
-                              <ul>
-                                <li> <a href="box-layout.html">Boxed </a></li>
-                                <li> <a href="layout-rtl.html">RTL</a></li>
-                                <li> <a href="layout-dark.html">Dark Layout</a></li>
-                                <li> <a href="hide-on-scroll.html">Hide nav scroll    </a></li>
-                                <li> <a href="footer-light.html">Footer-light.html</a></li>
-                                <li> <a href="footer-dark.html">Footer-dark.html</a></li>
-                                <li><a href="footer-fixed.html">Footer-fixed.html</a></li>
-                              </ul>
-                            </li>
-                          </ul>
-                        </li>
-                        <li class="onhover-dropdown"><span class="f-w-700 sub-menu">Components</span>
-                          <ul class="onhover-show-div left-dropdown">
-                            <li class="flyout-right"><a href="#">Ui Kits</a>
-                              <ul>
-                                <li><a href="typography.html">Typography</a></li>
-                                <li><a href="avatars.html">Avatars</a></li>
-                                <li><a href="divider.html">Divider    </a></li>
-                                <li><a href="helper-classes.html">helper classes</a></li>
-                                <li><a href="grid.html">Grid</a></li>
-                                <li><a href="tag-pills.html">Tag & pills</a></li>
-                                <li><a href="progress-bar.html">Progress</a></li>
-                                <li><a href="modal.html">Modal</a></li>
-                                <li><a href="alert.html">Alert</a></li>
-                                <li><a href="popover.html">Popover</a></li>
-                                <li><a href="placeholders.html">Placeholders  </a></li>
-                                <li><a href="tooltip.html">Tooltip</a></li>
-                                <li><a href="dropdown.html">Dropdown</a></li>
-                                <li><a href="according.html">Accordion</a></li>
-                                <li><a href="tab-bootstrap.html">Tabs</a></li>
-                                <li><a href="offcanvas.html">Offcanvas</a></li>
-                                <li><a href="navigate-links.html">Navigate Links        </a></li>
-                                <li><a href="list.html">Lists</a></li>
-                              </ul><i class="fa fa-angle-right"></i>
-                            </li>
-                            <li class="flyout-right"><a href="#">Bonus Ui</a>
-                              <ul>
-                                <li><a href="scrollable.html">Scrollable</a></li>
-                                <li><a href="tree.html">Tree view</a></li>
-                                <li><a href="toasts.html">Toasts</a></li>
-                                <li><a href="block-ui.html">BlockUI    </a></li>
-                                <li><a href="rating.html">Rating</a></li>
-                                <li><a href="dropzone.html">Dropzone</a></li>
-                                <li><a href="tour.html">Tour</a></li>
-                                <li><a href="sweet-alert2.html">SweetAlert2</a></li>
-                                <li><a href="modal-animated.html">Animated Modal</a></li>
-                                <li><a href="owl-carousel.html">Owl Carousel</a></li>
-                                <li><a href="ribbons.html">Ribbons</a></li>
-                                <li><a href="pagination.html">Pagination</a></li>
-                                <li><a href="scrollspy.html">ScrollSpy    </a></li>
-                                <li><a href="breadcrumb.html">Breadcrumb</a></li>
-                                <li><a href="range-slider.html">Range Slider</a></li>
-                                <li><a href="ratios.html">Ratios    </a></li>
-                                <li><a href="image-cropper.html">Image cropper</a></li>
-                                <li><a href="basic-card.html">Basic Card</a></li>
-                                <li><a href="creative-card.html">Creative Card</a></li>
-                                <li><a href="draggable-card.html">Draggable Card</a></li>
-                                <li><a href="timeline-v-1.html">Timeline </a></li>
-                              </ul><i class="fa fa-angle-right"></i>
-                            </li>
-                            <li class="flyout-right"><a href="#">Animation</a>
-                              <ul>
-                                <li><a href="animate.html">Animate</a></li>
-                                <li><a href="scroll-reval.html">Scroll Reveal</a></li>
-                                <li><a href="AOS.html">AOS animation</a></li>
-                                <li><a href="tilt.html">Tilt Animation</a></li>
-                                <li><a href="wow.html">Wow Animation</a></li>
-                                <li><a href="flash-icon.html">Flash icons    </a></li>
-                              </ul><i class="fa fa-angle-right"></i>
-                            </li>
-                            <li class="flyout-right"><a href="#">Icons</a>
-                              <ul>
-                                <li><a href="flag-icon.html">Flag icon</a></li>
-                                <li><a href="font-awesome.html">Fontawesome Icon</a></li>
-                                <li><a href="ico-icon.html">Ico Icon</a></li>
-                                <li><a href="themify-icon.html">Themify Icon</a></li>
-                                <li><a href="feather-icon.html">Feather icon</a></li>
-                                <li><a href="weather-icon.html">Weather Icon</a></li>
-                              </ul><i class="fa fa-angle-right"></i>
-                            </li>
-                            <li class="flyout-right"><a href="buttons.html">Buttons</a></li>
-                            <li class="flyout-right"><a href="#">Charts</a>
-                              <ul>
-                                <li><a href="chart-apex.html">Apex Chart</a></li>
-                                <li><a href="chart-google.html">Google Chart</a></li>
-                                <li><a href="chart-sparkline.html">Sparkline chart</a></li>
-                                <li><a href="chart-flot.html">Flot Chart </a></li>
-                                <li><a href="chart-knob.html">Knob Chart</a></li>
-                                <li><a href="chart-morris.html">Morris Chart</a></li>
-                                <li><a href="chartjs.html">Chatjs Chart</a></li>
-                                <li><a href="chartist.html">Chartist Chart</a></li>
-                                <li><a href="chart-peity.html">Peity Chart</a></li>
-                              </ul><i class="fa fa-angle-right"></i>
-                            </li>
-                          </ul>
-                        </li>
-                        <li class="onhover-dropdown"> <span class="f-w-700 sub-menu">Applications</span>
-                          <ul class="onhover-show-div left-dropdown">
-                            <li class="flyout-right"><a href="#">Project</a>
-                              <ul>
-                                <li><a href="project-details.html">Project Details</a></li>
-                                <li><a href="project-list.html">Project List</a></li>
-                                <li><a href="createnew.html">Create new</a></li>
-                              </ul><i class="fa fa-angle-right"></i>
-                            </li>
-                            <li><a href="file-manager.html">File manager</a></li>
-                            <li><a href="kanban.html">kanban Board </a></li>
-                            <li class="flyout-right"> <a href="#">Ecommerce </a>
-                              <ul>
-                                <li class="flyout-right"><a href="#">Products</a>
-                                  <ul>
-                                    <li><a href="add-products.html">Add Product</a></li>
-                                    <li><a href="product-grid.html">Product Grid</a></li>
-                                    <li><a href="products-list.html">Products List</a></li>
-                                    <li><a href="product-details.html">Product Details</a></li>
-                                  </ul><i class="fa fa-angle-right">   </i>
-                                </li>
-                                <li><a href="category.html">Category</a></li>
-                                <li class="flyout-right"><a href="#">Seller</a>
-                                  <ul>
-                                    <li><a href="seller-list.html">Seller list</a></li>
-                                    <li><a href="seller-details.html">Seller Details</a></li>
-                                  </ul><i class="fa fa-angle-right"></i>
-                                </li>
-                                <li class="flyout-right"><a href="#">Orders</a>
-                                  <ul>
-                                    <li><a href="order-history.html">Order History</a></li>
-                                    <li><a href="order-details.html">Order Details</a></li>
-                                  </ul><i class="fa fa-angle-right"></i>
-                                </li>
-                                <li class="flyout-right"><a href="#">Invoices</a>
-                                  <ul>
-                                    <li><a href="invoice-1.html">Invoice-1</a></li>
-                                    <li><a href="invoice-2.html">Invoice-2</a></li>
-                                    <li><a href="invoice-3.html">Invoice-3</a></li>
-                                    <li><a href="invoice-4.html">Invoice-4</a></li>
-                                    <li><a href="invoice-5.html">Invoice-5</a></li>
-                                    <li><a href="invoice-template.html">Invoice-6</a></li>
-                                  </ul><i class="fa fa-angle-right"></i>
-                                </li>
-                                <li><a href="cart.html">Cart</a></li>
-                                <li><a href="wishlist.html">Wishlist</a></li>
-                                <li><a href="checkout.html">Checkout    </a></li>
-                                <li><a href="manage-review.html">Manage Review</a></li>
-                                <li><a href="settings.html">Settings  </a></li>
-                              </ul><i class="fa fa-angle-right"></i>
-                            </li>
-                            <li><a href="mail-box.html">Mail-Box </a></li>
-                            <li class="flyout-right"> <a href="#">Chat</a>
-                              <ul>
-                                <li><a href="private-chat.html">Private Chat</a></li>
-                                <li><a href="group-chat.html">Group Chat</a></li>
-                              </ul><i class="fa fa-angle-right"></i>
-                            </li>
-                            <li class="flyout-right"><a href="#">Users</a>
-                              <ul>
-                                <li><a href="user-profile.html">Users Profile</a></li>
-                                <li><a href="add-user.html">Add User</a></li>
-                                <li><a href="user-list.html">User List</a></li>
-                                <li><a href="user-cards.html">User Cards</a></li>
-                                <li><a href="roles-permission.html">Roles & Permission       </a></li>
-                              </ul><i class="fa fa-angle-right"></i>
-                            </li>
-                            <li class="flyout-right"><a href="#">Reports</a>
-                              <ul>
-                                <li><a href="product-report.html">Products</a></li>
-                                <li><a href="sales-report.html">Sales</a></li>
-                                <li><a href="sales-return.html">Sales Return</a></li>
-                                <li><a href="customer-order.html">Customer Order</a></li>
-                                <li><a href="roles-permission.html">Roles & Permission       </a></li>
-                              </ul><i class="fa fa-angle-right"></i>
-                            </li>
-                            <li><a href="bookmark.html">Bookmarks        </a></li>
-                            <li><a href="contacts.html">Contacts</a></li>
-                            <li><a href="task.html">Tasks</a></li>
-                            <li><a href="calendar.html">Calendar</a></li>
-                            <li><a href="social-app.html">Social-app</a></li>
-                            <li><a href="to-do.html">To-Do</a></li>
-                            <li><a href="search-result.html">Search Result</a></li>
-                          </ul>
-                        </li>
-                        <li class="onhover-dropdown"><span class="f-w-700 sub-menu">Pages</span>
-                          <ul class="onhover-show-div left-dropdown">
-                            <li><a href="blog.html">Landing page</a></li>
-                            <li><a href="blog-single.html">Sample page</a></li>
-                            <li><a href="internationalization.html">Internationalization    </a></li>
-                            <li><a href="../starter-kit/index.html">Starter kit</a></li>
-                            <li class="flyout-right"><a href="#">Other </a><i class="fa fa-angle-right"></i>
-                              <ul>
-                                <li class="flyout-right"><a href="#">Error Page</a>
-                                  <ul>
-                                    <li><a href="error-403.html">Error 403</a></li>
-                                    <li><a href="error-404.html">Error 404</a></li>
-                                    <li><a href="error-500.html">Error 500</a></li>
-                                  </ul><i class="fa fa-angle-right">          </i>
-                                </li>
-                                <li class="flyout-right"> <a href="#">Authentication</a>
-                                  <ul>
-                                    <li><a href="login.html" target="_blank">Login Simple</a></li>
-                                    <li><a href="login_one.html" target="_blank">Login With Bg Image</a></li>
-                                    <li><a href="login_two.html" target="_blank">Login With Image Two</a></li>
-                                    <li><a href="login_three.html" target="_blank">Login With Image Three                          </a></li>
-                                    <li><a href="login_with_tooltip.html" target="_blank">Login With Tootip</a></li>
-                                    <li><a href="login_with_sweetalert.html" target="_blank">Login With Sweetalert</a></li>
-                                    <li><a href="resigster-simple.html" target="_blank">Resigster Simple</a></li>
-                                    <li><a href="resigster_with_bg_image.html" target="_blank">Register With Bg Image</a></li>
-                                    <li><a href="resigster_with_image_two.html" target="_blank">Register With Bg Two                              </a></li>
-                                    <li><a href="resigster_wizard.html" target="_blank">Register Wizard</a></li>
-                                    <li><a href="unlock.html" target="_blank">Unlock User</a></li>
-                                    <li><a href="forget-password.html">Forget Password</a></li>
-                                    <li><a href="reset-password.html">Reset Password</a></li>
-                                    <li><a href="maintenance.html">Maintenance</a></li>
-                                  </ul><i class="fa fa-angle-right"> </i>
-                                </li>
-                                <li class="flyout-right"> <a href="#">Coming Soon</a>
-                                  <ul> 
-                                    <li><a href="comingsoon.html">Coming Simple</a></li>
-                                    <li><a href="comingsoon-bg-video.html">Coming with Bg video</a></li>
-                                    <li><a href="comingsoon-bg-img.html">Coming with Bg Image</a></li>
-                                  </ul><i class="fa fa-angle-right"> </i>
-                                </li>
-                                <li class="flyout-right"><a href="#">Email templates</a>
-                                  <ul>
-                                    <li><a href="basic-template.html">Basic Email</a></li>
-                                    <li><a href="email-header.html">Basic With Header</a></li>
-                                    <li><a href="template-email.html">Ecomerce Template</a></li>
-                                    <li><a href="template-email-2.html">Email Template 2</a></li>
-                                    <li><a href="ecommerce-templates.html">Ecommerce Email</a></li>
-                                    <li><a href="email-order-success.html">Order Success</a></li>
-                                  </ul><i class="fa fa-angle-right"></i>
-                                </li>
-                              </ul>
-                            </li>
-                          </ul>
-                        </li>
-                        <li class="onhover-dropdown p-0"><span class="f-w-700 sub-menu">Miscellaneous</span>
-                          <ul class="onhover-show-div left-dropdown">
-                            <li class="flyout-right"><a href="#">Gallery</a>
-                              <ul> 
-                                <li><a href="gallery.html">Gallery Grid</a></li>
-                                <li><a href="gallery-with-description.html">Gallery Grid Desc</a></li>
-                                <li><a href="gallery-masonry.html">Masonry Gallery</a></li>
-                                <li><a href="masonry-gallery-with-disc.html">Masonry With Desc</a></li>
-                                <li><a href="hover-effects.html">Hover Effects</a></li>
-                                <li><a href="gallery-with-placeholder.html">Gallery Placeholder</a></li>
-                              </ul><i class="fa fa-angle-right"></i>
-                            </li>
-                            <li class="flyout-right"><a href="#">Blog</a>
-                              <ul>
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="blog-details.html">Blog Details</a></li>
-                                <li><a href="add-blog.html">Add Blog</a></li>
-                              </ul><i class="fa fa-angle-right"></i>
-                            </li>
-                            <li><a href="faq.html">FAQ</a></li>
-                            <li class="flyout-right"><a href="#">Job Search</a>
-                              <ul>
-                                <li><a href="job-cards-view.html">Cards View</a></li>
-                                <li><a href="job-list-view.html">List View</a></li>
-                                <li><a href="job-details.html">Job Details</a></li>
-                                <li><a href="candidates.html">Candidates</a></li>
-                                <li><a href="companies.html">Companies</a></li>
-                                <li><a href="job-apply.html">Apply</a></li>
-                              </ul><i class="fa fa-angle-right"></i>
-                            </li>
-                            <li class="flyout-right"><a href="#">Courses</a>
-                              <ul> 
-                                <li><a href="course-list-view.html">Course List</a></li>
-                                <li><a href="course-details.html">Course Details</a></li>
-                              </ul><i class="fa fa-angle-right"></i>
-                            </li>
-                            <li class="flyout-right"><a href="#">Maps</a>
-                              <ul>
-                                <li><a href="map-js.html">Map-js</a></li>
-                                <li><a href="vector-map.html">Vector Maps</a></li>
-                              </ul><i class="fa fa-angle-right"></i>
-                            </li>
-                            <li class="flyout-right"><a href="#">Editors </a>
-                              <ul>
-                                <li><a href="quilleditor.html">Quill Editor</a></li>
-                                <li><a href="ckeditor.html">CK editor</a></li>
-                                <li><a href="ace-code-editor.html">ACE code editor </a></li>
-                              </ul><i class="fa fa-angle-right"> </i>
-                            </li>
-                            <li><a href="knowledgebase.html">Knowledgebase </a></li>
-                            <li> <a href="support-ticket.html">Support Ticket</a></li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xl-6 col-md-12 col-lg-12 col-sm-12">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="servidores.html">                                       
-                        <svg class="stroke-icon">
-                          <use href="../assets/svg/icon-sprite.svg#breadcrumb-home"></use>
-                        </svg></a></li>
-                    <li class="breadcrumb-item">Dashboard</li>
-                    <li class="breadcrumb-item active">Shopping Place    </li>
-                    <li class="download-icon"> <a href="">
-                        <svg class="stroke-icon">
-                          <use href="../assets/svg/icon-sprite.svg#stroke-download"></use>
-                        </svg>
-                        <svg>
-                          <use href="../assets/svg/icon-sprite.svg#fill-download">  </use>
-                        </svg></a></li>
-                    <li class="download">            
-                      <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Last 7 Days</button>
-                      <div class="dropdown-menu"><a class="dropdown-item" href="#!">7 Days  </a><a class="dropdown-item" href="#!">This week    </a><a class="dropdown-item" href="#!">Last week</a></div>
-                    </li>
-                  </ol>
-                </div>
-              </div>
-            </div>
-          </div>
           <!-- Container-fluid starts-->
           <div class="container-fluid default-dashboard">
             <div class="row">
@@ -848,20 +217,20 @@
                           </div>
                         </div>
                         <div class="row g-2">
-                          <div class="col-md-6"><div class="d-flex justify-content-between align-items-center border p-2" style="border-color:#7c5fc5 !important;font-size:12px;"><span>Dominio</span><button class="btn btn-sm p-0 px-1" style="border:1.5px solid #7c5fc5;"><i data-feather="copy" style="width:12px;height:12px;color:#7c5fc5;"></i></button></div></div>
-                          <div class="col-md-6"><div class="d-flex justify-content-between align-items-center border p-2" style="border-color:#7c5fc5 !important;font-size:12px;"><span>IP</span><button class="btn btn-sm p-0 px-1" style="border:1.5px solid #7c5fc5;"><i data-feather="copy" style="width:12px;height:12px;color:#7c5fc5;"></i></button></div></div>
-                          <div class="col-md-6"><div class="d-flex justify-content-between align-items-center border p-2" style="border-color:#7c5fc5 !important;font-size:12px;"><span>Correo de acceso</span><button class="btn btn-sm p-0 px-1" style="border:1.5px solid #7c5fc5;"><i data-feather="copy" style="width:12px;height:12px;color:#7c5fc5;"></i></button></div></div>
-                          <div class="col-md-6"><div class="d-flex justify-content-between align-items-center border p-2" style="border-color:#7c5fc5 !important;font-size:12px;"><span>Contraseña de acceso</span><button class="btn btn-sm p-0 px-1" style="border:1.5px solid #7c5fc5;"><i data-feather="copy" style="width:12px;height:12px;color:#7c5fc5;"></i></button></div></div>
-                          <div class="col-md-6"><div class="d-flex justify-content-between align-items-center border p-2" style="border-color:#7c5fc5 !important;font-size:12px;"><span>url api</span><button class="btn btn-sm p-0 px-1" style="border:1.5px solid #7c5fc5;"><i data-feather="copy" style="width:12px;height:12px;color:#7c5fc5;"></i></button></div></div>
-                          <div class="col-md-6"><div class="d-flex justify-content-between align-items-center border p-2" style="border-color:#7c5fc5 !important;font-size:12px;"><span>Current user</span><button class="btn btn-sm p-0 px-1" style="border:1.5px solid #7c5fc5;"><i data-feather="copy" style="width:12px;height:12px;color:#7c5fc5;"></i></button></div></div>
-                          <div class="col-md-6"><div class="d-flex justify-content-between align-items-center border p-2" style="border-color:#7c5fc5 !important;font-size:12px;"><span>DNS 1</span><button class="btn btn-sm p-0 px-1" style="border:1.5px solid #7c5fc5;"><i data-feather="copy" style="width:12px;height:12px;color:#7c5fc5;"></i></button></div></div>
-                          <div class="col-md-6"><div class="d-flex justify-content-between align-items-center border p-2" style="border-color:#7c5fc5 !important;font-size:12px;"><span>DNS 2</span><button class="btn btn-sm p-0 px-1" style="border:1.5px solid #7c5fc5;"><i data-feather="copy" style="width:12px;height:12px;color:#7c5fc5;"></i></button></div></div>
-                          <div class="col-md-6"><div class="d-flex justify-content-between align-items-center border p-2" style="border-color:#7c5fc5 !important;font-size:12px;"><span>URL panel</span><button class="btn btn-sm p-0 px-1" style="border:1.5px solid #7c5fc5;"><i data-feather="copy" style="width:12px;height:12px;color:#7c5fc5;"></i></button></div></div>
-                          <div class="col-md-6"><div class="d-flex justify-content-between align-items-center border p-2" style="border-color:#7c5fc5 !important;font-size:12px;"><span>APIKEY</span><button class="btn btn-sm p-0 px-1" style="border:1.5px solid #7c5fc5;"><i data-feather="copy" style="width:12px;height:12px;color:#7c5fc5;"></i></button></div></div>
-                          <div class="col-md-6"><div class="d-flex justify-content-between align-items-center border p-2" style="border-color:#7c5fc5 !important;font-size:12px;"><span>MultiPHP Manager enlace</span><button class="btn btn-sm p-0 px-1" style="border:1.5px solid #7c5fc5;"><i data-feather="copy" style="width:12px;height:12px;color:#7c5fc5;"></i></button></div></div>
-                          <div class="col-md-6"><div class="d-flex justify-content-between align-items-center border p-2" style="border-color:#7c5fc5 !important;font-size:12px;"><span>MultiPHP INI Editor</span><button class="btn btn-sm p-0 px-1" style="border:1.5px solid #7c5fc5;"><i data-feather="copy" style="width:12px;height:12px;color:#7c5fc5;"></i></button></div></div>
-                          <div class="col-md-6"><div class="d-flex justify-content-between align-items-center border p-2" style="border-color:#7c5fc5 !important;font-size:12px;"><span>Softaculos Wordpress Enlace</span><button class="btn btn-sm p-0 px-1" style="border:1.5px solid #7c5fc5;"><i data-feather="copy" style="width:12px;height:12px;color:#7c5fc5;"></i></button></div></div>
-                          <div class="col-md-6"><div class="d-flex justify-content-between align-items-center border p-2" style="border-color:#7c5fc5 !important;font-size:12px;"><span>CPS</span><button class="btn btn-sm p-0 px-1" style="border:1.5px solid #7c5fc5;"><i data-feather="copy" style="width:12px;height:12px;color:#7c5fc5;"></i></button></div></div>
+                          <div class="col-md-6"><div class="d-flex justify-content-between align-items-center border p-2" style="border-color:#7c5fc5 !important;font-size:12px;"><span>Dominio</span><button class="btn-copy-icon"><i data-feather="copy" style="width:13px;height:13px;color:#7c5fc5;"></i></button></div></div>
+                          <div class="col-md-6"><div class="d-flex justify-content-between align-items-center border p-2" style="border-color:#7c5fc5 !important;font-size:12px;"><span>IP</span><button class="btn-copy-icon"><i data-feather="copy" style="width:13px;height:13px;color:#7c5fc5;"></i></button></div></div>
+                          <div class="col-md-6"><div class="d-flex justify-content-between align-items-center border p-2" style="border-color:#7c5fc5 !important;font-size:12px;"><span>Correo de acceso</span><button class="btn-copy-icon"><i data-feather="copy" style="width:13px;height:13px;color:#7c5fc5;"></i></button></div></div>
+                          <div class="col-md-6"><div class="d-flex justify-content-between align-items-center border p-2" style="border-color:#7c5fc5 !important;font-size:12px;"><span>Contraseña de acceso</span><button class="btn-copy-icon"><i data-feather="copy" style="width:13px;height:13px;color:#7c5fc5;"></i></button></div></div>
+                          <div class="col-md-6"><div class="d-flex justify-content-between align-items-center border p-2" style="border-color:#7c5fc5 !important;font-size:12px;"><span>URL api</span><button class="btn-copy-icon"><i data-feather="copy" style="width:13px;height:13px;color:#7c5fc5;"></i></button></div></div>
+                          <div class="col-md-6"><div class="d-flex justify-content-between align-items-center border p-2" style="border-color:#7c5fc5 !important;font-size:12px;"><span>Current user</span><button class="btn-copy-icon"><i data-feather="copy" style="width:13px;height:13px;color:#7c5fc5;"></i></button></div></div>
+                          <div class="col-md-6"><div class="d-flex justify-content-between align-items-center border p-2" style="border-color:#7c5fc5 !important;font-size:12px;"><span>DNS 1</span><button class="btn-copy-icon"><i data-feather="copy" style="width:13px;height:13px;color:#7c5fc5;"></i></button></div></div>
+                          <div class="col-md-6"><div class="d-flex justify-content-between align-items-center border p-2" style="border-color:#7c5fc5 !important;font-size:12px;"><span>DNS 2</span><button class="btn-copy-icon"><i data-feather="copy" style="width:13px;height:13px;color:#7c5fc5;"></i></button></div></div>
+                          <div class="col-md-6"><div class="d-flex justify-content-between align-items-center border p-2" style="border-color:#7c5fc5 !important;font-size:12px;"><span>URL panel</span><button class="btn-copy-icon"><i data-feather="copy" style="width:13px;height:13px;color:#7c5fc5;"></i></button></div></div>
+                          <div class="col-md-6"><div class="d-flex justify-content-between align-items-center border p-2" style="border-color:#7c5fc5 !important;font-size:12px;"><span>APIKEY</span><button class="btn-copy-icon"><i data-feather="copy" style="width:13px;height:13px;color:#7c5fc5;"></i></button></div></div>
+                          <div class="col-md-6"><div class="d-flex justify-content-between align-items-center border p-2" style="border-color:#7c5fc5 !important;font-size:12px;"><span>MultiPHP Manager enlace</span><button class="btn-copy-icon"><i data-feather="copy" style="width:13px;height:13px;color:#7c5fc5;"></i></button></div></div>
+                          <div class="col-md-6"><div class="d-flex justify-content-between align-items-center border p-2" style="border-color:#7c5fc5 !important;font-size:12px;"><span>MultiPHP INI Editor</span><button class="btn-copy-icon"><i data-feather="copy" style="width:13px;height:13px;color:#7c5fc5;"></i></button></div></div>
+                          <div class="col-md-6"><div class="d-flex justify-content-between align-items-center border p-2" style="border-color:#7c5fc5 !important;font-size:12px;"><span>Softaculos Wordpress Enlace</span><button class="btn-copy-icon"><i data-feather="copy" style="width:13px;height:13px;color:#7c5fc5;"></i></button></div></div>
+                          <div class="col-md-6"><div class="d-flex justify-content-between align-items-center border p-2" style="border-color:#7c5fc5 !important;font-size:12px;"><span>CPS</span><button class="btn-copy-icon"><i data-feather="copy" style="width:13px;height:13px;color:#7c5fc5;"></i></button></div></div>
                         </div>
                         <div class="text-end mt-2">
                           <a href="panel1_configuracion_inicial.html" target="_blank" class="btn btn-sm" style="border:1.5px solid #7c5fc5;color:#7c5fc5;font-size:12px;">Abrir panel completo <i data-feather="external-link" style="width:12px;height:12px;"></i></a>
@@ -1015,7 +384,18 @@
                         <strong>Importación final</strong>
                         <div class="d-flex justify-content-between align-items-center mt-2 mb-1"><span>1. Importar .wpress</span><button class="btn btn-sm py-0" style="border:1.5px solid #7c5fc5;color:#7c5fc5;font-size:11px;">Abrir</button></div>
                         <div class="d-flex align-items-center gap-2 mb-2"><span style="color:#4caf50;font-weight:bold;">+</span><span>Guardar copia de seguridad</span></div>
-                        <div class="border p-1 text-center text-muted mb-1" style="border-color:#4caf50 !important;font-size:11px;">URL GOOGLE DRIVE</div>
+                        <a href="#" target="_blank" class="btn-gdrive mb-1">
+                          <!-- Google Drive icon SVG -->
+                          <svg class="gdrive-icon" viewBox="0 0 87.3 78" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m6.6 66.85 3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8h-27.5c0 1.55.4 3.1 1.2 4.5z" fill="#0066da"/>
+                            <path d="m43.65 25-13.75-23.8c-1.35.8-2.5 1.9-3.3 3.3l-25.4 44a9.06 9.06 0 0 0 -1.2 4.5h27.5z" fill="#00ac47"/>
+                            <path d="m73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75 7.65-13.25c.8-1.4 1.2-2.95 1.2-4.5h-27.502l5.852 11.5z" fill="#ea4335"/>
+                            <path d="m43.65 25 13.75-23.8c-1.35-.8-2.9-1.2-4.5-1.2h-18.5c-1.6 0-3.15.45-4.5 1.2z" fill="#00832d"/>
+                            <path d="m59.8 53h-32.3l-13.75 23.8c1.35.8 2.9 1.2 4.5 1.2h50.8c1.6 0 3.15-.45 4.5-1.2z" fill="#2684fc"/>
+                            <path d="m73.4 26.5-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3l-13.75 23.8 16.15 27h27.45c0-1.55-.4-3.1-1.2-4.5z" fill="#ffba00"/>
+                          </svg>
+                          URL GOOGLE DRIVE
+                        </a>
                         <button class="btn btn-sm w-100" style="border:1px solid #999;font-size:11px;">Guardar configuración</button>
                       </div>
                     </div>
@@ -1034,23 +414,6 @@
       </div>
       <!-- FIN CONTENIDO -->
                   <!-- Container-fluid Ends-->
-        <!-- footer start-->
-        <footer class="footer">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-md-6 footer-copyright">
-                <p class="mb-0">Copyright <span class="year-update"> </span> © Olix Theme By Pixelstrap</p>
-              </div>
-              <div class="col-md-6">
-                <p class="float-end mb-0">Hand crafted &amp; made with
-                  <svg class="footer-icon">
-                    <use href="../assets/svg/icon-sprite.svg#heart"> </use>
-                  </svg>
-                </p>
-              </div>
-            </div>
-          </div>
-        </footer>
       </div>
     </div>
     <!-- latest jquery-->
