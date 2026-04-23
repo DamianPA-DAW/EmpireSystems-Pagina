@@ -60,10 +60,8 @@
       <!-- Page Header Start-->
       <div class="page-header">
         <div class="header-wrapper row g-0">
-          <div class="logo-wrapper"><a class="empire-brand-link" href="index.html"><img class="img-fluid empire-brand-icon" src="../assets/images/logo/logo-icon.png" alt="Empire Systems"><span class="empire-brand-text"><span class="empire-brand-name">Empire</span><span class="empire-brand-subtitle">Systems</span></span></a></div>
-          <svg class="stroke-icon toggle-sidebar">
-            <use class="status_toggle middle sidebar-toggle" href="../assets/svg/icon-sprite.svg#stroke-toggle"> </use>
-          </svg>
+          <div class="logo-wrapper"><a class="empire-brand-link" href="index.html"><img class="img-fluid empire-brand-icon" src="../assets/images/logo/empire-lion-logo.svg" alt="Empire Systems"><span class="empire-brand-text"><span class="empire-brand-name">Empire</span><span class="empire-brand-subtitle">Systems</span></span></a></div>
+          <button class="toggle-sidebar empire-panel-toggle" type="button" aria-label="Mostrar u ocultar panel lateral"><span></span><span></span><span></span></button>
           <form class="col-auto form-inline search-full" action="#" method="get">
             <div class="form-group form-inline search-full d-none d-xl-block">
               <div class="Typeahead Typeahead--twitterUsers">
@@ -91,15 +89,20 @@
               </li>
               <li>
                 <div class="mode">
-                  <svg>
-                    <use href="../assets/svg/icon-sprite.svg#stroke-dark-light"></use>
+                  <svg class="empire-header-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round">
+                    <path d="M5 6h14M5 12h14M5 18h14"></path>
+                    <circle cx="9" cy="6" r="2"></circle>
+                    <circle cx="15" cy="12" r="2"></circle>
+                    <circle cx="11" cy="18" r="2"></circle>
                   </svg>
                 </div>
               </li>
               <li class="onhover-dropdown">
                 <div class="notification-box">
-                  <svg>
-                    <use href="../assets/svg/icon-sprite.svg#stroke-notify"></use>
+                  <svg class="empire-header-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M8 18h8"></path>
+                    <path d="M9 18a3 3 0 0 0 6 0"></path>
+                    <path d="M6 17h12l-1.5-2.2V10a4.5 4.5 0 1 0-9 0v4.8Z"></path>
                   </svg>
                 </div>
                 <div class="onhover-show-div notification-dropdown">
@@ -183,9 +186,11 @@
                 </div>
               </li>
               <li class="onhover-dropdown bookmark">
-                <svg>
-                  <use href="../assets/svg/icon-sprite.svg#star"></use>
-                </svg>
+                <div class="bookmark-trigger notification-box">
+                  <svg class="empire-header-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m12 3 2.6 5.3 5.9.9-4.2 4.1 1 5.8L12 16.3 6.7 19l1-5.8L3.5 9.2l5.9-.9Z"></path>
+                  </svg>
+                </div>
                 <div class="onhover-show-div bookmark-flip">
                   <div class="flip-card">
                     <div class="flip-card-inner">
@@ -227,8 +232,8 @@
               </li>
               <li class="onhover-dropdown message-box">
                 <div class="message notification-box">
-                  <svg>
-                    <use href="../assets/svg/icon-sprite.svg#stroke-messages"></use>
+                  <svg class="empire-header-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 7.5a2.5 2.5 0 0 1 2.5-2.5h9A2.5 2.5 0 0 1 19 7.5v6A2.5 2.5 0 0 1 16.5 16h-6l-3.5 3v-3H7.5A2.5 2.5 0 0 1 5 13.5Z"></path>
                   </svg><span class="rounded-pill badge-danger"></span>
                 </div>
                 <div class="onhover-show-div message-dropdown">
@@ -276,8 +281,11 @@
               </li>
               <li class="cart-nav onhover-dropdown">
                 <div class="cart-box">
-                  <svg>
-                    <use href="../assets/svg/icon-sprite.svg#cart"></use>
+                  <svg class="empire-header-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M7 7h12l-1.6 6.5H9.2L7 7Z"></path>
+                    <path d="M7 7 6 4H3"></path>
+                    <circle cx="10" cy="18" r="1.5"></circle>
+                    <circle cx="17" cy="18" r="1.5"></circle>
                   </svg>
                 </div>
                 <div class="cart-dropdown onhover-show-div">
@@ -372,16 +380,18 @@
       <!-- Page Body Start-->
       <div class="page-body-wrapper">
         <!-- Page Sidebar Start-->
-        <div class="sidebar-wrapper" data-sidebar-layout="stroke-svg">
+        <div class="sidebar-wrapper" data-layout="fill-svg">
           <div>
-            <div class="logo-wrapper"><a href="index.html"><img class="img-fluid" src="../assets/images/logo/logo-icon.png" alt=""></a>
-              <div class="back-btn"><i class="fa fa-angle-left">   </i></div>
+            <div class="logo-wrapper"><a class="empire-brand-link" href="index.html"><img class="img-fluid empire-brand-icon" src="../assets/images/logo/empire-lion-logo.svg" alt="Empire Systems"><span class="empire-brand-text"><span class="empire-brand-name">Empire</span><span class="empire-brand-subtitle">Systems</span></span></a>
+              <div class="back-btn"><i class="fa-solid fa-angle-left"></i></div>
+              <button class="toggle-sidebar empire-panel-toggle" type="button" aria-label="Mostrar u ocultar panel lateral"><span></span><span></span><span></span></button>
             </div>
+            <div class="logo-icon-wrapper"><a href="index.html"><img class="img-fluid" src="../assets/images/logo/empire-lion-logo.svg" alt="Empire Systems"></a></div>
             <nav class="sidebar-main">
               <div id="sidebar-menu">
                 <ul class="sidebar-links" id="simple-bar">
-                  <li class="back-btn"><a href="index.html"></a>
-                    <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
+                  <li class="back-btn"><a href="index.html"><img class="img-fluid" src="../assets/images/logo/empire-lion-logo.svg" alt="Empire Systems"></a>
+                    <div class="back-btn"><i class="fa-solid fa-angle-left"></i></div>
                   </li>
                   <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="javascript:void(0)">
                       <svg class="stroke-icon">
@@ -1627,6 +1637,9 @@
     <script src="../assets/js/theme-customizer/customizer.js"></script>
   </body>
 </html>
+
+
+
 
 
 
