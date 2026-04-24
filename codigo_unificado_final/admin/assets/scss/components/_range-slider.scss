@@ -1,0 +1,46 @@
+/**=====================
+   2.26 Range-slider CSS Start
+==========================**/
+//Ion Range-slider 
+@use "../utils/variables";
+@use "../utils/mixin";
+
+// square slider
+@include mixin.range-slider(variables.$success-color);
+
+// sharp slider
+.irs--sharp {
+
+    .irs-from,
+    .irs-to {
+        &::before {
+            border-top-color: variables.$info-color;
+        }
+    }
+
+    .irs-min,
+    .irs-max,
+    .irs-from,
+    .irs-to,
+    .irs-bar {
+        background-color: variables.$info-color;
+    }
+
+    .irs-line {
+        background-color: variables.$gray-60;
+    }
+
+    .irs-handle {
+        background-color: variables.$info-color;
+
+        i {
+            &:first-child {
+                border-top-color: variables.$info-color;
+            }
+        }
+    }
+}
+
+/**=====================
+    2.26 Range-slider CSS Ends
+==========================**/

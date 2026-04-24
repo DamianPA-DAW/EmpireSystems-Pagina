@@ -1,0 +1,192 @@
+/**=====================
+	2.18 Icons CSS Start
+==========================**/
+@use "../utils/mixin";
+@use "../utils/variables";
+.icon-lists {
+	div {
+		cursor: pointer;
+		line-height: 60px;
+		border-radius: 4px;
+		display: block;
+		@include mixin.pixelstrap-ellipsis;
+		max-width: 100%;
+
+
+		&:hover {
+			background-color: var(--light-background);
+		}
+
+		i {
+			margin: 0 15px 0 10px;
+			font-size: 24px;
+			vertical-align: middle;
+		}
+	}
+
+	&.whether-icon {
+		svg {
+			height: calc(40px + (50 - 40) * ((100vw - 320px) / (1920 - 320)));
+			width: calc(40px + (50 - 40) * ((100vw - 320px) / (1920 - 320)));
+		}
+	}
+
+	&.feather-icons {
+		.d-flex {
+			svg {
+				margin: 0 15px 0 10px;
+			}
+		}
+	}
+
+	.feather-icon {
+		.icon-first {
+			h6 {
+				display: none;
+			}
+		}
+	}
+
+	&.flag-icons,
+	&.whether-icon {
+		div {
+			display: flex;
+			align-items: center;
+			white-space: nowrap;
+			-webkit-box-align: center;
+		}
+	}
+}
+
+.flag-icons,
+.feather-icons {
+	margin-block: -15px;
+
+	div {
+		line-height: 1;
+		word-wrap: break-word;
+		overflow: auto;
+
+		.flag-icon {
+			@include mixin.pixelstrap-size(50px, 50px);
+		}
+
+		.d-flex {
+			padding-block: 15px;
+			width: 100%;
+		}
+
+		.flex-grow-1 {
+			h6 {
+				margin-bottom: 0;
+				font-size: 14px;
+				font-weight: 400;
+				max-width: 100%;
+				@include mixin.pixelstrap-ellipsis;
+			}
+
+			h5 {
+				background-color: var(--theme-default);
+				display: inline-block;
+				padding: 3px 5px;
+				font-size: 11px;
+				border-radius: 3px;
+				margin-bottom: 5px;
+				margin-right: 5px;
+				color: variables.$white;
+			}
+		}
+	}
+}
+
+.icon-hover-bottom {
+	background-color: #f5f5f5;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	box-shadow: 0px 0px 1px 1px variables.$light-color;
+	z-index: 999;
+
+	.icon-popup {
+		@include mixin.pixelstrap-flex(flex, center, center);
+		width: 100%;
+		padding: 20px;
+
+		.close-icon {
+			position: absolute;
+			right: 10px;
+			top: 10px;
+			font-size: 20px;
+			color: variables.$gray-60;
+			cursor: pointer;
+
+			[dir="rtl"] & {
+				right: unset;
+				left: 10px;
+			}
+		}
+
+
+		>div {
+			display: inline-block;
+
+			.flag-icon {
+				@include mixin.pixelstrap-size(60px, 60px);
+			}
+		}
+
+		.icon-class {
+			margin: 0 20px;
+			cursor: pointer;
+		}
+
+		.icon-last {
+			.form-inline {
+				.form-group {
+					display: initial;
+				}
+			}
+		}
+	}
+
+	.icon-title {
+		display: block;
+		color: variables.$dark-color;
+		text-transform: uppercase;
+		font-weight: 500;
+	}
+
+	span,
+	label,
+	.btn {
+		font-family: variables.$font-roboto, variables.$font-serif;
+	}
+
+	.form-group {
+		input {
+			display: inline-block;
+			width: 300px;
+			background-color: variables.$white;
+			font-family: variables.$font-roboto, variables.$font-serif;
+		}
+	}
+}
+
+.fa-fa-icon-show-div,
+.icons-show-div {
+	display: none;
+}
+
+.icon-first {
+	i {
+		color: variables.$dark-gray;
+	}
+
+	h6 {
+		display: none;
+	}
+}
+
+/**=====================
+    2.18 Icons CSS Ends
+==========================**/

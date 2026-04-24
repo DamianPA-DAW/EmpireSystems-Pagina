@@ -1,0 +1,102 @@
+// Page Sidebar Start
+- var status_toggle = (sidebar_open ? undefined : 'checked');
+.sidebar-wrapper(data-sidebar-layout="stroke-svg")
+  div
+    .logo-wrapper
+      a(href='index.html')
+        img.img-fluid(src='../assets/images/logo/logo-icon.png', alt='')
+      .back-btn
+        i.fa.fa-angle-left
+    nav.sidebar-main
+      .left-arrow#left-arrow
+        i(data-feather='arrow-left')
+      #sidebar-menu
+        ul.sidebar-links#simple-bar
+          li.back-btn
+            .mobile-back.text-end
+              span Back
+              i.fa.fa-angle-right.ps-2(aria-hidden='true')
+          li.sidebar-list
+            a.sidebar-link.sidebar-title(href='../template/index.html', target='_blank')
+              svg.stroke-icon
+                use(href='../assets/svg/icon-sprite.svg#stroke-home')
+              svg.fill-icon
+                use(href='../assets/svg/icon-sprite.svg#fill-home')
+              span.lan-2 Dashboard
+          li.sidebar-list
+            a.sidebar-link.sidebar-title.active(href='#')
+              svg.stroke-icon
+                use(href='../assets/svg/icon-sprite.svg#stroke-chart')
+              svg.fill-icon
+                use(href='../assets/svg/icon-sprite.svg#fill-chart')
+              span.lan-172 Starter kit
+            ul.sidebar-submenu.custom-scrollbar
+              li.sidebar-head.lan-172 Starter kit
+              li.main-submenu
+                a.d-flex.sidebar-menu(href='javascript:void(0)')
+                  svg.stroke-icon
+                    use(href='../assets/svg/icon-sprite.svg#Ui-kites')
+                  svg.fill-icon
+                    use(href='../assets/svg/icon-sprite.svg#fill-ui')
+                  span.lan-235 Color version
+                  svg.arrow
+                    use(href='../assets/svg/icon-sprite.svg#arrow-right')
+                ul.submenu-wrapper
+                  li
+                    a(href='index.html').lan-236 Layout Light
+                  li
+                    a(href='layout-dark.html').lan-237 Layout Dark
+              li.main-submenu  
+                a.d-flex.sidebar-menu(href='javascript:void(0)')
+                  svg.stroke-icon
+                    use(href='../assets/svg/icon-sprite.svg#stroke-layout')
+                  svg.fill-icon
+                    use(href='../assets/svg/icon-sprite.svg#fill-layout')
+                  span.lan-7 Page layout
+                  svg.arrow
+                    use(href='../assets/svg/icon-sprite.svg#arrow-right')
+                ul.submenu-wrapper
+                  li
+                    a(href='boxed.html').lan-8 Boxed
+                  li
+                    a(href='layout-rtl.html').lan-9 RTL
+              li.main-submenu  
+                a.d-flex.sidebar-menu(href='hide-on-scroll.html')
+                  svg.stroke-icon
+                    use(href='../assets/svg/icon-sprite.svg#Perk-Ui')
+                  svg.fill-icon
+                    use(href='../assets/svg/icon-sprite.svg#fill-Perk-Ui')
+                  span.lan-238 Hide Menu On Scroll      
+              li.main-submenu  
+                a.d-flex.sidebar-menu(href='javascript:void(0)')
+                  svg.stroke-icon
+                    use(href='../assets/svg/icon-sprite.svg#stroke-editor')
+                  svg.fill-icon
+                    use(href='../assets/svg/icon-sprite.svg#fill-editor')
+                  span.lan-239 Footers
+                  svg.arrow
+                      use(href='../assets/svg/icon-sprite.svg#arrow-right')
+                ul.submenu-wrapper
+                  li
+                    a(href='footer-light.html').lan-12 Footer Light
+                  li
+                    a(href='footer-dark.html').lan-13 Footer Dark
+                  li
+                    a(href='footer-fixed.html').lan-14 Footer Fixed
+          li.sidebar-list
+            a.sidebar-link.sidebar-title(href='https://support.pixelstrap.com/agent/pixelstrap/pixelstrap/tickets/list/open-cases', target='_blank')
+              svg.stroke-icon
+                use(href='../assets/svg/icon-sprite.svg#stroke-social')
+              svg.fill-icon
+                use(href='../assets/svg/icon-sprite.svg#fill-social')
+              span.lan-240 Raise Support
+          li.sidebar-list
+            a.sidebar-link.sidebar-title(href='https://docs.pixelstrap.com/olix/document/', target='_blank')
+              svg.stroke-icon
+                use(href='../assets/svg/icon-sprite.svg#stroke-editor')
+              svg.fill-icon
+                use(href='../assets/svg/icon-sprite.svg#fill-editor')
+              span.lan-241 Document
+      .right-arrow#right-arrow
+        i(data-feather='arrow-right')
+// Page Sidebar Ends

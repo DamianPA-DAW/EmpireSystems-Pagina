@@ -1,0 +1,156 @@
+@use "../utils/variables";
+.weekly-schedule {
+  .fc {
+    .fc-timegrid-slot-label-cushion {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: variables.$theme-body-font-color;
+    }
+    .fc-col-header-cell-cushion {
+      padding: 10px 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: variables.$theme-body-sub-title-color;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+      span {
+        color: variables.$theme-body-font-color;
+      }
+    }
+    &.fc-media-screen{
+      height: 300px;
+      overflow-y: scroll;
+    }
+  }
+  .fc-header-toolbar,
+  .row {
+    display: none;
+  }
+  .fc-theme-standard {
+    td,
+    th {
+      border-style: dashed;
+      border-color: #D6D6D6;
+    }
+  }
+  .fc .fc-scrollgrid-section-header th {
+    padding: 0;
+  }
+  .fc .fc-scrollgrid-section > td {
+    padding: 0;
+  }
+  .fc {
+    td,
+    th {
+      padding: 10px;
+    }
+  }
+  .fc-scrollgrid-sync-table:first-child {
+    display: none;
+  }
+  .fc-timegrid-event-harness > .fc-timegrid-event {
+    min-width: fit-content;
+    width: 100%;
+  }
+  .fc-scrollgrid {
+    border: none;
+    min-width: 500px;
+    overflow: auto;
+
+    > tbody > tr:first-child {
+      display: none;
+    }
+    > tbody > tr:nth-child(2) {
+      display: none;
+    }
+  }
+  .fc-timegrid-event-harness > .fc-timegrid-event.common-style {
+    color: variables.$primary-color;
+    border: none;
+    box-shadow: none;
+    border-radius: 9999px;
+    max-height: 57px;
+    min-height: 57px;
+    min-width: 400px;
+    &.bg-primary-light{
+      background-color: variables.$light-primary;
+    }
+
+    @media (max-width: 1024px) {
+      min-width: 285px;
+    }
+    @media (max-width: 640px) {
+      min-width: 255px;
+    }
+
+    .fc-event-main {
+      padding: 10px;
+    }
+    .fc-event-main-frame {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+    }
+    .fc-task-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      .fc-task-text-box {
+        color: variables.$theme-body-sub-title-color;
+        text-transform: capitalize;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 0.75rem;
+        font-weight: 600;
+
+        .fc-task-text {
+          color: variables.$theme-body-font-color;
+        }
+      }
+    }
+    .img-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      img {
+        border-radius: 9999px;
+        width: 35px;
+        height: 35px;
+
+        @media (max-width: 640px) {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+    .fc-event-time {
+      color: variables.$primary-color;
+    }
+    .fc-event-title {
+      color: variables.$theme-body-font-color;
+      font-size: 0.75rem;
+      font-weight: 600;
+
+      @media (max-width: 640px) {
+        font-size: 0.625rem;
+      }
+    }
+    .fc-event-subtitle {
+      color: variables.$theme-body-sub-title-color;
+      font-size: 0.6875rem;
+      font-weight: 600;
+
+      @media (max-width: 640px) {
+        font-size: 0.625rem;
+      }
+    }
+    &.success-light {
+      background-color: #ebedf0;
+    }
+  }
+}

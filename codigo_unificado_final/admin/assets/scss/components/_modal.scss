@@ -1,0 +1,463 @@
+/**=====================
+    2.21 Modal CSS start
+==========================**/
+@use "../utils/variables";
+@use "../utils/mixin";
+.modal-toggle-wrapper {
+    .form-control {
+        &::placeholder {
+            font-size: 13px;
+        }
+    }
+
+    .modal-img {
+        display: flex;
+        justify-content: center;
+
+        img {
+            @include mixin.pixelstrap-size(200px, 200px);
+
+            @media (max-width:992px) {
+                width: calc(136px + (200 - 136) * ((100vw - 320px) / (992 - 320)));
+                height: calc(136px + (200 - 136) * ((100vw - 320px) / (992 - 320)));
+            }
+        }
+
+        li {
+            img {
+                @include mixin.pixelstrap-size(100px, 100px);
+
+                @media (max-width:992px) {
+                    width: calc(75px + (100 - 75) * ((100vw - 320px) / (992 - 320)));
+                    height: calc(75px + (100 - 75) * ((100vw - 320px) / (992 - 320)));
+                }
+            }
+        }
+
+        li+li {
+            margin-left: -39px;
+
+            [dir="rtl"] & {
+                margin-left: unset;
+                margin-right: -39px;
+            }
+        }
+    }
+
+    button {
+        svg {
+            @include mixin.pixelstrap-size(16px, 16px);
+        }
+    }
+}
+
+.grid-space {
+    display: block;
+    text-align: center;
+    padding: 12px;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.large-modal-header,
+.large-modal-body {
+    display: flex;
+    align-items: center;
+    color: variables.$dark-color;
+
+    svg {
+        @include mixin.pixelstrap-size(20px, 20px);
+
+        [dir="rtl"] & {
+            transform: scaleX(-1);
+        }
+    }
+}
+
+.modal-padding-space {
+    padding-left: 20px;
+}
+
+.svg-modal {
+    @include mixin.pixelstrap-size(15px, 15px);
+    stroke: variables.$secondary-color;
+    vertical-align: middle;
+
+    [dir="rtl"] & {
+        transform: scaleX(-1);
+    }
+}
+
+.card-wrapper {
+    .modal-heading {
+        h5 {
+            font-size: calc(15px + (18 - 15) * ((100vw - 320px) / (1400 - 320)));
+        }
+    }
+
+    .balance-modal {
+        @media (min-width:750px) and (max-width:1200px) {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
+
+.modal-footer {
+    .btn {
+        margin: 0 4px;
+    }
+}
+
+.modal-content {
+    .modal-header {
+        .btn-close {
+            &:focus {
+                box-shadow: unset;
+            }
+        }
+    }
+}
+
+.modal-details {
+    h6 {
+        padding-bottom: 12px;
+    }
+
+    .web-content {
+        margin-bottom: 16px;
+
+        .d-flex {
+            p {
+                padding-bottom: 8px;
+            }
+
+            &:last-child {
+                p {
+                    padding-bottom: 0;
+                }
+            }
+
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.modal {
+    .modal-body {
+        .card {
+            box-shadow: none !important;
+        }
+    }
+}
+
+.modal-dialog {
+    .modal-content {
+        .modal-body {
+            p {
+                a {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+}
+
+// rangeslider
+.irs-from,
+.irs-to,
+.irs-single {
+    background: var(--theme-default);
+
+    &:after {
+        border-top-color: var(--theme-default);
+    }
+}
+
+.irs-line-mid,
+.irs-line-left,
+.irs-line-right,
+.irs-bar,
+.irs-bar-edge {
+    background-color: var(--theme-default);
+}
+
+// sweetalert css
+.swal-button {
+    background-color: var(--theme-default);
+
+    &:active {
+        background-color: darken(variables.$primary-color, 5%);
+    }
+}
+
+.swal-button--cancel {
+    background-color: #EFEFEE !important;
+}
+
+.clipboaard-container {
+    h6 {
+        line-height: 1.6;
+        font-size: variables.$paragraph-font-size;
+    }
+}
+
+fieldset {
+
+    .bootstrap-touchspin-postfix,
+    .bootstrap-touchspin-prefix {
+        border-radius: 0;
+        padding: .4rem .75rem;
+    }
+
+    .input-group-lg {
+        .touchspin {
+            height: 50px;
+        }
+    }
+}
+
+.f1 .f1-steps .f1-step .f1-step-icon {
+    padding: 12px;
+}
+
+.form-inline .form-group {
+    display: flex;
+}
+
+.input-group-text {
+    i {
+        line-height: 1.5;
+    }
+}
+
+// animated modal css
+.animated-modal {
+    .form-select {
+        display: inline-block;
+        width: auto;
+        vertical-align: middle;
+    }
+}
+
+.card-wrapper {
+    padding: 14px;
+
+    dl {
+        dt {
+            font-weight: 500;
+        }
+    }
+}
+
+.custom-alert {
+    .card-wrapper {
+        .olix-demo-img {
+            .dot-group {
+                display: flex;
+                gap: calc(3px + (6 - 3) * ((100vw - 320px) / (1920 - 320)));
+                padding: 15px 10px 0;
+
+                li {
+                    width: calc(6px + (8 - 6) * ((100vw - 320px) / (1920 - 320)));
+                    height: calc(6px + (8 - 6) * ((100vw - 320px) / (1920 - 320)));
+                    background-color: var(--f-lighter);
+                    border-radius: 100%;
+                    opacity: 0.6;
+                }
+            }
+        }
+    }
+}
+.balance-box {
+    text-align: center;
+    background-image: url(../images/dashboard-4/bg-balance.png);
+    background-position: right;
+    background-size: cover;
+
+    .balance-img {
+        display: inline-block;
+        padding: 5px;
+        border: 2px solid var(--chart-border);
+        border-left-color: variables.$success-color;
+        border-bottom-color: variables.$success-color;
+        border-radius: 100%;
+        position: relative;
+        margin-bottom: 15px;
+
+        img {
+            background-color: var(--balance-profile-bg);
+            border-radius: 100%;
+        }
+
+        .edit-icon {
+            width: 26px;
+            height: 26px;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--white);
+            background-color: #DFDFF4;
+            right: 0;
+            bottom: 0;
+            border-radius: 100%;
+
+            svg {
+                width: 11px;
+                height: 11px;
+                fill: variables.$primary-color;
+            }
+        }
+    }
+}
+.balance-profile {
+    ul {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+        margin-top: 16px;
+
+        @media (max-width: 1660px) {
+            gap: 25px;
+        }
+
+        li {
+            position: relative;
+
+            +li {
+                &::before {
+                    position: absolute;
+                    content: '';
+                    left: -25px;
+                    top: 50%;
+                    height: 40px;
+                    transform: translateY(-50%);
+                    border: 1px dashed var(--recent-dashed-border);
+
+                    [dir="rtl"] & {
+                        left: unset;
+                        right: -25px;
+                    }
+
+                    @media (max-width: 1660px) {
+                        left: -16px;
+
+                        [dir="rtl"] & {
+                            right: -16px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.balance-item {
+    display: flex;
+    gap: 10px;
+
+    .balance-icon-wrap {
+        width: 40px;
+        min-width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+
+        @media (max-width: 1660px) {
+            width: 25px;
+            min-width: 25px;
+            height: 25px;
+            border-radius: 8px;
+        }
+
+        .balance-icon {
+            @include mixin.pixelstrap-size(16px, 16px);
+            border-radius: 100%;
+
+            @media (max-width: 1660px) {
+                @include mixin.pixelstrap-size(14px, 14px);
+            }
+
+            svg {
+                color: variables.$white;
+                @include mixin.pixelstrap-size(14px, 14px);
+
+                @media (max-width: 1660px) {
+                    @include mixin.pixelstrap-size(12px, 12px);
+                    vertical-align: 2px;
+                }
+            }
+        }
+    }
+
+    .badge {
+        padding: 8px 10px;
+    }
+
+    &.danger {
+        .balance-icon-wrap {
+            background-color: rgba(variables.$danger-color, 0.1);
+
+            .balance-icon {
+                background-color: variables.$danger-color;
+            }
+        }
+    }
+
+    &.success {
+        .balance-icon-wrap {
+            background-color: rgba(variables.$success-color, 0.1);
+
+            .balance-icon {
+                background-color: variables.$success-color;
+            }
+        }
+    }
+}
+
+// Animated Modal
+.custom-col-2 {
+    @media (max-width:768px) and (min-width:709px) {
+        width: 9.333333%;
+        flex: 0 0 auto;
+    }
+
+    @media (max-width:708px) and (min-width:582px) {
+        width: 10.333333%;
+        flex: 0 0 auto;
+    }
+
+    @media (max-width:581px) and (min-width:575px) {
+        width: 11.333333%;
+        flex: 0 0 auto;
+    }
+
+    @media (max-width:574px) and (min-width:481px) {
+        width: 12.333333%;
+        flex: 0 0 auto;
+    }
+
+    @media (max-width:480px) and (min-width:410px) {
+        width: 14.333333%;
+        flex: 0 0 auto;
+    }
+
+    @media (max-width:409px) and (min-width:364px) {
+        width: 16.333333%;
+        flex: 0 0 auto;
+    }
+
+    @media (max-width:363px) {
+        width: 100%;
+        flex: 0 0 auto;
+    }
+}
+
+/**=====================
+    2.21 Modal CSS end
+==========================**/
