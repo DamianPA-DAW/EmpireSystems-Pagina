@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Estadísticas</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="../assets/css/fontawesome.css">
   <link rel="stylesheet" type="text/css" href="../assets/css/vendors/icofont.css">
   <link rel="stylesheet" type="text/css" href="../assets/css/vendors/themify.css">
@@ -24,23 +30,150 @@
   <link id="color" rel="stylesheet" href="../assets/css/color-1.css" media="screen">
   <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
   <style>
-    .top-card { background: #fff; border: 1px solid #bbb; padding: 16px 20px; margin-bottom: 14px; display: flex; flex-direction: column; align-items: center; position: relative; }
-    .top-card .status-dot { width: 12px; height: 12px; border-radius: 50%; background: #4caf50; position: absolute; top: 10px; right: 12px; }
-    .label { font-size: 11px; color: #666; text-transform: uppercase; letter-spacing: 0.5px; }
-    .big-number { font-size: 52px; font-weight: 300; color: #222; line-height: 1.1; }
-    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
-    .stat-card { background: #fff; border: 1px solid #bbb; padding: 14px 16px; position: relative; }
-    .stat-card .badge-top { position: absolute; top: 8px; left: 10px; background: #fff; border: 1px solid #bbb; font-size: 11px; padding: 1px 7px; color: #444; }
-    .stat-card .status-dot { width: 11px; height: 11px; border-radius: 50%; background: #4caf50; position: absolute; top: 10px; right: 10px; }
-    .stat-card .label { margin-top: 28px; font-size: 11px; color: #666; text-align: center; }
-    .stat-card .number { font-size: 38px; font-weight: 300; color: #222; text-align: center; line-height: 1.2; }
-    .stat-card .stats-row { display: flex; justify-content: center; gap: 18px; font-size: 11px; color: #777; margin-top: 4px; }
-    .stat-card .stats-row span strong { color: #444; font-weight: 600; }
-    .stat-card .card-title { font-size: 11px; font-weight: bold; color: #222; text-align: center; margin-top: 6px; text-transform: uppercase; letter-spacing: 0.2px; }
-    .stat-card .open-btn { display: block; margin: 8px auto 0; border: 1.5px solid #7c5fc5; background: #fff; color: #333; padding: 3px 18px; font-size: 12px; cursor: pointer; }
-    .stat-card .open-btn:hover { background: #f0ecfc; }
+    .top-card {
+      background: #fff;
+      border: 1px solid #bbb;
+      padding: 16px 20px;
+      margin-bottom: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    .top-card .status-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #4caf50;
+      position: absolute;
+      top: 10px;
+      right: 12px;
+    }
+
+    .label {
+      font-size: 11px;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .big-number {
+      font-size: 52px;
+      font-weight: 300;
+      color: #222;
+      line-height: 1.1;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .stat-card {
+      background: #fff;
+      border: 1px solid #bbb;
+      padding: 14px 16px;
+      position: relative;
+    }
+
+    .stat-card .badge-top {
+      position: absolute;
+      top: 8px;
+      left: 10px;
+      background: #fff;
+      border: 1px solid #bbb;
+      font-size: 11px;
+      padding: 1px 7px;
+      color: #444;
+    }
+
+    .stat-card .status-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: #4caf50;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    .stat-card .label {
+      margin-top: 28px;
+      font-size: 11px;
+      color: #666;
+      text-align: center;
+    }
+
+    .stat-card .number {
+      font-size: 38px;
+      font-weight: 300;
+      color: #222;
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .stat-card .stats-row {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      font-size: 11px;
+      color: #777;
+      margin-top: 4px;
+    }
+
+    .stat-card .stats-row span strong {
+      color: #444;
+      font-weight: 600;
+    }
+
+    .stat-card .card-title {
+      font-size: 11px;
+      font-weight: bold;
+      color: #222;
+      text-align: center;
+      margin-top: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.2px;
+    }
+
+    .stat-card .open-btn {
+      display: block;
+      margin: 8px auto 0;
+      border: 1.5px solid #7c5fc5;
+      background: #fff;
+      color: #333;
+      padding: 3px 18px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    .stat-card .open-btn:hover {
+      background: #f0ecfc;
+    }
+
+    body,
+    html {
+      overflow-x: hidden;
+    }
+
+    .compact-wrapper.close_icon .page-body {
+      margin-left: 0 !important;
+      width: 100% !important;
+    }
+
+    .compact-wrapper.close_icon .page-body-wrapper {
+      margin-left: 0 !important;
+    }
+
+    .compact-wrapper.close_icon .page-wrapper {
+      width: 100% !important;
+    }
   </style>
 </head>
+
 <body>
   <!-- loader -->
   <div class="loader-wrapper">
@@ -58,14 +191,16 @@
     <!-- CABECERA -->
     <div class="page-header">
       <div class="header-wrapper row g-0">
-        <div class="logo-wrapper"><a href="servidores.html"><img class="img-fluid" src="../assets/images/logo/logo.png" alt=""></a></div>
+        <div class="logo-wrapper"><a href="servidores.html"><img class="img-fluid" src="../assets/images/logo/logo.png"
+              alt=""></a></div>
         <svg class="stroke-icon toggle-sidebar">
           <use class="status_toggle middle sidebar-toggle" href="../assets/svg/icon-sprite.svg#stroke-toggle"></use>
         </svg>
         <script class="result-template" type="text/x-handlebars-template">
           <div class="ProfileCard u-cf"><div class="ProfileCard-details"><div class="ProfileCard-realName">{{name}}</div></div></div>
         </script>
-        <script class="empty-template" type="text/x-handlebars-template"><div class="EmptyMessage">No results found.</div></script>
+        <script class="empty-template"
+          type="text/x-handlebars-template"><div class="EmptyMessage">No results found.</div></script>
       </div>
     </div>
     <!-- FIN CABECERA -->
@@ -82,21 +217,30 @@
             <div id="sidebar-menu">
               <ul class="sidebar-links" id="simple-bar">
                 <li class="back-btn"><a href="index.html"></a>
-                  <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
+                  <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2"
+                      aria-hidden="true"></i></div>
                 </li>
                 <!-- Estadísticas — ACTIVO en esta página -->
                 <li class="sidebar-list active">
                   <a class="sidebar-link sidebar-title active" href="dashboard_estadisticas.html">
-                    <svg class="stroke-icon"><use href="../assets/svg/icon-sprite.svg#stroke-widget"></use></svg>
-                    <svg class="fill-icon"><use href="../assets/svg/icon-sprite.svg#fill-widget"></use></svg>
+                    <svg class="stroke-icon">
+                      <use href="../assets/svg/icon-sprite.svg#stroke-widget"></use>
+                    </svg>
+                    <svg class="fill-icon">
+                      <use href="../assets/svg/icon-sprite.svg#fill-widget"></use>
+                    </svg>
                     <span>Estadísticas</span>
                   </a>
                 </li>
                 <!-- Servidores -->
                 <li class="sidebar-list">
                   <a class="sidebar-link sidebar-title" href="servidores.html">
-                    <svg class="stroke-icon"><use href="../assets/svg/icon-sprite.svg#stroke-others"></use></svg>
-                    <svg class="fill-icon"><use href="../assets/svg/icon-sprite.svg#fill-others"></use></svg>
+                    <svg class="stroke-icon">
+                      <use href="../assets/svg/icon-sprite.svg#stroke-others"></use>
+                    </svg>
+                    <svg class="fill-icon">
+                      <use href="../assets/svg/icon-sprite.svg#fill-others"></use>
+                    </svg>
                     <span>Servidores</span>
                   </a>
                 </li>
@@ -125,7 +269,8 @@
               <div class="status-dot"></div>
               <div class="label">EN TIEMPO REAL</div>
               <div class="number">98</div>
-              <div class="stats-row"><span>ESTA SEMANA: <strong>72</strong></span><span>ESTE AÑO: <strong>723</strong></span></div>
+              <div class="stats-row"><span>ESTA SEMANA: <strong>72</strong></span><span>ESTE AÑO:
+                  <strong>723</strong></span></div>
               <div class="card-title">JUSTIFICACIÓN DE GESTION DE PROCESOS</div>
               <button class="open-btn">ABRIR</button>
             </div>
@@ -134,7 +279,8 @@
               <div class="status-dot"></div>
               <div class="label">EN TIEMPO REAL</div>
               <div class="number">5</div>
-              <div class="stats-row"><span>ESTA SEMANA: <strong>72</strong></span><span>ESTE AÑO: <strong>723</strong></span></div>
+              <div class="stats-row"><span>ESTA SEMANA: <strong>72</strong></span><span>ESTE AÑO:
+                  <strong>723</strong></span></div>
               <div class="card-title">JUSTIFICACIÓN DE GESTION DE PROCESOS</div>
               <button class="open-btn">ABRIR</button>
             </div>
@@ -147,7 +293,8 @@
               <div class="status-dot"></div>
               <div class="label">EN TIEMPO REAL</div>
               <div class="number">56</div>
-              <div class="stats-row"><span>ESTA SEMANA: <strong>72</strong></span><span>ESTE AÑO: <strong>723</strong></span></div>
+              <div class="stats-row"><span>ESTA SEMANA: <strong>72</strong></span><span>ESTE AÑO:
+                  <strong>723</strong></span></div>
               <div class="card-title">JUSTIFICACIÓN DE GESTION DE CLIENTES</div>
               <button class="open-btn">ABRIR</button>
             </div>
@@ -156,7 +303,8 @@
               <div class="status-dot"></div>
               <div class="label">EN TIEMPO REAL</div>
               <div class="number">4</div>
-              <div class="stats-row"><span>ESTA SEMANA: <strong>72</strong></span><span>ESTE AÑO: <strong>723</strong></span></div>
+              <div class="stats-row"><span>ESTA SEMANA: <strong>72</strong></span><span>ESTE AÑO:
+                  <strong>723</strong></span></div>
               <div class="card-title">JUSTIFICACIÓN DE GESTION DE CLIENTES</div>
               <button class="open-btn">ABRIR</button>
             </div>
@@ -169,7 +317,8 @@
               <div class="status-dot"></div>
               <div class="label">EN TIEMPO REAL</div>
               <div class="number">5</div>
-              <div class="stats-row"><span>ESTA SEMANA: <strong>72</strong></span><span>ESTE AÑO: <strong>723</strong></span></div>
+              <div class="stats-row"><span>ESTA SEMANA: <strong>72</strong></span><span>ESTE AÑO:
+                  <strong>723</strong></span></div>
               <div class="card-title">GENERACIÓN DE PLATAFORMAS PARA JUSTIFICAR GESTION DE CLIENTES</div>
               <button class="open-btn">ABRIR</button>
             </div>
@@ -178,7 +327,8 @@
               <div class="status-dot"></div>
               <div class="label">EN TIEMPO REAL</div>
               <div class="number">3</div>
-              <div class="stats-row"><span>ESTA SEMANA: <strong>72</strong></span><span>ESTE AÑO: <strong>723</strong></span></div>
+              <div class="stats-row"><span>ESTA SEMANA: <strong>72</strong></span><span>ESTE AÑO:
+                  <strong>723</strong></span></div>
               <div class="card-title">GENERACION DE PLATAFORMAS PARA JUSTIFICAR GESTION DE PROCESOS</div>
               <button class="open-btn">ABRIR</button>
             </div>
@@ -191,7 +341,8 @@
               <div class="status-dot"></div>
               <div class="label">EN TIEMPO REAL</div>
               <div class="number">5</div>
-              <div class="stats-row"><span>ESTA SEMANA: <strong>72</strong></span><span>ESTE AÑO: <strong>723</strong></span></div>
+              <div class="stats-row"><span>ESTA SEMANA: <strong>72</strong></span><span>ESTE AÑO:
+                  <strong>723</strong></span></div>
               <div class="card-title">GENERACIÓN DE JUSTIFICACIÓN SITIO WEB</div>
               <button class="open-btn">ABRIR</button>
             </div>
@@ -200,7 +351,8 @@
               <div class="status-dot"></div>
               <div class="label">EN TIEMPO REAL</div>
               <div class="number">3</div>
-              <div class="stats-row"><span>ESTA SEMANA: <strong>72</strong></span><span>ESTE AÑO: <strong>723</strong></span></div>
+              <div class="stats-row"><span>ESTA SEMANA: <strong>72</strong></span><span>ESTE AÑO:
+                  <strong>723</strong></span></div>
               <div class="card-title">GENERACIÓN DE JUSTIFICACIÓN SITIO WEB</div>
               <button class="open-btn">ABRIR</button>
             </div>
@@ -224,4 +376,5 @@
   <script src="../assets/js/script1.js"></script>
   <script src="../assets/js/theme-customizer/customizer.js"></script>
 </body>
+
 </html>

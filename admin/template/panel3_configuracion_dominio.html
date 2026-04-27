@@ -1,14 +1,39 @@
 <!DOCTYPE html>
 <html lang="es">
+<style>
+  body,
+  html {
+    overflow-x: hidden;
+  }
+
+  .compact-wrapper.close_icon .page-body {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+
+  .compact-wrapper.close_icon .page-body-wrapper {
+    margin-left: 0 !important;
+  }
+
+  .compact-wrapper.close_icon .page-wrapper {
+    width: 100% !important;
+  }
+</style>
+
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Justificador web — Panel 3</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="../assets/css/fontawesome.css">
   <link rel="stylesheet" type="text/css" href="../assets/css/vendors/icofont.css">
   <link rel="stylesheet" type="text/css" href="../assets/css/vendors/themify.css">
@@ -24,6 +49,7 @@
   <link id="color" rel="stylesheet" href="../assets/css/color-1.css" media="screen">
   <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
 </head>
+
 <body>
   <!-- loader -->
   <div class="loader-wrapper">
@@ -41,7 +67,8 @@
     <!-- CABECERA -->
     <div class="page-header">
       <div class="header-wrapper row g-0">
-        <div class="logo-wrapper"><a href="index.html"><img class="img-fluid" src="../assets/images/logo/logo.png" alt=""></a></div>
+        <div class="logo-wrapper"><a href="index.html"><img class="img-fluid" src="../assets/images/logo/logo.png"
+              alt=""></a></div>
         <svg class="stroke-icon toggle-sidebar">
           <use class="status_toggle middle sidebar-toggle" href="../assets/svg/icon-sprite.svg#stroke-toggle"></use>
         </svg>
@@ -49,8 +76,11 @@
           <div class="form-group form-inline search-full d-none d-xl-block">
             <div class="Typeahead Typeahead--twitterUsers">
               <div class="u-posRelative">
-                <input class="demo-input Typeahead-input form-control-plaintext" type="text" placeholder="Type to Search .." name="q" autofocus>
-                <svg class="search-bg svg-color"><use href="../assets/svg/icon-sprite.svg#stroke-search"></use></svg>
+                <input class="demo-input Typeahead-input form-control-plaintext" type="text"
+                  placeholder="Type to Search .." name="q" autofocus>
+                <svg class="search-bg svg-color">
+                  <use href="../assets/svg/icon-sprite.svg#stroke-search"></use>
+                </svg>
               </div>
               <div class="Typeahead-menu"></div>
             </div>
@@ -59,15 +89,23 @@
         <div class="nav-right col-auto pull-right right-header p-0 ms-auto">
           <ul class="nav-menus">
             <li class="serchinput">
-              <div class="serchbox"><svg class="stroke-icon search-stroke"><use href="../assets/svg/icon-sprite.svg#searchbox"></use></svg></div>
+              <div class="serchbox"><svg class="stroke-icon search-stroke">
+                  <use href="../assets/svg/icon-sprite.svg#searchbox"></use>
+                </svg></div>
               <div class="form-group search-form"><input type="text" placeholder="Search here..."></div>
             </li>
-            <li><div class="mode"><svg><use href="../assets/svg/icon-sprite.svg#stroke-dark-light"></use></svg></div></li>
+            <li>
+              <div class="mode"><svg>
+                  <use href="../assets/svg/icon-sprite.svg#stroke-dark-light"></use>
+                </svg></div>
+            </li>
             <li class="profile-nav onhover-dropdown pe-0 py-0">
               <div class="d-flex profile-media">
                 <img class="img-fluid rounded-circle" src="../assets/images/dashboard/profile.png" alt="">
                 <div class="flex-grow-1"><span>Atlas Grey</span>
-                  <p class="mb-0 profile-arrow">Admin <svg><use href="../assets/svg/icon-sprite.svg#arrow"></use></svg></p>
+                  <p class="mb-0 profile-arrow">Admin <svg>
+                      <use href="../assets/svg/icon-sprite.svg#arrow"></use>
+                    </svg></p>
                 </div>
               </div>
               <ul class="profile-dropdown onhover-show-div">
@@ -79,7 +117,8 @@
         <script class="result-template" type="text/x-handlebars-template">
           <div class="ProfileCard u-cf"><div class="ProfileCard-details"><div class="ProfileCard-realName">{{name}}</div></div></div>
         </script>
-        <script class="empty-template" type="text/x-handlebars-template"><div class="EmptyMessage">No results found.</div></script>
+        <script class="empty-template"
+          type="text/x-handlebars-template"><div class="EmptyMessage">No results found.</div></script>
       </div>
     </div>
     <!-- FIN CABECERA -->
@@ -96,41 +135,58 @@
             <div id="sidebar-menu">
               <ul class="sidebar-links" id="simple-bar">
                 <li class="back-btn"><a href="index.html"></a>
-                  <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
+                  <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2"
+                      aria-hidden="true"></i></div>
                 </li>
                 <!-- Estadísticas -->
                 <li class="sidebar-list">
                   <a class="sidebar-link sidebar-title" href="dashboard_estadisticas.html">
-                    <svg class="stroke-icon"><use href="../assets/svg/icon-sprite.svg#stroke-widget"></use></svg>
-                    <svg class="fill-icon"><use href="../assets/svg/icon-sprite.svg#fill-widget"></use></svg>
+                    <svg class="stroke-icon">
+                      <use href="../assets/svg/icon-sprite.svg#stroke-widget"></use>
+                    </svg>
+                    <svg class="fill-icon">
+                      <use href="../assets/svg/icon-sprite.svg#fill-widget"></use>
+                    </svg>
                     <span>Estadísticas</span>
                   </a>
                 </li>
                 <!-- Servidores -->
                 <li class="sidebar-list">
                   <a class="sidebar-link sidebar-title" href="servidores.html">
-                    <svg class="stroke-icon"><use href="../assets/svg/icon-sprite.svg#stroke-others"></use></svg>
-                    <svg class="fill-icon"><use href="../assets/svg/icon-sprite.svg#fill-others"></use></svg>
+                    <svg class="stroke-icon">
+                      <use href="../assets/svg/icon-sprite.svg#stroke-others"></use>
+                    </svg>
+                    <svg class="fill-icon">
+                      <use href="../assets/svg/icon-sprite.svg#fill-others"></use>
+                    </svg>
                     <span>Servidores</span>
                   </a>
                 </li>
                 <!-- Webs -->
                 <li class="sidebar-list">
                   <a class="sidebar-link sidebar-title" href="javascript:void(0)">
-                    <svg class="stroke-icon"><use href="../assets/svg/icon-sprite.svg#Gestion"></use></svg>
-                    <svg class="fill-icon"><use href="../assets/svg/icon-sprite.svg#fill-gestion"></use></svg>
+                    <svg class="stroke-icon">
+                      <use href="../assets/svg/icon-sprite.svg#Gestion"></use>
+                    </svg>
+                    <svg class="fill-icon">
+                      <use href="../assets/svg/icon-sprite.svg#fill-gestion"></use>
+                    </svg>
                     <span>Webs</span>
                   </a>
                   <ul class="sidebar-submenu custom-scrollbar">
                     <li class="main-submenu">
                       <a class="d-flex sidebar-menu" href="panel1_configuracion_inicial.html">
-                        <svg class="stroke-icon"><use href="../assets/svg/icon-sprite.svg#stroke-button"></use></svg>
+                        <svg class="stroke-icon">
+                          <use href="../assets/svg/icon-sprite.svg#stroke-button"></use>
+                        </svg>
                         <span>Gestión de hosting</span>
                       </a>
                     </li>
                     <li class="main-submenu">
                       <a class="d-flex sidebar-menu" href="panel2_conexion_hosting.html">
-                        <svg class="stroke-icon"><use href="../assets/svg/icon-sprite.svg#stroke-button"></use></svg>
+                        <svg class="stroke-icon">
+                          <use href="../assets/svg/icon-sprite.svg#stroke-button"></use>
+                        </svg>
                         <span>Conexión de hosting</span>
                       </a>
                     </li>
@@ -139,8 +195,12 @@
                 <!-- Justificador web — ACTIVO en esta página -->
                 <li class="sidebar-list active">
                   <a class="sidebar-link sidebar-title active" href="panel3_configuracion_dominio.html">
-                    <svg class="stroke-icon"><use href="../assets/svg/icon-sprite.svg#stroke-sample-page"></use></svg>
-                    <svg class="fill-icon"><use href="../assets/svg/icon-sprite.svg#fill-sample-page"></use></svg>
+                    <svg class="stroke-icon">
+                      <use href="../assets/svg/icon-sprite.svg#stroke-sample-page"></use>
+                    </svg>
+                    <svg class="fill-icon">
+                      <use href="../assets/svg/icon-sprite.svg#fill-sample-page"></use>
+                    </svg>
                     <span>Justificador web</span>
                   </a>
                 </li>
@@ -164,7 +224,8 @@
               <div class="row mb-2">
                 <div class="col-12">
                   <h5 class="mb-3" style="border-bottom:1px solid #eee;padding-bottom:8px;">
-                    <span class="badge" style="background:#7c5fc5;color:#fff;border-radius:4px;padding:3px 10px;font-size:13px;margin-right:8px;">4</span>
+                    <span class="badge"
+                      style="background:#7c5fc5;color:#fff;border-radius:4px;padding:3px 10px;font-size:13px;margin-right:8px;">4</span>
                     Configuración WordPress / Exportar / Importación final
                   </h5>
                   <div class="row g-3">
@@ -172,9 +233,15 @@
                     <div class="col-md-4">
                       <div class="border rounded p-3" style="font-size:12px;">
                         <strong>Configuración WordPress</strong>
-                        <div class="mt-2 d-flex justify-content-between align-items-center mb-1"><span>1. Descarga de plugins</span><button class="btn btn-sm py-0" style="border:1.5px solid #7c5fc5;color:#7c5fc5;font-size:11px;">Abrir</button></div>
-                        <div class="d-flex justify-content-between align-items-center mb-1"><span>2. Abrir WP-Admin</span><button class="btn btn-sm py-0" style="border:1.5px solid #7c5fc5;color:#7c5fc5;font-size:11px;">Abrir</button></div>
-                        <div class="d-flex justify-content-between align-items-center mb-1"><span>3. Abrir zona de plugins</span><button class="btn btn-sm py-0" style="border:1.5px solid #7c5fc5;color:#7c5fc5;font-size:11px;">Abrir</button></div>
+                        <div class="mt-2 d-flex justify-content-between align-items-center mb-1"><span>1. Descarga de
+                            plugins</span><button class="btn btn-sm py-0"
+                            style="border:1.5px solid #7c5fc5;color:#7c5fc5;font-size:11px;">Abrir</button></div>
+                        <div class="d-flex justify-content-between align-items-center mb-1"><span>2. Abrir
+                            WP-Admin</span><button class="btn btn-sm py-0"
+                            style="border:1.5px solid #7c5fc5;color:#7c5fc5;font-size:11px;">Abrir</button></div>
+                        <div class="d-flex justify-content-between align-items-center mb-1"><span>3. Abrir zona de
+                            plugins</span><button class="btn btn-sm py-0"
+                            style="border:1.5px solid #7c5fc5;color:#7c5fc5;font-size:11px;">Abrir</button></div>
                         <div class="text-muted mt-1">4. Instalar ambos plugins (all in one / URL)</div>
                       </div>
                     </div>
@@ -182,26 +249,42 @@
                     <div class="col-md-4">
                       <div class="border rounded p-3" style="font-size:12px;">
                         <strong>Exportar página web</strong>
-                        <input type="text" class="form-control form-control-sm mt-2 mb-2" placeholder="URL DEL SITIO A EXPORTAR" style="text-transform:uppercase;font-size:11px;">
-                        <div class="d-flex justify-content-between align-items-center mb-1"><span>1. Descarga de plugins</span><button class="btn btn-sm py-0" style="border:1.5px solid #7c5fc5;color:#7c5fc5;font-size:11px;">Abrir</button></div>
-                        <div class="d-flex justify-content-between align-items-center mb-1"><span>2. Abrir WP-Admin</span><button class="btn btn-sm py-0" style="border:1.5px solid #7c5fc5;color:#7c5fc5;font-size:11px;">Abrir</button></div>
-                        <div class="d-flex justify-content-between align-items-center mb-1"><span>3. Zona de plugins</span><button class="btn btn-sm py-0" style="border:1.5px solid #7c5fc5;color:#7c5fc5;font-size:11px;">Abrir</button></div>
-                        <div class="d-flex justify-content-between align-items-center"><span>5. Exportar .wpress</span><button class="btn btn-sm py-0" style="border:1.5px solid #7c5fc5;color:#7c5fc5;font-size:11px;">Abrir</button></div>
+                        <input type="text" class="form-control form-control-sm mt-2 mb-2"
+                          placeholder="URL DEL SITIO A EXPORTAR" style="text-transform:uppercase;font-size:11px;">
+                        <div class="d-flex justify-content-between align-items-center mb-1"><span>1. Descarga de
+                            plugins</span><button class="btn btn-sm py-0"
+                            style="border:1.5px solid #7c5fc5;color:#7c5fc5;font-size:11px;">Abrir</button></div>
+                        <div class="d-flex justify-content-between align-items-center mb-1"><span>2. Abrir
+                            WP-Admin</span><button class="btn btn-sm py-0"
+                            style="border:1.5px solid #7c5fc5;color:#7c5fc5;font-size:11px;">Abrir</button></div>
+                        <div class="d-flex justify-content-between align-items-center mb-1"><span>3. Zona de
+                            plugins</span><button class="btn btn-sm py-0"
+                            style="border:1.5px solid #7c5fc5;color:#7c5fc5;font-size:11px;">Abrir</button></div>
+                        <div class="d-flex justify-content-between align-items-center"><span>5. Exportar
+                            .wpress</span><button class="btn btn-sm py-0"
+                            style="border:1.5px solid #7c5fc5;color:#7c5fc5;font-size:11px;">Abrir</button></div>
                       </div>
                     </div>
                     <!-- Importación final -->
                     <div class="col-md-4">
                       <div class="border rounded p-3" style="border-color:#4caf50 !important;font-size:12px;">
                         <strong>Importación final</strong>
-                        <div class="d-flex justify-content-between align-items-center mt-2 mb-1"><span>1. Importar .wpress</span><button class="btn btn-sm py-0" style="border:1.5px solid #7c5fc5;color:#7c5fc5;font-size:11px;">Abrir</button></div>
-                        <div class="d-flex align-items-center gap-2 mb-2"><span style="color:#4caf50;font-weight:bold;">+</span><span>Guardar copia de seguridad</span></div>
-                        <div class="border p-1 text-center text-muted mb-1" style="border-color:#4caf50 !important;font-size:11px;">URL GOOGLE DRIVE</div>
-                        <button class="btn btn-sm w-100" style="border:1px solid #999;font-size:11px;">Guardar configuración</button>
+                        <div class="d-flex justify-content-between align-items-center mt-2 mb-1"><span>1. Importar
+                            .wpress</span><button class="btn btn-sm py-0"
+                            style="border:1.5px solid #7c5fc5;color:#7c5fc5;font-size:11px;">Abrir</button></div>
+                        <div class="d-flex align-items-center gap-2 mb-2"><span
+                            style="color:#4caf50;font-weight:bold;">+</span><span>Guardar copia de seguridad</span>
+                        </div>
+                        <div class="border p-1 text-center text-muted mb-1"
+                          style="border-color:#4caf50 !important;font-size:11px;">URL GOOGLE DRIVE</div>
+                        <button class="btn btn-sm w-100" style="border:1px solid #999;font-size:11px;">Guardar
+                          configuración</button>
                       </div>
                     </div>
                   </div>
                   <div class="text-end mt-2">
-                    <a href="panel4_wordpress.html" target="_blank" class="btn btn-sm" style="border:1.5px solid #7c5fc5;color:#7c5fc5;font-size:12px;">
+                    <a href="panel4_wordpress.html" target="_blank" class="btn btn-sm"
+                      style="border:1.5px solid #7c5fc5;color:#7c5fc5;font-size:12px;">
                       Abrir panel completo <i data-feather="external-link" style="width:12px;height:12px;"></i>
                     </a>
                   </div>
@@ -217,8 +300,14 @@
       <footer class="footer">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-md-6 footer-copyright"><p class="mb-0">Copyright © Olix Theme By Pixelstrap</p></div>
-            <div class="col-md-6"><p class="float-end mb-0">Hand crafted &amp; made with <svg class="footer-icon"><use href="../assets/svg/icon-sprite.svg#heart"></use></svg></p></div>
+            <div class="col-md-6 footer-copyright">
+              <p class="mb-0">Copyright © Olix Theme By Pixelstrap</p>
+            </div>
+            <div class="col-md-6">
+              <p class="float-end mb-0">Hand crafted &amp; made with <svg class="footer-icon">
+                  <use href="../assets/svg/icon-sprite.svg#heart"></use>
+                </svg></p>
+            </div>
           </div>
         </div>
       </footer>
@@ -237,4 +326,5 @@
   <script src="../assets/js/script1.js"></script>
   <script src="../assets/js/theme-customizer/customizer.js"></script>
 </body>
+
 </html>
