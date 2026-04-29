@@ -292,5 +292,154 @@
   <script src="../assets/js/script.js"></script>
   <script src="../assets/js/script1.js"></script>
   <script src="../assets/js/theme-customizer/customizer.js"></script>
+
+  <script>
+    const servidores = [
+      {
+        nombre: "Banahosting — Liberrimo.com",
+        dominio: "liberrimo.com",
+        ip: "185.234.21.47",
+        correo: "admin@liberrimo.com",
+        contrasena: "L1b3rr1m0#2024",
+        urlApi: "https://api.banahosting.com/v2",
+        currentUser: "user_liberrimo",
+        dns1: "ns1.banahosting.com",
+        dns2: "ns2.banahosting.com",
+        urlPanel: "https://cpanel.banahosting.com:2083",
+        apikey: "bnh_a3f9d2e1c7b4a8f0e2d5c1b9a7f3e0d2",
+        multiphpManager: "https://cpanel.banahosting.com:2083/multiphp_manager",
+        multiphpIni: "https://cpanel.banahosting.com:2083/multiphp_ini_editor",
+        softaculous: "https://cpanel.banahosting.com:2083/softaculous",
+        cps: "https://cpanel.banahosting.com:2083/cps"
+      },
+      {
+        nombre: "Hostinger — EmpireSystems.es",
+        dominio: "empiresystems.es",
+        ip: "31.220.16.102",
+        correo: "admin@empiresystems.es",
+        contrasena: "Emp1r3#S3cur3!",
+        urlApi: "https://api.hostinger.com/v1",
+        currentUser: "u123456789",
+        dns1: "ns1.dns-parking.com",
+        dns2: "ns2.dns-parking.com",
+        urlPanel: "https://hpanel.hostinger.com",
+        apikey: "hng_9f3c2d8e1a7b4f0c5d2e8a3b1f9c7d4e",
+        multiphpManager: "https://hpanel.hostinger.com/hosting/php-configuration",
+        multiphpIni: "https://hpanel.hostinger.com/hosting/php-ini",
+        softaculous: "https://hpanel.hostinger.com/softaculous",
+        cps: "https://hpanel.hostinger.com/cps"
+      },
+      {
+        nombre: "SiteGround — ProyectoDemo.com",
+        dominio: "proyectodemo.com",
+        ip: "94.130.170.84",
+        correo: "soporte@proyectodemo.com",
+        contrasena: "PrDm0#2025!",
+        urlApi: "https://api.siteground.com/v1",
+        currentUser: "sg_proyectodemo",
+        dns1: "ns1.siteground.net",
+        dns2: "ns2.siteground.net",
+        urlPanel: "https://tools.siteground.com/cpanel",
+        apikey: "sg_k2m9p1r8t4v3w7x0y6z5a1b2c3d4e5f6",
+        multiphpManager: "https://tools.siteground.com/cpanel/multiphp_manager",
+        multiphpIni: "https://tools.siteground.com/cpanel/multiphp_ini_editor",
+        softaculous: "https://tools.siteground.com/cpanel/softaculous",
+        cps: "https://client.siteground.com"
+      }
+    ];
+
+    // Orden de campos tal como aparecen en el HTML
+    const fieldKeys = [
+      'dominio', 'ip', 'correo', 'contrasena', 'urlApi', 'currentUser',
+      'dns1', 'dns2', 'urlPanel', 'apikey',
+      'multiphpManager', 'multiphpIni', 'softaculous', 'cps'
+    ];
+
+    // Índices (0-based) de campos que deben abrir URL en nueva pestaña
+    const urlFieldIndexes = new Set([8, 10, 11, 12, 13]);
+
+    let currentIndex = 0;
+
+    function renderServidor(index) {
+      const s = servidores[index];
+      document.querySelector('.workflow-counter-title').textContent = s.nombre;
+      document.querySelectorAll('.workflow-field').forEach((field, i) => {
+        const valueEl = field.querySelector('.workflow-field-value');
+        if (valueEl && fieldKeys[i] !== undefined) {
+          valueEl.textContent = s[fieldKeys[i]];
+        }
+      });
+      updateCounterButtons();
+    }
+
+    function updateCounterButtons() {
+      const [btnMinus, btnPlus] = document.querySelectorAll('.workflow-counter-button');
+      btnMinus.style.opacity = currentIndex === 0 ? '0.35' : '1';
+      btnPlus.style.opacity = currentIndex === servidores.length - 1 ? '0.35' : '1';
+    }
+
+    function setupCounter() {
+      const [btnMinus, btnPlus] = document.querySelectorAll('.workflow-counter-button');
+      [btnMinus, btnPlus].forEach(btn => {
+        btn.removeAttribute('aria-hidden');
+        btn.style.cursor = 'pointer';
+        btn.style.userSelect = 'none';
+      });
+
+      btnMinus.addEventListener('click', () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+          renderServidor(currentIndex);
+        }
+      });
+
+      btnPlus.addEventListener('click', () => {
+        if (currentIndex < servidores.length - 1) {
+          currentIndex++;
+          renderServidor(currentIndex);
+        }
+      });
+    }
+
+    function setupCopyButtons() {
+      document.querySelectorAll('.workflow-field-copy').forEach((btn) => {
+        btn.style.cursor = 'pointer';
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const value = btn.closest('.workflow-field').querySelector('.workflow-field-value').textContent.trim();
+          navigator.clipboard.writeText(value).then(() => {
+            const savedHTML = btn.innerHTML;
+            btn.innerHTML = '<span style="font-size:11px;font-weight:700;color:#42a5f5;white-space:nowrap;line-height:1;">¡Copiado!</span>';
+            setTimeout(() => {
+              btn.innerHTML = savedHTML;
+              if (window.feather) feather.replace();
+            }, 1500);
+          });
+        });
+      });
+    }
+
+    function setupUrlFields() {
+      document.querySelectorAll('.workflow-field').forEach((field, i) => {
+        if (!urlFieldIndexes.has(i)) return;
+        field.style.cursor = 'pointer';
+        field.title = 'Clic para abrir en nueva pestaña';
+        field.addEventListener('click', (e) => {
+          if (e.target.closest('.workflow-field-copy')) return;
+          const value = field.querySelector('.workflow-field-value').textContent.trim();
+          if (value.startsWith('http')) {
+            window.open(value, '_blank', 'noopener,noreferrer');
+          }
+        });
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderServidor(currentIndex);
+      setupCounter();
+      setupCopyButtons();
+      setupUrlFields();
+    });
+  </script>
 </body>
 </html>
