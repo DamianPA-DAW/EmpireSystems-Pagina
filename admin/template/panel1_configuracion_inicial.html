@@ -1,30 +1,59 @@
 <!DOCTYPE html>
 <html lang="es">
 <style>
-  body,
-  html {
-    overflow-x: hidden;
+  /*ELIMINAR BARRA BLANCA GLOBAL */
+  html,
+  body {
+    background-color: #0f172a !important;
+    /* mismo fondo oscuro del dashboard */
+    margin: 0;
+    padding: 0;
   }
 
-  .compact-wrapper.close_icon .page-body {
-    margin-left: 0 !important;
-    width: 100% !important;
+  /* CONTENEDOR PRINCIPAL */
+  .page-wrapper,
+  .page-body-wrapper,
+  .page-body {
+    background-color: #0f172a !important;
   }
 
-  .compact-wrapper.close_icon .page-body-wrapper {
-    margin-left: 0 !important;
+  /* HEADER */
+  .page-header {
+    background-color: #0f172a !important;
+    border-bottom: none !important;
   }
 
-  .compact-wrapper.close_icon .page-wrapper {
-    width: 100% !important;
+  /* SIDEBAR */
+  .sidebar-wrapper {
+    background-color: #0f172a !important;
+  }
+
+  /* FOOTER */
+  .footer {
+    background-color: #0f172a !important;
+    border-top: none !important;
+  }
+
+  /* EVITA ESPACIOS BLANCOS LATERALES */
+  .container-fluid {
+    background-color: transparent !important;
+  }
+
+  /* POR SI ALGÚN CARD HEREDA BLANCO */
+  .card,
+  .workflow-card {
+    background-color: #1e293b !important;
+    border: none !important;
   }
 </style>
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gestión de hosting — Panel 1</title>
+  <title>Gestion de hosting | Panel 1</title>
+  <link rel="icon" href="../assets/images/favicon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
   <link
     href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
     rel="stylesheet">
@@ -48,10 +77,11 @@
   <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
   <link id="color" rel="stylesheet" href="../assets/css/color-1.css" media="screen">
   <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
+  <link rel="stylesheet" type="text/css" href="./empire-ui.css">
+  <link rel="stylesheet" type="text/css" href="./empire-workflows.css">
 </head>
 
 <body>
-  <!-- loader -->
   <div class="loader-wrapper">
     <div class="loader-index">
       <div class="loader">
@@ -64,81 +94,53 @@
   <div class="tap-top"><i data-feather="chevrons-up"></i></div>
 
   <div class="page-wrapper compact-wrapper" id="pageWrapper">
-    <!-- CABECERA -->
     <div class="page-header">
-      <div class="header-wrapper row g-0">
-        <div class="logo-wrapper"><a href="index.html"><img class="img-fluid" src="../assets/images/logo/logo.png"
-              alt=""></a></div>
-        <svg class="stroke-icon toggle-sidebar">
-          <use class="status_toggle middle sidebar-toggle" href="../assets/svg/icon-sprite.svg#stroke-toggle"></use>
-        </svg>
-        <form class="col-auto form-inline search-full" action="#" method="get">
-          <div class="form-group form-inline search-full d-none d-xl-block">
-            <div class="Typeahead Typeahead--twitterUsers">
-              <div class="u-posRelative">
-                <input class="demo-input Typeahead-input form-control-plaintext" type="text"
-                  placeholder="Type to Search .." name="q" autofocus>
-                <svg class="search-bg svg-color">
-                  <use href="../assets/svg/icon-sprite.svg#stroke-search"></use>
-                </svg>
-              </div>
-              <div class="Typeahead-menu"></div>
-            </div>
-          </div>
-        </form>
-        <div class="nav-right col-auto pull-right right-header p-0 ms-auto">
-          <ul class="nav-menus">
-            <li class="serchinput">
-              <div class="serchbox"><svg class="stroke-icon search-stroke">
-                  <use href="../assets/svg/icon-sprite.svg#searchbox"></use>
-                </svg></div>
-              <div class="form-group search-form"><input type="text" placeholder="Search here..."></div>
-            </li>
-            <li>
-              <div class="mode"><svg>
-                  <use href="../assets/svg/icon-sprite.svg#stroke-dark-light"></use>
-                </svg></div>
-            </li>
-            <li class="profile-nav onhover-dropdown pe-0 py-0">
-              <div class="d-flex profile-media">
-                <img class="img-fluid rounded-circle" src="../assets/images/dashboard/profile.png" alt="">
-                <div class="flex-grow-1"><span>Atlas Grey</span>
-                  <p class="mb-0 profile-arrow">Admin <svg>
-                      <use href="../assets/svg/icon-sprite.svg#arrow"></use>
-                    </svg></p>
-                </div>
-              </div>
-              <ul class="profile-dropdown onhover-show-div">
-                <li><a href="login.html"><i data-feather="log-in"></i><span>Log out</span></a></li>
-              </ul>
-            </li>
-          </ul>
+      <div class="header-wrapper row g-0 workflow-header">
+        <div class="logo-wrapper">
+          <a class="empire-brand-link" href="servidores.html">
+            <img class="img-fluid empire-brand-icon" src="../assets/images/logo/empire-lion-logo.svg"
+              alt="Empire Systems">
+            <span class="empire-brand-text">
+              <span class="empire-brand-name">Empire</span>
+              <span class="empire-brand-subtitle">Systems</span>
+            </span>
+          </a>
         </div>
-        <script class="result-template" type="text/x-handlebars-template">
-          <div class="ProfileCard u-cf"><div class="ProfileCard-details"><div class="ProfileCard-realName">{{name}}</div></div></div>
-        </script>
-        <script class="empty-template"
-          type="text/x-handlebars-template"><div class="EmptyMessage">No results found.</div></script>
+        <button class="toggle-sidebar empire-panel-toggle" type="button" aria-label="Mostrar u ocultar panel lateral">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="workflow-toolbar">
+          <div class="workflow-toolbar-copy">
+            <p class="workflow-toolbar-eyebrow">Webs</p>
+            <h1 class="workflow-toolbar-title">Gestion de hosting</h1>
+          </div>
+          <span class="workflow-toolbar-chip">Panel 1</span>
+        </div>
       </div>
     </div>
-    <!-- FIN CABECERA -->
 
     <div class="page-body-wrapper">
-      <!-- SIDEBAR -->
       <div class="sidebar-wrapper" data-sidebar-layout="stroke-svg">
         <div>
           <div class="logo-wrapper">
-            <a href="index.html"><img class="img-fluid" src="../assets/images/logo/logo-icon.png" alt=""></a>
+            <a class="empire-brand-link" href="servidores.html">
+              <img class="img-fluid empire-brand-icon" src="../assets/images/logo/empire-lion-logo.svg"
+                alt="Empire Systems">
+              <span class="empire-brand-text">
+                <span class="empire-brand-name">Empire</span>
+                <span class="empire-brand-subtitle">Systems</span>
+              </span>
+            </a>
             <div class="back-btn"><i class="fa fa-angle-left"></i></div>
           </div>
           <nav class="sidebar-main">
             <div id="sidebar-menu">
               <ul class="sidebar-links" id="simple-bar">
-                <li class="back-btn"><a href="index.html"></a>
+                <li class="back-btn">
+                  <a href="servidores.html"></a>
                   <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2"
                       aria-hidden="true"></i></div>
                 </li>
-                <!-- Estadísticas -->
                 <li class="sidebar-list">
                   <a class="sidebar-link sidebar-title" href="dashboard_estadisticas.html">
                     <svg class="stroke-icon">
@@ -147,10 +149,9 @@
                     <svg class="fill-icon">
                       <use href="../assets/svg/icon-sprite.svg#fill-widget"></use>
                     </svg>
-                    <span>Estadísticas</span>
+                    <span>Estadisticas</span>
                   </a>
                 </li>
-                <!-- Servidores -->
                 <li class="sidebar-list">
                   <a class="sidebar-link sidebar-title" href="servidores.html">
                     <svg class="stroke-icon">
@@ -162,9 +163,8 @@
                     <span>Servidores</span>
                   </a>
                 </li>
-                <!-- Webs — ACTIVO porque este panel es hijo de Webs -->
                 <li class="sidebar-list active">
-                  <a class="sidebar-link sidebar-title" href="javascript:void(0)">
+                  <a class="sidebar-link sidebar-title active" href="javascript:void(0)">
                     <svg class="stroke-icon">
                       <use href="../assets/svg/icon-sprite.svg#Gestion"></use>
                     </svg>
@@ -174,13 +174,12 @@
                     <span>Webs</span>
                   </a>
                   <ul class="sidebar-submenu custom-scrollbar">
-                    <!-- Gestión de hosting — ACTIVO -->
                     <li class="main-submenu active">
                       <a class="d-flex sidebar-menu active" href="panel1_configuracion_inicial.html">
                         <svg class="stroke-icon">
                           <use href="../assets/svg/icon-sprite.svg#stroke-button"></use>
                         </svg>
-                        <span>Gestión de hosting</span>
+                        <span>Gestion de hosting</span>
                       </a>
                     </li>
                     <li class="main-submenu">
@@ -188,12 +187,11 @@
                         <svg class="stroke-icon">
                           <use href="../assets/svg/icon-sprite.svg#stroke-button"></use>
                         </svg>
-                        <span>Conexión de hosting</span>
+                        <span>Conexion de hosting</span>
                       </a>
                     </li>
                   </ul>
                 </li>
-                <!-- Justificador web -->
                 <li class="sidebar-list">
                   <a class="sidebar-link sidebar-title" href="panel3_configuracion_dominio.html">
                     <svg class="stroke-icon">
@@ -210,74 +208,148 @@
           </nav>
         </div>
       </div>
-      <!-- FIN SIDEBAR -->
 
-      <!-- CONTENIDO -->
       <div class="page-body">
-        <div class="container-fluid">
-          <div class="card">
+        <div class="container-fluid default-dashboard workflow-shell">
+          <div class="card workflow-card">
             <div class="card-header">
-              <h4 class="mb-0">Servidores — Gestión de hosting</h4>
+              <h4 class="mb-0">Configuracion inicial</h4>
+              <p>Base estructural de Carlos con la logica visual de Damian aplicada en un CSS compartido.</p>
             </div>
             <div class="card-body">
-
-              <!-- PANEL 2: Conexión de hosting con dominio -->
-              <div class="row mb-4">
-                <div class="col-12">
-                  <h5 class="mb-3" style="border-bottom:1px solid #eee;padding-bottom:8px;">
-                    <span class="badge"
-                      style="background:#7c5fc5;color:#fff;border-radius:4px;padding:3px 10px;font-size:13px;margin-right:8px;">2</span>
-                    Conexión de hosting con dominio
-                  </h5>
-                  <div class="row g-2 align-items-center mb-3">
-                    <div class="col"><input type="text" class="form-control form-control-sm"
-                        placeholder="Introduce el dominio..."></div>
-                    <div class="col-auto"><button class="btn btn-sm"
-                        style="border:1.5px solid #7c5fc5;color:#7c5fc5;">Aplicar</button></div>
-                  </div>
-                  <div class="d-flex align-items-center gap-3 mb-2">
-                    <div class="d-flex align-items-center gap-2">
-                      <span
-                        style="width:22px;height:22px;border-radius:50%;border:1.5px solid #333;display:inline-flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;">1</span>
-                      <span style="font-size:13px;">Enlace de Godaddy directo al dominio seleccionado:</span>
-                    </div>
-                    <button class="btn btn-sm" style="border:1.5px solid #7c5fc5;color:#7c5fc5;">Abrir</button>
-                  </div>
-                  <div class="d-flex align-items-start gap-2 mb-2">
-                    <span
-                      style="width:22px;height:22px;border-radius:50%;border:1.5px solid #333;display:inline-flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;margin-top:2px;">2</span>
-                    <div style="font-size:13px;">
-                      Dirijase a la pestaña DNS y seleccione la subpestaña Servidores de nombre.<br>
-                      A continuación sustituya los que ya se encuentran por los siguientes DNS:<br>
-                      <span style="color:#7c5fc5;">%DNS1%</span> &nbsp;
-                      <span style="color:#7c5fc5;">%DNS2%</span>
-                    </div>
-                  </div>
-                  <div class="text-end mt-2">
-                    <a href="panel2_configuracion_dominio.html" target="_blank" class="btn btn-sm"
-                      style="border:1.5px solid #7c5fc5;color:#7c5fc5;font-size:12px;">
-                      Abrir panel completo <i data-feather="external-link" style="width:12px;height:12px;"></i>
-                    </a>
-                  </div>
-                </div>
+              <div class="workflow-counter">
+                <div class="workflow-counter-button" aria-hidden="true">-</div>
+                <div class="workflow-counter-title">Banahosting - Liberrimo.com</div>
+                <div class="workflow-counter-button" aria-hidden="true">+</div>
               </div>
 
+              <div class="workflow-field-grid mt-4">
+                <div class="workflow-field">
+                  <div class="workflow-icon-box"><i data-feather="globe"></i></div>
+                  <div class="workflow-field-content">
+                    <span class="workflow-field-label">Dominio</span>
+                    <span class="workflow-field-value">Dato principal del sitio</span>
+                  </div>
+                  <div class="workflow-field-copy"><i data-feather="copy"></i></div>
+                </div>
+                <div class="workflow-field">
+                  <div class="workflow-icon-box"><i data-feather="activity"></i></div>
+                  <div class="workflow-field-content">
+                    <span class="workflow-field-label">IP</span>
+                    <span class="workflow-field-value">Conexion activa del hosting</span>
+                  </div>
+                  <div class="workflow-field-copy"><i data-feather="copy"></i></div>
+                </div>
+                <div class="workflow-field">
+                  <div class="workflow-icon-box"><i data-feather="mail"></i></div>
+                  <div class="workflow-field-content">
+                    <span class="workflow-field-label">Correo de acceso</span>
+                    <span class="workflow-field-value">Usuario administrativo</span>
+                  </div>
+                  <div class="workflow-field-copy"><i data-feather="copy"></i></div>
+                </div>
+                <div class="workflow-field">
+                  <div class="workflow-icon-box"><i data-feather="lock"></i></div>
+                  <div class="workflow-field-content">
+                    <span class="workflow-field-label">Contrasena de acceso</span>
+                    <span class="workflow-field-value">Credencial protegida</span>
+                  </div>
+                  <div class="workflow-field-copy"><i data-feather="copy"></i></div>
+                </div>
+                <div class="workflow-field">
+                  <div class="workflow-icon-box"><i data-feather="code"></i></div>
+                  <div class="workflow-field-content">
+                    <span class="workflow-field-label">URL API</span>
+                    <span class="workflow-field-value">Integracion y automatizacion</span>
+                  </div>
+                  <div class="workflow-field-copy"><i data-feather="copy"></i></div>
+                </div>
+                <div class="workflow-field">
+                  <div class="workflow-icon-box"><i data-feather="user"></i></div>
+                  <div class="workflow-field-content">
+                    <span class="workflow-field-label">Current user</span>
+                    <span class="workflow-field-value">Sesion asociada al servidor</span>
+                  </div>
+                  <div class="workflow-field-copy"><i data-feather="copy"></i></div>
+                </div>
+                <div class="workflow-field">
+                  <div class="workflow-icon-box"><i data-feather="server"></i></div>
+                  <div class="workflow-field-content">
+                    <span class="workflow-field-label">DNS 1</span>
+                    <span class="workflow-field-value">Servidor de nombres principal</span>
+                  </div>
+                  <div class="workflow-field-copy"><i data-feather="copy"></i></div>
+                </div>
+                <div class="workflow-field">
+                  <div class="workflow-icon-box"><i data-feather="database"></i></div>
+                  <div class="workflow-field-content">
+                    <span class="workflow-field-label">DNS 2</span>
+                    <span class="workflow-field-value">Servidor de nombres secundario</span>
+                  </div>
+                  <div class="workflow-field-copy"><i data-feather="copy"></i></div>
+                </div>
+                <div class="workflow-field">
+                  <div class="workflow-icon-box"><i data-feather="monitor"></i></div>
+                  <div class="workflow-field-content">
+                    <span class="workflow-field-label">URL panel</span>
+                    <span class="workflow-field-value">Acceso rapido al panel</span>
+                  </div>
+                  <div class="workflow-field-copy"><i data-feather="copy"></i></div>
+                </div>
+                <div class="workflow-field">
+                  <div class="workflow-icon-box"><i data-feather="key"></i></div>
+                  <div class="workflow-field-content">
+                    <span class="workflow-field-label">APIKEY</span>
+                    <span class="workflow-field-value">Llave de integracion</span>
+                  </div>
+                  <div class="workflow-field-copy"><i data-feather="copy"></i></div>
+                </div>
+                <div class="workflow-field">
+                  <div class="workflow-icon-box"><i data-feather="settings"></i></div>
+                  <div class="workflow-field-content">
+                    <span class="workflow-field-label">MultiPHP Manager enlace</span>
+                    <span class="workflow-field-value">Version de PHP por dominio</span>
+                  </div>
+                  <div class="workflow-field-copy"><i data-feather="copy"></i></div>
+                </div>
+                <div class="workflow-field">
+                  <div class="workflow-icon-box"><i data-feather="file-text"></i></div>
+                  <div class="workflow-field-content">
+                    <span class="workflow-field-label">MultiPHP INI Editor</span>
+                    <span class="workflow-field-value">Ajustes avanzados del hosting</span>
+                  </div>
+                  <div class="workflow-field-copy"><i data-feather="copy"></i></div>
+                </div>
+                <div class="workflow-field">
+                  <div class="workflow-icon-box"><i data-feather="package"></i></div>
+                  <div class="workflow-field-content">
+                    <span class="workflow-field-label">Softaculous WordPress enlace</span>
+                    <span class="workflow-field-value">Instalacion y gestion de WordPress</span>
+                  </div>
+                  <div class="workflow-field-copy"><i data-feather="copy"></i></div>
+                </div>
+                <div class="workflow-field">
+                  <div class="workflow-icon-box"><i data-feather="layout"></i></div>
+                  <div class="workflow-field-content">
+                    <span class="workflow-field-label">CPS</span>
+                    <span class="workflow-field-value">Control y seguimiento del servicio</span>
+                  </div>
+                  <div class="workflow-field-copy"><i data-feather="copy"></i></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <!-- FIN CONTENIDO -->
 
       <footer class="footer">
         <div class="container-fluid">
           <div class="row">
             <div class="col-md-6 footer-copyright">
-              <p class="mb-0">Copyright © Olix Theme By Pixelstrap</p>
+              <p class="mb-0">Copyright <span class="year-update"></span> &copy; Empire Systems</p>
             </div>
             <div class="col-md-6">
-              <p class="float-end mb-0">Hand crafted &amp; made with <svg class="footer-icon">
-                  <use href="../assets/svg/icon-sprite.svg#heart"></use>
-                </svg></p>
+              <p class="float-end mb-0">Configuracion inicial del workflow</p>
             </div>
           </div>
         </div>
@@ -296,6 +368,155 @@
   <script src="../assets/js/script.js"></script>
   <script src="../assets/js/script1.js"></script>
   <script src="../assets/js/theme-customizer/customizer.js"></script>
+
+  <script>
+    const servidores = [
+      {
+        nombre: "Banahosting — Liberrimo.com",
+        dominio: "liberrimo.com",
+        ip: "185.234.21.47",
+        correo: "admin@liberrimo.com",
+        contrasena: "L1b3rr1m0#2024",
+        urlApi: "https://api.banahosting.com/v2",
+        currentUser: "user_liberrimo",
+        dns1: "ns1.banahosting.com",
+        dns2: "ns2.banahosting.com",
+        urlPanel: "https://cpanel.banahosting.com:2083",
+        apikey: "bnh_a3f9d2e1c7b4a8f0e2d5c1b9a7f3e0d2",
+        multiphpManager: "https://cpanel.banahosting.com:2083/multiphp_manager",
+        multiphpIni: "https://cpanel.banahosting.com:2083/multiphp_ini_editor",
+        softaculous: "https://cpanel.banahosting.com:2083/softaculous",
+        cps: "https://cpanel.banahosting.com:2083/cps"
+      },
+      {
+        nombre: "Hostinger — EmpireSystems.es",
+        dominio: "empiresystems.es",
+        ip: "31.220.16.102",
+        correo: "admin@empiresystems.es",
+        contrasena: "Emp1r3#S3cur3!",
+        urlApi: "https://api.hostinger.com/v1",
+        currentUser: "u123456789",
+        dns1: "ns1.dns-parking.com",
+        dns2: "ns2.dns-parking.com",
+        urlPanel: "https://hpanel.hostinger.com",
+        apikey: "hng_9f3c2d8e1a7b4f0c5d2e8a3b1f9c7d4e",
+        multiphpManager: "https://hpanel.hostinger.com/hosting/php-configuration",
+        multiphpIni: "https://hpanel.hostinger.com/hosting/php-ini",
+        softaculous: "https://hpanel.hostinger.com/softaculous",
+        cps: "https://hpanel.hostinger.com/cps"
+      },
+      {
+        nombre: "SiteGround — ProyectoDemo.com",
+        dominio: "proyectodemo.com",
+        ip: "94.130.170.84",
+        correo: "soporte@proyectodemo.com",
+        contrasena: "PrDm0#2025!",
+        urlApi: "https://api.siteground.com/v1",
+        currentUser: "sg_proyectodemo",
+        dns1: "ns1.siteground.net",
+        dns2: "ns2.siteground.net",
+        urlPanel: "https://tools.siteground.com/cpanel",
+        apikey: "sg_k2m9p1r8t4v3w7x0y6z5a1b2c3d4e5f6",
+        multiphpManager: "https://tools.siteground.com/cpanel/multiphp_manager",
+        multiphpIni: "https://tools.siteground.com/cpanel/multiphp_ini_editor",
+        softaculous: "https://tools.siteground.com/cpanel/softaculous",
+        cps: "https://client.siteground.com"
+      }
+    ];
+
+    // Orden de campos tal como aparecen en el HTML
+    const fieldKeys = [
+      'dominio', 'ip', 'correo', 'contrasena', 'urlApi', 'currentUser',
+      'dns1', 'dns2', 'urlPanel', 'apikey',
+      'multiphpManager', 'multiphpIni', 'softaculous', 'cps'
+    ];
+
+    // Índices (0-based) de campos que deben abrir URL en nueva pestaña
+    const urlFieldIndexes = new Set([8, 10, 11, 12, 13]);
+
+    let currentIndex = 0;
+
+    function renderServidor(index) {
+      const s = servidores[index];
+      document.querySelector('.workflow-counter-title').textContent = s.nombre;
+      document.querySelectorAll('.workflow-field').forEach((field, i) => {
+        const valueEl = field.querySelector('.workflow-field-value');
+        if (valueEl && fieldKeys[i] !== undefined) {
+          valueEl.textContent = s[fieldKeys[i]];
+        }
+      });
+      updateCounterButtons();
+    }
+
+    function updateCounterButtons() {
+      const [btnMinus, btnPlus] = document.querySelectorAll('.workflow-counter-button');
+      btnMinus.style.opacity = currentIndex === 0 ? '0.35' : '1';
+      btnPlus.style.opacity = currentIndex === servidores.length - 1 ? '0.35' : '1';
+    }
+
+    function setupCounter() {
+      const [btnMinus, btnPlus] = document.querySelectorAll('.workflow-counter-button');
+      [btnMinus, btnPlus].forEach(btn => {
+        btn.removeAttribute('aria-hidden');
+        btn.style.cursor = 'pointer';
+        btn.style.userSelect = 'none';
+      });
+
+      btnMinus.addEventListener('click', () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+          renderServidor(currentIndex);
+        }
+      });
+
+      btnPlus.addEventListener('click', () => {
+        if (currentIndex < servidores.length - 1) {
+          currentIndex++;
+          renderServidor(currentIndex);
+        }
+      });
+    }
+
+    function setupCopyButtons() {
+      document.querySelectorAll('.workflow-field-copy').forEach((btn) => {
+        btn.style.cursor = 'pointer';
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const value = btn.closest('.workflow-field').querySelector('.workflow-field-value').textContent.trim();
+          navigator.clipboard.writeText(value).then(() => {
+            const savedHTML = btn.innerHTML;
+            btn.innerHTML = '<span style="font-size:11px;font-weight:700;color:#42a5f5;white-space:nowrap;line-height:1;">¡Copiado!</span>';
+            setTimeout(() => {
+              btn.innerHTML = savedHTML;
+              if (window.feather) feather.replace();
+            }, 1500);
+          });
+        });
+      });
+    }
+
+    function setupUrlFields() {
+      document.querySelectorAll('.workflow-field').forEach((field, i) => {
+        if (!urlFieldIndexes.has(i)) return;
+        field.style.cursor = 'pointer';
+        field.title = 'Clic para abrir en nueva pestaña';
+        field.addEventListener('click', (e) => {
+          if (e.target.closest('.workflow-field-copy')) return;
+          const value = field.querySelector('.workflow-field-value').textContent.trim();
+          if (value.startsWith('http')) {
+            window.open(value, '_blank', 'noopener,noreferrer');
+          }
+        });
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderServidor(currentIndex);
+      setupCounter();
+      setupCopyButtons();
+      setupUrlFields();
+    });
+  </script>
 </body>
 
 </html>
