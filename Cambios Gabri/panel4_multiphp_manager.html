@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MultiPHP Manager | Empire Systems</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --theme-default: #1565c0;
+      --theme-secondary: #42a5f5;
+      --bg-dark: #08111f;
+      --bg-card: rgba(10, 18, 32, 0.96);
+      --border-blue: rgba(66, 165, 245, 0.22);
+      --text-white: #ffffff;
+      --text-muted: rgba(255, 255, 255, 0.6);
+      --blue-glow: rgba(21, 101, 192, 0.35);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: linear-gradient(180deg, #08111f 0%, #08111f 100%);
+      color: var(--text-white);
+      min-height: 100vh;
+      padding: 32px 28px 72px;
+    }
+
+    .page-header-bar {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-blue);
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border: 1px solid var(--border-blue);
+      border-radius: 14px;
+      background: rgba(21, 101, 192, 0.12);
+      color: var(--theme-secondary);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: background 0.2s, border-color 0.2s;
+      cursor: pointer;
+    }
+    .back-btn:hover { background: rgba(21, 101, 192, 0.24); border-color: rgba(66, 165, 245, 0.44); }
+
+    .header-copy { flex: 1; }
+    .header-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--theme-secondary);
+      margin-bottom: 4px;
+    }
+    .header-title {
+      font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      color: var(--text-white);
+    }
+    .header-chip {
+      padding: 6px 16px;
+      border: 1px solid rgba(66, 165, 245, 0.3);
+      border-radius: 999px;
+      background: rgba(21, 101, 192, 0.15);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--theme-secondary);
+    }
+
+    /* ── Card ── */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-blue);
+      border-radius: 24px;
+      padding: 32px;
+      margin-bottom: 24px;
+      transition: transform 0.3s ease;
+    }
+    .card:hover { transform: translateY(-2px); }
+    .card-header-row {
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(66, 165, 245, 0.12);
+    }
+    .card-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 6px; }
+    .card-subtitle { font-size: 0.88rem; color: var(--text-muted); }
+
+    /* ── Domain selector ── */
+    .domain-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+    .domain-select {
+      flex: 1;
+      min-width: 200px;
+      padding: 12px 16px;
+      background: rgba(8, 17, 31, 0.8);
+      border: 1px solid rgba(66, 165, 245, 0.3);
+      border-radius: 14px;
+      color: var(--text-white);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.95rem;
+      outline: none;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .domain-select:focus { border-color: var(--theme-secondary); }
+    .domain-select option { background: #0d1a2e; }
+
+    .apply-btn {
+      padding: 12px 28px;
+      background: linear-gradient(135deg, #1565c0, #0d47a1);
+      border: none;
+      border-radius: 14px;
+      color: #fff;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .apply-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+    .apply-btn:active { transform: translateY(0); }
+
+    /* ── PHP version table ── */
+    .php-table-wrap { overflow-x: auto; border-radius: 16px; border: 1px solid rgba(66, 165, 245, 0.15); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    thead tr {
+      background: rgba(21, 101, 192, 0.14);
+    }
+    th {
+      padding: 14px 18px;
+      text-align: left;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--theme-secondary);
+      border-bottom: 1px solid rgba(66, 165, 245, 0.18);
+    }
+    td {
+      padding: 14px 18px;
+      border-bottom: 1px solid rgba(66, 165, 245, 0.08);
+      vertical-align: middle;
+    }
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:hover { background: rgba(21, 101, 192, 0.06); }
+
+    .domain-cell { font-weight: 600; }
+    .domain-cell small { display: block; color: var(--text-muted); font-size: 0.78rem; font-weight: 400; margin-top: 2px; }
+
+    .php-select {
+      padding: 8px 14px;
+      background: rgba(8, 17, 31, 0.9);
+      border: 1px solid rgba(66, 165, 245, 0.25);
+      border-radius: 10px;
+      color: var(--text-white);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .php-select:focus { border-color: var(--theme-secondary); }
+    .php-select option { background: #0d1a2e; }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .status-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
+    .status-active { background: rgba(34, 197, 94, 0.12); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.25); }
+    .status-active::before { background: #4ade80; box-shadow: 0 0 6px #4ade80; }
+    .status-inactive { background: rgba(148, 163, 184, 0.1); color: #94a3b8; border: 1px solid rgba(148, 163, 184, 0.2); }
+    .status-inactive::before { background: #94a3b8; }
+
+    .action-save {
+      padding: 7px 16px;
+      background: rgba(21, 101, 192, 0.2);
+      border: 1px solid rgba(66, 165, 245, 0.3);
+      border-radius: 10px;
+      color: var(--theme-secondary);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .action-save:hover { background: rgba(21, 101, 192, 0.36); }
+
+    /* ── Save all row ── */
+    .save-all-row {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 20px;
+    }
+    .save-all-btn {
+      padding: 12px 32px;
+      background: linear-gradient(135deg, #1565c0, #0d47a1);
+      border: none;
+      border-radius: 14px;
+      color: #fff;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .save-all-btn:hover { opacity: 0.88; }
+
+    /* ── Toast ── */
+    .toast {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      padding: 14px 24px;
+      background: rgba(10, 18, 32, 0.97);
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      border-radius: 14px;
+      color: #4ade80;
+      font-size: 0.9rem;
+      font-weight: 600;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+      transform: translateY(80px);
+      opacity: 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      z-index: 9999;
+      pointer-events: none;
+    }
+    .toast.show { transform: translateY(0); opacity: 1; }
+
+    /* ── Info box ── */
+    .info-box {
+      display: flex;
+      gap: 14px;
+      padding: 16px 20px;
+      background: rgba(21, 101, 192, 0.08);
+      border: 1px solid rgba(66, 165, 245, 0.18);
+      border-radius: 14px;
+      margin-bottom: 24px;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.6;
+    }
+    .info-box svg { flex: 0 0 20px; color: var(--theme-secondary); margin-top: 1px; }
+
+    footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(66, 165, 245, 0.12);
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="page-header-bar">
+    <a class="back-btn" href="panel3_configuracion_dominio.html">
+      ← Volver
+    </a>
+    <div class="header-copy">
+      <p class="header-eyebrow">Justificador Web</p>
+      <h1 class="header-title">MultiPHP Manager</h1>
+    </div>
+    <span class="header-chip">Panel 3 — Paso 1</span>
+  </div>
+
+  <!-- Info box -->
+  <div class="info-box">
+    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <span>El MultiPHP Manager te permite asignar una version de PHP diferente a cada dominio alojado en cPanel. Selecciona el dominio y la version de PHP deseada, luego guarda los cambios.</span>
+  </div>
+
+  <!-- Main card -->
+  <div class="card">
+    <div class="card-header-row">
+      <h4 class="card-title">Asignacion de version PHP por dominio</h4>
+      <p class="card-subtitle">Selecciona el dominio y aplica la version de PHP correspondiente.</p>
+    </div>
+
+    <!-- Domain filter -->
+    <div class="domain-row">
+      <select class="domain-select" id="filterDomain" onchange="filterTable()">
+        <option value="">Todos los dominios</option>
+        <option value="cliente1">cliente1.com</option>
+        <option value="cliente2">cliente2.net</option>
+        <option value="cliente3">mitienda.es</option>
+        <option value="cliente4">agencia-web.com</option>
+        <option value="cliente5">portafolio.dev</option>
+      </select>
+      <button class="apply-btn" onclick="saveAll()">Guardar todos</button>
+    </div>
+
+    <!-- Table -->
+    <div class="php-table-wrap">
+      <table id="phpTable">
+        <thead>
+          <tr>
+            <th>Dominio</th>
+            <th>Estado</th>
+            <th>Version PHP actual</th>
+            <th>Nueva version</th>
+            <th>Accion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-domain="cliente1">
+            <td class="domain-cell">cliente1.com <small>public_html</small></td>
+            <td><span class="status-badge status-active">Activo</span></td>
+            <td>PHP 8.1</td>
+            <td>
+              <select class="php-select">
+                <option>PHP 7.4</option>
+                <option>PHP 8.0</option>
+                <option selected>PHP 8.1</option>
+                <option>PHP 8.2</option>
+                <option>PHP 8.3</option>
+              </select>
+            </td>
+            <td><button class="action-save" onclick="saveRow(this)">Aplicar</button></td>
+          </tr>
+          <tr data-domain="cliente2">
+            <td class="domain-cell">cliente2.net <small>public_html/tienda</small></td>
+            <td><span class="status-badge status-active">Activo</span></td>
+            <td>PHP 8.0</td>
+            <td>
+              <select class="php-select">
+                <option>PHP 7.4</option>
+                <option selected>PHP 8.0</option>
+                <option>PHP 8.1</option>
+                <option>PHP 8.2</option>
+                <option>PHP 8.3</option>
+              </select>
+            </td>
+            <td><button class="action-save" onclick="saveRow(this)">Aplicar</button></td>
+          </tr>
+          <tr data-domain="cliente3">
+            <td class="domain-cell">mitienda.es <small>public_html</small></td>
+            <td><span class="status-badge status-inactive">Inactivo</span></td>
+            <td>PHP 7.4</td>
+            <td>
+              <select class="php-select">
+                <option selected>PHP 7.4</option>
+                <option>PHP 8.0</option>
+                <option>PHP 8.1</option>
+                <option>PHP 8.2</option>
+                <option>PHP 8.3</option>
+              </select>
+            </td>
+            <td><button class="action-save" onclick="saveRow(this)">Aplicar</button></td>
+          </tr>
+          <tr data-domain="cliente4">
+            <td class="domain-cell">agencia-web.com <small>public_html/wp</small></td>
+            <td><span class="status-badge status-active">Activo</span></td>
+            <td>PHP 8.2</td>
+            <td>
+              <select class="php-select">
+                <option>PHP 7.4</option>
+                <option>PHP 8.0</option>
+                <option>PHP 8.1</option>
+                <option selected>PHP 8.2</option>
+                <option>PHP 8.3</option>
+              </select>
+            </td>
+            <td><button class="action-save" onclick="saveRow(this)">Aplicar</button></td>
+          </tr>
+          <tr data-domain="cliente5">
+            <td class="domain-cell">portafolio.dev <small>public_html</small></td>
+            <td><span class="status-badge status-active">Activo</span></td>
+            <td>PHP 8.3</td>
+            <td>
+              <select class="php-select">
+                <option>PHP 7.4</option>
+                <option>PHP 8.0</option>
+                <option>PHP 8.1</option>
+                <option>PHP 8.2</option>
+                <option selected>PHP 8.3</option>
+              </select>
+            </td>
+            <td><button class="action-save" onclick="saveRow(this)">Aplicar</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="save-all-row">
+      <button class="save-all-btn" onclick="saveAll()">&#10003;&nbsp; Guardar todos los cambios</button>
+    </div>
+  </div>
+
+  <!-- Next panel -->
+  <div style="margin-top: 8px; display: flex; justify-content: flex-end;">
+    <a href="panel4b_multiphp_ini.html" style="display:inline-flex;align-items:center;gap:10px;padding:13px 28px;background:rgba(21,101,192,0.15);border:1px solid rgba(66,165,245,0.28);border-radius:14px;color:var(--theme-secondary);font-size:0.85rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='rgba(21,101,192,0.28)'" onmouseout="this.style.background='rgba(21,101,192,0.15)'">
+      Siguiente paso: MultiPHP INI Editor →
+    </a>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast">✓ Cambios guardados correctamente</div>
+
+  <footer>
+    <span>Copyright 2025 © Empire Systems</span>
+    <span>MultiPHP Manager — Paso 1 de 3</span>
+  </footer>
+
+  <script>
+    function filterTable() {
+      const val = document.getElementById('filterDomain').value;
+      document.querySelectorAll('#phpTable tbody tr').forEach(tr => {
+        tr.style.display = (!val || tr.dataset.domain === val) ? '' : 'none';
+      });
+    }
+
+    function saveRow(btn) {
+      const tr = btn.closest('tr');
+      const select = tr.querySelector('.php-select');
+      const currentCell = tr.cells[2];
+      currentCell.textContent = select.value;
+      showToast('✓ ' + tr.cells[0].textContent.trim().split('\n')[0] + ' → ' + select.value);
+    }
+
+    function saveAll() {
+      document.querySelectorAll('#phpTable tbody tr').forEach(tr => {
+        const select = tr.querySelector('.php-select');
+        tr.cells[2].textContent = select.value;
+      });
+      showToast('✓ Todos los dominios actualizados correctamente');
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 3000);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Softaculous WordPress | Empire Systems</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --theme-default: #1565c0;
+      --theme-secondary: #42a5f5;
+      --bg-dark: #08111f;
+      --bg-card: rgba(10, 18, 32, 0.96);
+      --border-blue: rgba(66, 165, 245, 0.22);
+      --text-white: #ffffff;
+      --text-muted: rgba(255, 255, 255, 0.6);
+      --green: #4ade80;
+      --green-bg: rgba(34, 197, 94, 0.12);
+      --green-border: rgba(34, 197, 94, 0.25);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: linear-gradient(180deg, #08111f 0%, #08111f 100%);
+      color: var(--text-white);
+      min-height: 100vh;
+      padding: 32px 28px 72px;
+    }
+
+    /* Header */
+    .page-header-bar {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-blue);
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border: 1px solid var(--border-blue);
+      border-radius: 14px;
+      background: rgba(21, 101, 192, 0.12);
+      color: var(--theme-secondary);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s;
+      cursor: pointer;
+    }
+    .back-btn:hover { background: rgba(21, 101, 192, 0.24); }
+    .header-copy { flex: 1; }
+    .header-eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase; color: var(--theme-secondary); margin-bottom: 4px; }
+    .header-title { font-size: clamp(1.2rem, 2.5vw, 1.7rem); font-weight: 800; color: var(--text-white); }
+    .header-chip { padding: 6px 16px; border: 1px solid rgba(66, 165, 245, 0.3); border-radius: 999px; background: rgba(21, 101, 192, 0.15); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--theme-secondary); }
+
+    /* Cards */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-blue);
+      border-radius: 24px;
+      padding: 32px;
+      margin-bottom: 24px;
+      transition: transform 0.3s ease;
+    }
+    .card:hover { transform: translateY(-2px); }
+    .card-header-row { margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid rgba(66, 165, 245, 0.12); }
+    .card-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 6px; }
+    .card-subtitle { font-size: 0.88rem; color: var(--text-muted); }
+
+    /* Steps nav */
+    .steps-nav {
+      display: flex;
+      gap: 0;
+      margin-bottom: 32px;
+      border: 1px solid var(--border-blue);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .step-tab {
+      flex: 1;
+      padding: 14px 12px;
+      background: transparent;
+      border: none;
+      border-right: 1px solid var(--border-blue);
+      color: var(--text-muted);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .step-tab:last-child { border-right: none; }
+    .step-tab .step-num {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      transition: background 0.2s;
+    }
+    .step-tab.active { background: rgba(21, 101, 192, 0.2); color: var(--text-white); }
+    .step-tab.active .step-num { background: #1565c0; color: #fff; }
+    .step-tab.done { color: var(--green); }
+    .step-tab.done .step-num { background: var(--green-bg); color: var(--green); }
+
+    /* Step panels */
+    .step-panel { display: none; }
+    .step-panel.active { display: block; }
+
+    /* Form groups */
+    .form-group { margin-bottom: 20px; }
+    .form-label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--theme-secondary);
+      margin-bottom: 8px;
+    }
+    .form-input {
+      width: 100%;
+      padding: 12px 16px;
+      background: rgba(8, 17, 31, 0.8);
+      border: 1px solid rgba(66, 165, 245, 0.25);
+      border-radius: 14px;
+      color: var(--text-white);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-input:focus { border-color: var(--theme-secondary); }
+    .form-input::placeholder { color: rgba(255,255,255,0.3); }
+    .form-select {
+      width: 100%;
+      padding: 12px 16px;
+      background: rgba(8, 17, 31, 0.8);
+      border: 1px solid rgba(66, 165, 245, 0.25);
+      border-radius: 14px;
+      color: var(--text-white);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.95rem;
+      outline: none;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .form-select:focus { border-color: var(--theme-secondary); }
+    .form-select option { background: #0d1a2e; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 640px) { .form-row { grid-template-columns: 1fr; } }
+    .form-hint { font-size: 0.78rem; color: var(--text-muted); margin-top: 6px; }
+
+    /* Toggle */
+    .toggle-group { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; background: rgba(8, 17, 31, 0.5); border: 1px solid rgba(66, 165, 245, 0.14); border-radius: 12px; margin-bottom: 10px; }
+    .toggle-group-text strong { display: block; font-size: 0.9rem; margin-bottom: 2px; }
+    .toggle-group-text span { font-size: 0.78rem; color: var(--text-muted); }
+    .toggle { position: relative; width: 44px; height: 24px; flex: 0 0 44px; }
+    .toggle input { opacity: 0; width: 0; height: 0; position: absolute; }
+    .toggle-slider { position: absolute; inset: 0; background: rgba(255,255,255,0.12); border-radius: 999px; cursor: pointer; transition: background 0.25s; }
+    .toggle-slider::before { content: ''; position: absolute; left: 3px; top: 3px; width: 18px; height: 18px; border-radius: 50%; background: rgba(255,255,255,0.6); transition: transform 0.25s, background 0.25s; }
+    .toggle input:checked + .toggle-slider { background: #1565c0; }
+    .toggle input:checked + .toggle-slider::before { transform: translateX(20px); background: #fff; }
+
+    /* WordPress themes grid */
+    .theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; margin-bottom: 20px; }
+    .theme-card {
+      background: rgba(8, 17, 31, 0.6);
+      border: 2px solid rgba(66, 165, 245, 0.14);
+      border-radius: 14px;
+      padding: 16px;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      text-align: center;
+    }
+    .theme-card:hover { border-color: rgba(66, 165, 245, 0.4); background: rgba(21, 101, 192, 0.1); }
+    .theme-card.selected { border-color: var(--theme-secondary); background: rgba(21, 101, 192, 0.18); }
+    .theme-card.selected .theme-checkmark { opacity: 1; }
+    .theme-icon { font-size: 2rem; margin-bottom: 8px; }
+    .theme-name { font-size: 0.82rem; font-weight: 700; margin-bottom: 4px; }
+    .theme-type { font-size: 0.72rem; color: var(--text-muted); }
+    .theme-checkmark { width: 20px; height: 20px; background: var(--theme-secondary); border-radius: 50%; margin: 8px auto 0; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; opacity: 0; transition: opacity 0.2s; }
+
+    /* Nav buttons */
+    .nav-row { display: flex; justify-content: space-between; align-items: center; margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(66, 165, 245, 0.1); }
+    .prev-btn { padding: 12px 24px; background: transparent; border: 1px solid rgba(255,255,255,0.15); border-radius: 14px; color: var(--text-muted); font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; }
+    .prev-btn:hover { background: rgba(255,255,255,0.06); }
+    .next-btn { padding: 12px 32px; background: linear-gradient(135deg, #1565c0, #0d47a1); border: none; border-radius: 14px; color: #fff; font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; transition: opacity 0.2s; }
+    .next-btn:hover { opacity: 0.88; }
+    .install-btn { padding: 12px 32px; background: linear-gradient(135deg, #15803d, #166534); border: none; border-radius: 14px; color: #fff; font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; transition: opacity 0.2s; }
+    .install-btn:hover { opacity: 0.88; }
+
+    /* Success screen */
+    .success-screen {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .success-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--green-bg);
+      border: 2px solid var(--green-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      margin: 0 auto 24px;
+      animation: popIn 0.5s ease;
+    }
+    @keyframes popIn { 0% { transform: scale(0.5); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+    .success-title { font-size: 1.5rem; font-weight: 800; margin-bottom: 10px; color: var(--green); }
+    .success-subtitle { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 32px; }
+    .success-links { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .success-link {
+      padding: 12px 24px;
+      border-radius: 14px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .success-link.primary { background: linear-gradient(135deg, #1565c0, #0d47a1); color: #fff; }
+    .success-link.secondary { background: rgba(21, 101, 192, 0.15); border: 1px solid rgba(66, 165, 245, 0.28); color: var(--theme-secondary); }
+    .success-link:hover { opacity: 0.85; }
+
+    /* Progress bar (install) */
+    .progress-wrap { margin: 24px 0; }
+    .progress-label { display: flex; justify-content: space-between; font-size: 0.82rem; color: var(--text-muted); margin-bottom: 8px; }
+    .progress-bar { height: 8px; background: rgba(255,255,255,0.08); border-radius: 999px; overflow: hidden; }
+    .progress-fill { height: 100%; background: linear-gradient(90deg, #1565c0, #42a5f5); border-radius: 999px; width: 0%; transition: width 0.4s ease; }
+
+    .info-box {
+      display: flex;
+      gap: 14px;
+      padding: 16px 20px;
+      background: rgba(21, 101, 192, 0.08);
+      border: 1px solid rgba(66, 165, 245, 0.18);
+      border-radius: 14px;
+      margin-bottom: 24px;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.6;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(66, 165, 245, 0.12);
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      padding: 14px 24px;
+      background: rgba(10, 18, 32, 0.97);
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      border-radius: 14px;
+      color: #4ade80;
+      font-size: 0.9rem;
+      font-weight: 600;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+      transform: translateY(80px);
+      opacity: 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      z-index: 9999;
+      pointer-events: none;
+    }
+    .toast.show { transform: translateY(0); opacity: 1; }
+  </style>
+</head>
+<body>
+
+  <div class="page-header-bar">
+    <a class="back-btn" href="panel3_configuracion_dominio.html">← Volver</a>
+    <div class="header-copy">
+      <p class="header-eyebrow">Justificador Web</p>
+      <h1 class="header-title">Softaculous — Instalacion WordPress</h1>
+    </div>
+    <span class="header-chip">Panel 3 — Paso 3</span>
+  </div>
+
+  <div class="info-box">
+    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <span>Softaculous permite instalar WordPress en un dominio con un solo clic. Completa los 4 pasos para configurar y lanzar la instalacion.</span>
+  </div>
+
+  <div class="card">
+    <div class="card-header-row">
+      <h4 class="card-title">Instalador WordPress via Softaculous</h4>
+      <p class="card-subtitle">Completa todos los pasos para instalar WordPress en el dominio seleccionado.</p>
+    </div>
+
+    <!-- Steps nav -->
+    <div class="steps-nav">
+      <button class="step-tab active" id="tab-1" onclick="goStep(1)">
+        <span class="step-num">1</span>
+        Sitio
+      </button>
+      <button class="step-tab" id="tab-2" onclick="goStep(2)">
+        <span class="step-num">2</span>
+        Cuenta
+      </button>
+      <button class="step-tab" id="tab-3" onclick="goStep(3)">
+        <span class="step-num">3</span>
+        Tema
+      </button>
+      <button class="step-tab" id="tab-4" onclick="goStep(4)">
+        <span class="step-num">4</span>
+        Instalar
+      </button>
+    </div>
+
+    <!-- Step 1: Sitio -->
+    <div class="step-panel active" id="panel-1">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Protocolo</label>
+          <select class="form-select">
+            <option>https://</option>
+            <option>http://</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Dominio</label>
+          <select class="form-select" id="wpDomain">
+            <option>cliente1.com</option>
+            <option>cliente2.net</option>
+            <option>mitienda.es</option>
+            <option>agencia-web.com</option>
+            <option>portafolio.dev</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Directorio de instalacion</label>
+        <input class="form-input" type="text" placeholder="Dejar vacio para instalar en la raiz (ej: /blog)">
+        <div class="form-hint">Dejar vacio para instalar en la raiz del dominio.</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Nombre del sitio</label>
+        <input class="form-input" type="text" id="siteName" placeholder="Mi sitio web">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Descripcion del sitio</label>
+        <input class="form-input" type="text" placeholder="Una breve descripcion del sitio">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Version de WordPress</label>
+        <select class="form-select">
+          <option>6.5.3 (ultima)</option>
+          <option>6.4.4</option>
+          <option>6.3.5</option>
+        </select>
+      </div>
+      <div class="nav-row">
+        <span></span>
+        <button class="next-btn" onclick="nextStep(1)">Siguiente →</button>
+      </div>
+    </div>
+
+    <!-- Step 2: Cuenta Admin -->
+    <div class="step-panel" id="panel-2">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Usuario administrador</label>
+          <input class="form-input" type="text" id="wpUser" placeholder="admin">
+          <div class="form-hint">No uses "admin" como usuario por seguridad.</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email administrador</label>
+          <input class="form-input" type="email" id="wpEmail" placeholder="admin@dominio.com">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Contrasena</label>
+        <div style="position:relative;">
+          <input class="form-input" type="password" id="wpPass" placeholder="Minimo 8 caracteres" style="padding-right:52px;">
+          <button onclick="togglePass()" style="position:absolute;right:14px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:1rem;">👁</button>
+        </div>
+        <div class="form-hint" id="passStrength"></div>
+      </div>
+      <div style="margin-bottom: 20px;">
+        <div class="toggle-group">
+          <div class="toggle-group-text">
+            <strong>Actualizaciones automaticas</strong>
+            <span>WordPress se actualizara solo cuando salga una nueva version.</span>
+          </div>
+          <label class="toggle"><input type="checkbox" checked><span class="toggle-slider"></span></label>
+        </div>
+        <div class="toggle-group">
+          <div class="toggle-group-text">
+            <strong>Eliminar instalacion de muestra</strong>
+            <span>Borra el contenido de ejemplo de WordPress tras la instalacion.</span>
+          </div>
+          <label class="toggle"><input type="checkbox" checked><span class="toggle-slider"></span></label>
+        </div>
+        <div class="toggle-group">
+          <div class="toggle-group-text">
+            <strong>Tabla de base de datos con prefijo aleatorio</strong>
+            <span>Mejora la seguridad usando un prefijo de tabla unico.</span>
+          </div>
+          <label class="toggle"><input type="checkbox" checked><span class="toggle-slider"></span></label>
+        </div>
+      </div>
+      <div class="nav-row">
+        <button class="prev-btn" onclick="prevStep(2)">← Anterior</button>
+        <button class="next-btn" onclick="nextStep(2)">Siguiente →</button>
+      </div>
+    </div>
+
+    <!-- Step 3: Tema -->
+    <div class="step-panel" id="panel-3">
+      <p style="font-size:0.88rem;color:var(--text-muted);margin-bottom:20px;">Selecciona un tema inicial para la instalacion. Podras cambiarlo despues desde el panel de WordPress.</p>
+      <div class="theme-grid" id="themeGrid">
+        <div class="theme-card selected" onclick="selectTheme(this)">
+          <div class="theme-icon">🌿</div>
+          <div class="theme-name">Astra</div>
+          <div class="theme-type">Multipurpose</div>
+          <div class="theme-checkmark">✓</div>
+        </div>
+        <div class="theme-card" onclick="selectTheme(this)">
+          <div class="theme-icon">⚡</div>
+          <div class="theme-name">GeneratePress</div>
+          <div class="theme-type">Performance</div>
+          <div class="theme-checkmark">✓</div>
+        </div>
+        <div class="theme-card" onclick="selectTheme(this)">
+          <div class="theme-icon">🛒</div>
+          <div class="theme-name">Storefront</div>
+          <div class="theme-type">WooCommerce</div>
+          <div class="theme-checkmark">✓</div>
+        </div>
+        <div class="theme-card" onclick="selectTheme(this)">
+          <div class="theme-icon">📰</div>
+          <div class="theme-name">Twenty Twenty-Four</div>
+          <div class="theme-type">Blog / Portfolio</div>
+          <div class="theme-checkmark">✓</div>
+        </div>
+        <div class="theme-card" onclick="selectTheme(this)">
+          <div class="theme-icon">🏢</div>
+          <div class="theme-name">Hello Elementor</div>
+          <div class="theme-type">Page Builder</div>
+          <div class="theme-checkmark">✓</div>
+        </div>
+        <div class="theme-card" onclick="selectTheme(this)">
+          <div class="theme-icon">🎨</div>
+          <div class="theme-name">OceanWP</div>
+          <div class="theme-type">Flexible</div>
+          <div class="theme-checkmark">✓</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Plugins recomendados a instalar</label>
+        <div class="toggle-group">
+          <div class="toggle-group-text"><strong>Yoast SEO</strong><span>Optimizacion para buscadores.</span></div>
+          <label class="toggle"><input type="checkbox" checked><span class="toggle-slider"></span></label>
+        </div>
+        <div class="toggle-group">
+          <div class="toggle-group-text"><strong>WooCommerce</strong><span>Tienda online integrada.</span></div>
+          <label class="toggle"><input type="checkbox"><span class="toggle-slider"></span></label>
+        </div>
+        <div class="toggle-group">
+          <div class="toggle-group-text"><strong>Wordfence Security</strong><span>Seguridad y firewall para WP.</span></div>
+          <label class="toggle"><input type="checkbox" checked><span class="toggle-slider"></span></label>
+        </div>
+        <div class="toggle-group">
+          <div class="toggle-group-text"><strong>WP Super Cache</strong><span>Mejora el rendimiento con cache.</span></div>
+          <label class="toggle"><input type="checkbox" checked><span class="toggle-slider"></span></label>
+        </div>
+      </div>
+      <div class="nav-row">
+        <button class="prev-btn" onclick="prevStep(3)">← Anterior</button>
+        <button class="next-btn" onclick="nextStep(3)">Siguiente →</button>
+      </div>
+    </div>
+
+    <!-- Step 4: Instalar -->
+    <div class="step-panel" id="panel-4">
+      <div id="review-content">
+        <p style="font-size:0.9rem;color:var(--text-muted);margin-bottom:24px;">Revisa el resumen antes de instalar. Una vez confirmado, Softaculous desplegara WordPress automaticamente.</p>
+        <div id="summary-box" style="background:rgba(8,17,31,0.6);border:1px solid rgba(66,165,245,0.14);border-radius:14px;padding:20px;margin-bottom:24px;">
+          <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:14px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;">Resumen de instalacion</p>
+          <div id="summary-lines" style="display:grid;gap:10px;font-size:0.9rem;"></div>
+        </div>
+        <div class="nav-row">
+          <button class="prev-btn" onclick="prevStep(4)">← Anterior</button>
+          <button class="install-btn" onclick="runInstall()">🚀 Instalar WordPress</button>
+        </div>
+      </div>
+      <div id="install-progress" style="display:none;">
+        <p style="font-size:0.9rem;color:var(--text-muted);margin-bottom:20px;">Instalando WordPress, por favor espera...</p>
+        <div class="progress-wrap">
+          <div class="progress-label"><span id="progress-label">Iniciando...</span><span id="progress-pct">0%</span></div>
+          <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        </div>
+      </div>
+      <div id="success-screen" style="display:none;">
+        <div class="success-screen">
+          <div class="success-icon">✓</div>
+          <h2 class="success-title">WordPress instalado</h2>
+          <p class="success-subtitle">Tu instalacion ha sido completada exitosamente.</p>
+          <div class="success-links">
+            <a href="#" class="success-link primary" id="adminLink">Ir al panel admin →</a>
+            <a href="#" class="success-link secondary" id="siteLink">Ver el sitio web</a>
+            <a href="panel3_configuracion_dominio.html" class="success-link secondary">Volver al panel 3</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <footer>
+    <span>Copyright 2025 © Empire Systems</span>
+    <span>Softaculous WordPress — Paso 3 de 3</span>
+  </footer>
+
+  <script>
+    let currentStep = 1;
+    const totalSteps = 4;
+
+    function goStep(step) {
+      document.querySelectorAll('.step-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.step-tab').forEach(t => t.classList.remove('active'));
+      document.getElementById('panel-' + step).classList.add('active');
+      document.getElementById('tab-' + step).classList.add('active');
+      currentStep = step;
+    }
+
+    function nextStep(from) {
+      if (from === 3) buildSummary();
+      const next = from + 1;
+      document.getElementById('tab-' + from).classList.remove('active');
+      document.getElementById('tab-' + from).classList.add('done');
+      goStep(next);
+    }
+
+    function prevStep(from) {
+      goStep(from - 1);
+    }
+
+    function buildSummary() {
+      const domain = document.getElementById('wpDomain').value;
+      const siteName = document.getElementById('siteName').value || '(sin nombre)';
+      const user = document.getElementById('wpUser').value || 'admin';
+      const email = document.getElementById('wpEmail').value || '(sin email)';
+      const theme = document.querySelector('.theme-card.selected .theme-name')?.textContent || 'Astra';
+      const lines = [
+        { label: 'URL', value: 'https://' + domain },
+        { label: 'Nombre del sitio', value: siteName },
+        { label: 'Administrador', value: user },
+        { label: 'Email', value: email },
+        { label: 'Tema seleccionado', value: theme },
+        { label: 'Version WP', value: '6.5.3 (ultima)' },
+      ];
+      const box = document.getElementById('summary-lines');
+      box.innerHTML = lines.map(l => `
+        <div style="display:flex;justify-content:space-between;gap:16px;padding:8px 0;border-bottom:1px solid rgba(66,165,245,0.08);">
+          <span style="color:var(--text-muted);font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;">${l.label}</span>
+          <span style="color:var(--text-white);font-weight:600;text-align:right;">${l.value}</span>
+        </div>
+      `).join('');
+
+      // Set links
+      const domain2 = document.getElementById('wpDomain').value;
+      document.getElementById('adminLink').href = 'https://' + domain2 + '/wp-admin';
+      document.getElementById('siteLink').href = 'https://' + domain2;
+    }
+
+    function runInstall() {
+      document.getElementById('review-content').style.display = 'none';
+      document.getElementById('install-progress').style.display = 'block';
+
+      const steps = [
+        [10, 'Creando base de datos...'],
+        [25, 'Descargando WordPress...'],
+        [45, 'Descomprimiendo archivos...'],
+        [60, 'Configurando wp-config.php...'],
+        [75, 'Ejecutando instalador...'],
+        [88, 'Instalando tema y plugins...'],
+        [95, 'Limpiando archivos temporales...'],
+        [100, '¡Instalacion completada!'],
+      ];
+
+      let i = 0;
+      const fill = document.getElementById('progressFill');
+      const label = document.getElementById('progress-label');
+      const pct = document.getElementById('progress-pct');
+
+      function tick() {
+        if (i >= steps.length) {
+          setTimeout(() => {
+            document.getElementById('install-progress').style.display = 'none';
+            document.getElementById('success-screen').style.display = 'block';
+            document.getElementById('tab-4').classList.add('done');
+          }, 600);
+          return;
+        }
+        const [p, msg] = steps[i];
+        fill.style.width = p + '%';
+        label.textContent = msg;
+        pct.textContent = p + '%';
+        i++;
+        setTimeout(tick, 700);
+      }
+      tick();
+    }
+
+    function selectTheme(card) {
+      document.querySelectorAll('.theme-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+    }
+
+    function togglePass() {
+      const input = document.getElementById('wpPass');
+      input.type = input.type === 'password' ? 'text' : 'password';
+    }
+
+    document.getElementById('wpPass').addEventListener('input', function() {
+      const v = this.value;
+      const el = document.getElementById('passStrength');
+      if (!v) { el.textContent = ''; return; }
+      let str = 0;
+      if (v.length >= 8) str++;
+      if (/[A-Z]/.test(v)) str++;
+      if (/[0-9]/.test(v)) str++;
+      if (/[^A-Za-z0-9]/.test(v)) str++;
+      const labels = ['Muy debil', 'Debil', 'Media', 'Fuerte', 'Muy fuerte'];
+      const colors = ['#ef4444','#f97316','#eab308','#4ade80','#22c55e'];
+      el.textContent = 'Seguridad: ' + labels[str];
+      el.style.color = colors[str];
+    });
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 3000);
+    }
+  </script>
+</body>
+</html>
